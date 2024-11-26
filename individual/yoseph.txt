@@ -1,1 +1,2 @@
-
+# chapter one 1 Images and Animations
+lesson 1: programming for purpose
