@@ -1,1 +1,3 @@
 #lesson 1 :programming for purpose
+#In this lesson 1  i have covered some interactive animation and game rapid survey and 
+ some game design templates
