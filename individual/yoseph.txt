@@ -1,3 +1,4 @@
 #lesson 1 :programming for purpose
 #In this lesson 1  i have covered some interactive animation and game rapid survey and 
  some game design templates
+#in this lesson 2 i have explored tool that lets me draw different colored shapes.
