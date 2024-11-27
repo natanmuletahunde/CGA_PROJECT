@@ -351,4 +351,49 @@ ellipse(200, 200, 40, 40);
 //3) Update the ground to a random color
 fill(randomNumber(rgb(25, 255, 0)));
 rect(0, 200, 400, 200);
+#lesson 7 Review the Shape Block
+ #level 1
+fill("red");
+shape(200, 200, 0, 400, 400, 400);
+fill("blue");
+shape(200, 200, 0, 0, 400, 0);
+//2) Finish the code so it matches the picture
+fill("yellow");
+shape(400, 0, 400, 400, 200, 200);
+fill("green");
+shape(0, 400, 0, 0, 200, 200);
+#level 2
+Robot Face
+Use at least 4 different shape blocks, at least 4 variables with random numbers to create a robot face with unique and creative features!
+// Random variables
+var headWidth = randomNumber(100, 200);
+var headHeight = randomNumber(150, 250);
+var eyeSize = randomNumber(10, 30);
+var mouthWidth = randomNumber(50, 100);
+var antennaHeight = randomNumber(50, 100);
+
+// Set the background
+background("lightblue");
+
+// Head
+fill("silver");
+rect(100, 100, headWidth, headHeight);
+
+// Eyes
+fill("black");
+ellipse(140, 150, eyeSize, eyeSize); // Left eye
+ellipse(260, 150, eyeSize, eyeSize); // Right eye
+
+// Mouth
+fill("red");
+rect(150, 250, mouthWidth, 10);
+
+// Antenna
+fill("gold");
+line(200, 100, 200, 100 - antennaHeight);
+triangle(190, 100 - antennaHeight, 200, 80 - antennaHeight, 210, 100 - antennaHeight);
+
+// Ears
+fill("gray");
+rect(90, 150, 20, 50); // Left ear
 
