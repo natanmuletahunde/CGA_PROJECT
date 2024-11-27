@@ -233,3 +233,122 @@ x = x + 50;
 ellipse(x, y);
 x = x + 50;
 ellipse(x, y);
+lesson 6 Random Numbers
+#level 2
+background("tomato");
+
+//1) Change the code so the ellipse can appear anywhere horizontally on the screen
+fill("orange");
+ellipse(randomNumber(20,40), 200, 50, 50);
+#level 3
+background("tomato");
+
+//1) Make the ellipse appear at random y coordinates
+fill("orange");
+ellipse(randomNumber(100,300), 200, 50, 50);
+# level 4 Variables and Random Numbers
+
+Variables can be assigned a random number too. This lets you save a single random value so that you can use it as many times as you want in your program.
+//1) Make the eyes appear at random sizes
+var eyeSize = 27;
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200,200,200,200);
+
+// Eyes
+fill("black");
+ellipse(randomNumber(160,170),eyeSize,eyeSize);
+ellipse (randomNumber(240,170),eyeSize,eyeSize);
+
+// Mouth
+fill("white");
+rect(160,240,80,20);
+#level 5 Changing variable values
+var petalSize;
+background("green");
+
+//1) Update the first flower's petals to be a random size
+petalSize = randomNumber();
+// petals
+fill("purple");
+ellipse(75,100,petalSize,petalSize);
+ellipse(125,100,petalSize,petalSize);
+ellipse(100,75,petalSize,petalSize);
+ellipse(100,125,petalSize,petalSize);
+// center
+fill("yellow");
+ellipse(100,100, 50, 50);
+
+//2) Update the second flower's petals to be a random size
+petalSize = randomNumber();
+// petals
+fill("purple");
+ellipse(275,300,petalSize,petalSize);
+ellipse(325,300,petalSize,petalSize);
+ellipse(300,275,petalSize,petalSize);
+ellipse(300,325,petalSize,petalSize);
+// center
+fill("yellow");
+ellipse(300,300, 50, 50);
+#level 6 Debug: Random Shape Movement
+//2) Update the code so the rectangles appear stacked at random x positions
+var xPosition = 100;
+fill("pink");
+rect(randomNumber(xPosition, 150), 100, 250, 50);
+fill("purple");
+rect(randomNumber(xPosition, 150), 150, 250, 50);
+fill("firebrick");
+rect(randomNumber(xPosition, 150), 200, 250, 50);
+#level 7
+Rainbow Snake
+Alexis is working on a program to draw a rainbow snake that "wiggles" each time it's run. She's started the program, but needs help finishing!
+
+//2) Add at least three new different colored circles to your rainbow snake.
+//3) Use randomNumber to make the rest of the snake's body move up and down like the first three.
+
+background("skyBlue");
+
+fill("red");
+ellipse(100, randomNumber(190,210), 50, 50);
+
+fill("orange");
+ellipse(140, randomNumber(190,210), 50, 50);
+
+fill("yellow");
+ellipse(180, randomNumber(190,210), 50, 50);
+fill("green");
+ellipse(220, randomNumber(190,210), 50, 50);
+fill("purple");
+ellipse(260, randomNumber(190,210), 50, 50);
+fill("red");
+ellipse(300, randomNumber(190,210), 50, 50);
+# level 8
+Random Rainbow!
+This level uses the rgb() block to set the color of the rainbow. Since the rgb() block uses (Red, Green, Blue) numerical values, it means we can use randomNumber() to generate random colors!
+//1) Update the background to be a random color
+background(randomNumber(rgb(5, 55, 255)));
+
+//2) Update each arc of the rainbow to a random color
+fill(randomNumber(rgb(255,102,102)));
+ellipse(200, 200, 400, 400);
+fill(randomNumber(rgb(255,178,102)));
+ellipse(200, 200, 340, 340);
+fill(randomNumber(rgb(255,255,102)));
+ellipse(200, 200, 280, 280);
+fill(randomNumber(rgb(178,255,102)));
+ellipse(200, 200, 220, 220);
+fill(randomNumber(rgb(51,153,255)));
+ellipse(200, 200, 160, 160);
+fill(randomNumber(rgb(153,153,255)));
+ellipse(200, 200, 100, 100);
+fill(randomNumber(rgb(229,204,255)));
+ellipse(200, 200, 40, 40);
+
+//3) Update the ground to a random color
+fill(randomNumber(rgb(25, 255, 0)));
+rect(0, 200, 400, 200);
+
