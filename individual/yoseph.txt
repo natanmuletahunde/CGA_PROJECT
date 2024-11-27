@@ -68,3 +68,83 @@ rect(49,300);
 rect(100,350);
 rect(150,350);
 rect(200,300);
+#lesson 4 level 2
+fill("blue");
+rect(100,100,100,200);
+
+fill("red");
+rect(250,100,100,300);
+#lesson 4 level 3
+//1) Add an orange ellipse to the screen that is taller than the green one
+//2) Rearrange the blocks so the orange ellipse is behind the green one
+fill("orange");
+ellipse(215,215,215,300);
+
+fill("green");
+ellipse(200,200,150,110);
+#lesson 4 level 4
+background("orange");
+fill("purple");
+rect(50,50, 100,100);
+//2) Change the background from yellow to orange.
+
+fill("blue");
+rect(250,250, 100, 100);
+#level 5
+//1) Make a black background behind the green circle.
+background("black");
+fill("green");
+ellipse(200,200,200,200);
+#lev 6
+// Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(350,50,50,50);
+
+// Draw grass
+fill("green");
+rect(0,300,400, 200);
+#lev 7
+fill("red");
+ellipse(200, 200, 400, 400);
+fill("orange");
+ellipse(200, 200, 340, 340);
+fill("yellow");
+ellipse(200, 200, 280, 280);
+fill("green");
+ellipse(200, 200, 220, 220);
+fill("blue");
+ellipse(200, 200, 160, 160);
+fill("indigo");
+ellipse(200, 200, 100, 100);
+fill("violet");
+ellipse(200, 200, 40, 40);
+#lev 8
+//1) Debug this program to make the cloud wider than it is tall, like in the image.
+
+// Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(300,50,50,50);
+
+// Draw grass
+fill("green");
+rect(0,300,400,100);
+
+// Draw cloud
+fill("white");
+ellipse(150,100,200,100);
+#lev 9
+fill("red");
+shape(200, 200, 0, 400, 400, 400);
+fill("blue");
+shape(200, 200, 0, 0, 400, 0);
+//2) Finish the code so it matches the picture
+fill("yellow");
+shape(400, 0, 400, 400, 200, 200);
+fill("green");
+shape(0, 0, 0, 400, 200, 200);
