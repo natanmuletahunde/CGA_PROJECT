@@ -2,3 +2,69 @@
 #In this lesson 1  i have covered some interactive animation and game rapid survey and 
  some game design templates
 #in this lesson 2 i have explored tool that lets me draw different colored shapes.
+# lesson 3 drawing in game lab
+in this lesson 3 level 2
+i have Changed the numbers inside the block,  and Tried to place the rectangle near the bottom right of the screen.
+rect(381,380);
+#lesson 3 level 3
+1) Place two rectangles exactly in the corners of the screen
+rect(0,0);
+#lesson 3 level 4
+// 2) Change the color from blue to yellow.
+fill("blue");
+rect(100,100);
+fill("yellow");
+rect(250, 100);
+fill("yellow");
+// 3) Add a new square to the image
+
+rect(200, 200);
+#lesson 3 level 5
+//2) Change the red rectangle's color to green.
+//3) Change the order of the code so the green rectangle appears on top.
+fill("green");
+rect(200, 200);
+fill("blue");
+rect(175,175);
+#lesson 3 level 6
+fill("teal");
+ellipse(100,100);
+//2) Add a new ellipse of a different color.
+fill("yellow");
+ellipse(200, 200);
+#lesson 3 level 7
+drawing car
+fill("blue")
+rect(150,150)
+
+rect(201,149)
+
+fill("green");
+rect(100,200)
+rect(150,200)
+rect(200,200)
+rect(250,200)
+fill("red")
+ellipse(150,250)
+ellipse(249,249)
+#lesson 3 level 8 debbuging
+//2) Change the code so it makes the picture in the instructions
+
+fill("orange");
+ellipse(150,150);
+ellipse(200,150);
+ellipse(150,200);
+ellipse(200,200);
+fill("purple");
+rect(150, 150);
+# lesson 3 level 9 challenge :face
+fill("slateblue");
+ellipse(123, 182);
+ellipse(225, 180);
+fill("red");
+ellipse(172,270);
+fill("green");
+rect(49,300);
+rect(100,350);
+rect(150,350);
+rect(200,300);
