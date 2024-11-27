@@ -148,3 +148,88 @@ fill("yellow");
 shape(400, 0, 400, 400, 200, 200);
 fill("green");
 shape(0, 0, 0, 400, 200, 200);
+# lesson 5
+lesson 5 lev3
+var xPosition = 200;
+var whatsTheY = 200;
+
+ellipse(xPosition, whatsTheY);
+
+#level 4 Debug: Naming Variables
+
+
+var sizeofcircle = 150;
+var dimension = 100;
+var ylocation = 200;
+
+fill("OrangeRed");
+ellipse(dimension, ylocation, sizeofcircle, sizeofcircle);
+# level 5 Using a Variable Many Times
+
+This program has only one variable called petalSize but it uses it 8 different times. This makes it easy to quickly make lots of changes to how your picture is drawn.
+//1) Update the code so the red petals touch each other
+var petalSize = 75;
+
+//Set Up
+noStroke();
+background("ForestGreen");
+
+// Petals
+fill("red");
+ellipse(150,200,petalSize,petalSize);
+ellipse(200,150,petalSize,petalSize);
+ellipse(250,200,petalSize,petalSize);
+ellipse(200,250,petalSize,petalSize);
+
+// Flower Center
+fill("black");
+ellipse(200,200,50,50);
+# level 6 Debug: Using Variables
+
+This program uses the variable circleSize to control the width and height of a circle. If you make the circle big enough, it will fill up the entire screen, as in the picture on the righ
+hange the value assigned to circleSize so that the circle fills the entire screen.
+var circleSize = 560;
+
+fill("Crimson");
+ellipse(200, 200, circleSize, circleSize);
+# level 7 using Variables
+
+This program currently draws a face, but the eyes are two different sizes. Change the program to use the variable for the size of both eyes, and run the code to make sure both eyes are drawn at the same size.
+/2) Change the program to use the eyeSize variable.
+var eyeSize = 27;
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200,200,200,200);
+
+// Eyes
+fill("black");
+ellipse(160,170,eyeSize,eyeSize);
+ellipse(240,170,eyeSize,eyeSize);
+
+// Mouth
+fill("white");
+rect(160,240,80,20);
+# level 8 Challenge: Updating Variables
+var x = 50;
+var y = 50;
+
+fill("red");
+ellipse(x, y);
+// Increase x by 50, now x is 100
+x = x + 50;
+ellipse(x, y);
+// Increase x by 50, now x is 150
+x = x + 50;
+ellipse(x, y);
+x = x + 50;
+ellipse(x, y);
+x = x + 50;
+ellipse(x, y);
+x = x + 50;
+ellipse(x, y);
+x = x + 50;
+ellipse(x, y);
