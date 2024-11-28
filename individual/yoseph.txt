@@ -936,5 +936,28 @@ function draw() {
   // Draw Animations
   drawSprites();
 }
+#lesson 14
+MINIPROJECT 
+fill("white");
+ellipse(280,100);
+var sprite1=createSprite(250,250);
+sprite1.setAnimation("soccer_bw_1");
+sprite1.scale=0.25;
+var sprite2=createSprite(100,150);
+sprite2.setAnimation("soccer_yellow_1");
+sprite2.scale=0.25;
+function draw(){
+  background("green");
+  sprite1.y=sprite1.y+3;
+  sprite2.x=200+randomNumber(30,40);
+  drawSprites();
+  fill("black");
+textSize(40);
+text("welcome to football field ",50,50);
+fill("orange");
+textSize(40);
+text("lets play together",50,350);
+  
+}
 
 
