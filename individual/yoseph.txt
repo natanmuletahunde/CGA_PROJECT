@@ -413,5 +413,118 @@ This program should create two new sprites, one on the left of the screen and on
 var leftSprite = createSprite(100, 200);
 var rightSprite = createSprite(300, 200);
 drawSprites();
+#level 4
+Investigating Sprites
+
+Let's update the code below so different animations appear for the fruit and vegetable sprites.
+How do these blocks work again? (Click here to see)
+
+Do This
+
+    Update the fruit animation
+        Use the dropdown menu in the setAnimation() block to select a different sprite to use
+    Update the vegetable animation
+        Use the dropdown menu in the setAnimation() block to select a different sprite to use
+#level 5
+
+
+    Create a sprite variable called student
+        Drag out a createSprite(200, 200) block and change the variable name to student
+    Set the animation
+        Drag out a setAnimation() block
+        Change the first part of the block to be the same name as the variable above: student
+        Use the dropdown menu to select different sprites to use as a student
+    Draw the sprite on the screen
+        Drag out a drawSprites() block
+//1) Create a sprite variable
+var student= createSprite(200,200);
+//2) Set the animation
+student.setAnimation("Joseph");
+
+//3) Draw the sprite on the screen
+drawSprites();
+#level 6
+Do This
+
+    Run the code to see what happens.
+    Look in the Animation Tab to see what animations are available to you. (Show me where.)
+        Feel free to alter your animations or choose a new one.
+    Use the setAnimation command to change the look of your other sprites.
+var topLeftSprite = createSprite(100, 100);
+topLeftSprite.setAnimation("planeRed1");
+var topRightSprite = createSprite(300, 100);
+topRightSprite.setAnimation("bunny");
+
+var bottomLeftSprite = createSprite(100, 300);
+bottomLeftSprite.setAnimation("alien");
+var bottomRightSprite = createSprite(300,300);
+bottomRightSprite.setAnimation("flyBot");
+drawSprites();
+#level 7
+Do This
+
+    Run the code to see what happens.
+    Fix the two problems in the code.
+
+Hint: Just like shapes, sprites are drawn in the order they are created.
+var drink = createSprite(100, 200);
+drink.setAnimation("soda");
+var dessert = createSprite(300, 200);
+dessert.setAnimation("ice_cream");
+var message = createSprite(200, 200);
+message.setAnimation("textGetReady");
+drawSprites();
+#level 9
+
+var cactus = createSprite(100, 200);
+cactus.setAnimation("cactus");
+var ladybug = createSprite(250, 320);
+ladybug.setAnimation("ladybug");
+var snail = createSprite(100, 270);
+snail.setAnimation("snail");
+var grass2 = createSprite(275, 275);
+grass2.setAnimation("grass2");
+
+var grass1 = createSprite(225, 275);
+grass1.setAnimation("grass1");
+
+
+
+drawSprites();
+#level 10
+Create your own sprites
+Use what you've learned to create your own sprites. The example is just one way to complete the level. Decide for yourself what you want your sprites to look like.
+/ 1) Go to the animation tab and add at least two animations to your project.
+// 2)In the code tab, create at least two sprites in two different places on the screen.
+
+var baby=createSprite(200,100);
+var boy=createSprite(300,50);
+// 3) Assign each sprite a different animation.
+baby.setAnimation("blue_dress_wave_1");
+boy.setAnimation("blue_hanbok_1");
+// 4) Draw your sprites to the screen.
+drawSprites();
+
+#level 11
+Drawing your own image
+
+You can also use the Animation tab to draw your own image. You are going to make your own character by drawing it.
+Do This
+// Create character sprite and set animation
+var character = createSprite(200, 300);
+character.setAnimation("animation_1");
+
+// Draw background
+background("skyblue");
+
+// Draw grass
+fill("green");
+noStroke();
+rect(0, 300, 400, 100);
+
+// Draw sprite
+
+drawSprites();
+
 
 
