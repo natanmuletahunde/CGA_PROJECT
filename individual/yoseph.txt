@@ -703,8 +703,29 @@ text("in the" , 70, 100);
 //2) Add a new block to make the word "sky" a different color.
 fill("purple");
 text("sky...", 110, 150);
-
+#lesson 11
 //3) Add more text with even more colors.
 fill(rgb(255, 0, 0));
 text("this is new text",50,200);
+MINIPROJECT
+background(rgb(91, 60, 140));
+fill("white");
+ellipse(250,150, 200,200);
+fill("red");
+rect(200,250,100,200);
+var sprite1=createSprite(50,80);
+sprite1.setAnimation("kidportrait_09_1");
+sprite1.scale=0.5;
+var sprite2=createSprite(50,270);
+sprite2.setAnimation("kidportrait_14_1");
+sprite2.scale=0.5;
+drawSprites();
+fill("yellow");
+textSize(40);
+text("welcome ! ",80,180);
+
+fill("green");
+textSize(40);
+text("Get in to your home",50,300);
+
 
