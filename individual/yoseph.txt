@@ -525,6 +525,104 @@ rect(0, 300, 400, 100);
 // Draw sprite
 
 drawSprites();
+#lesson 9
+Sprite Properties
 
+Sprite properties keep track of all the information your program needs to know about a sprite, such as its size and location. You can change the values of these properties just like you do variables, and see the results when your sprite is drawn to the screen.
+#level 2
+//1) Run the program to see where the sprites appear.
+var palette = createSprite();
+palette.setAnimation("paint_palette");
+var brush = createSprite();
+brush.setAnimation("paint_brush");
+palette.x = 100;
+palette.y = 300;
+//2) Change the location of the paint brush to touch the paint palette.
+brush.x= 100;
+brush.y = 250;
+drawSprites();
+#level 3 new properties
+//1) Run the program to see how what is different about the first two notes.
+//2) Use the same blocks on the last two notes to make them look different, too.
+background("skyblue");
+var drums = createSprite(200,290);
+drums.setAnimation("drum_set");
+var note1 = createSprite(50,50);
+note1.setAnimation("eighth_note");
+note1.scale = 0.3;
+note1.rotation = 20;
+var note2 = createSprite(150,50);
+note2.setAnimation("eighth_note");
+note2.scale = 0.7;
+note2.rotation = -30;
+var note3 = createSprite(250,50);
+note3.setAnimation("eighth_note");
+note3.scale=0.5;
+note3.rotation=-45;
+var note4 = createSprite(350,50);
+note4.setAnimation("eighth_note");
+note4.scale=0.2;
+note4.rotation=90;
+drawSprites();
+#level 4
+Scale Property
+
+The scale property changes the size of the sprite. Scale of 1 is the normal size, scale of 2 is twice as big, and a scale of 0.5 is half as big.
+//1) Fix the code so that it looks like the picture.
+background("darkseagreen");
+fill("deepskyblue");
+ellipse(75, 75, 75, 75);
+var fly = createSprite(25, 25);
+fly.setAnimation("fly");
+fly.scale = 0.5;
+
+var fish = createSprite(75, 75);
+fish.setAnimation("fish");
+fish.scale = 0.5;
+
+var cow = createSprite(150, 150);
+cow.setAnimation("cow");
+cow.scale = 0.5;
+
+var elephant = createSprite(300, 300);
+elephant.setAnimation("elephant");
+elephant.scale = 0.5;
+
+drawSprites();
+#level 5
+Make it Fit!
+
+The food is way too big to fit on the plate. Use your knowledge of sprite properties to make it fit.
+Do this
+
+    Run the program to see how big the food is.
+    Use sprite properties to scale all of the food sprites down so they fit on the plate.
+//1) Run the program to see how big the food is.
+//2) Use sprite properties to scale all of the food sprites down so they fit on the plate.
+background("burlywood");
+fill("white");
+ellipse(200,200, 350);
+var fries = createSprite(250,140);
+fries.setAnimation("fries");
+fries.scale=0.5;
+var burger = createSprite(110,200);
+burger.setAnimation("burger");
+burger.scale=0.5;
+var dessert = createSprite(240,270);
+dessert.setAnimation("watermelon");
+dessert.scale=0.5;
+drawSprites();
+#level 6
+Height and Width
+
+You learned about the scale property, which grows or shrinks a sprite while keeping their height to width ratio the same. But it is possible to only change the height or width of a sprite with other properties!
+//1) Using either the sprite already created for you or with any other sprites of your choosing, 
+//play around with the height and width properties and think about when you would want to use these properties 
+//versus using the scale property
+var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe_tall");
+sprite.height=200;
+sprite.width=400;
+drawSprites();
 
 
