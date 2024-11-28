@@ -727,5 +727,86 @@ text("welcome ! ",80,180);
 fill("green");
 textSize(40);
 text("Get in to your home",50,300);
+#lesson 12
+Using the Draw Loop
+//1) Add code to this program so that your drawing has orange circles being drawn, too.
+noStroke();
+
+function draw(){
+  fill("green");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+  fill("orange");
+  ellipse(randomNumber(0,400),randomNumber(0,400));
+}
+World.frameRate = 5;
+
+noStroke();
+background("blue");
+fill("Yellow");
+
+function draw(){
+  background("Red");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+//1) Run the code to see how it works.
+//2) Discuss with your partner why some code is inside the draw loop and some code is outside.
+var sprite = createSprite(100,200);
+sprite.setAnimation("greenAlien");
+function draw() {
+  background("orange");
+  //3) Try changing the numbers in the random number block and running the program again.
+  sprite.rotation = randomNumber(0, 100);
+  drawSprites();
+}
+//1) Run the program to see how it works.
+var pencil = createSprite(100,200);
+pencil.setAnimation("pencil");
+
+var brush = createSprite(300,200);
+brush.setAnimation("brush");
+
+function draw(){
+  background("white");
+  pencil.x = randomNumber(100,110);
+  //2) Edit the code in this program to make the second sprite shake like the first one.
+  brush.x =randomNumber(50,70);
+  drawSprites();
+}
+//1) Run the program to see the bug.
+//2) Use the clues to try to find the bug.
+var blender = createSprite(200,200);
+  blender.setAnimation("blender");
+function draw() {
+  background("lightyellow");
+  blender.x = 200 + randomNumber(-5,5);
+  blender.y = 200 + randomNumber(-5,5);
+  drawSprites();
+}
+//1) Add the draw loop block to the bottom of this program.
+//2) Move any blocks that need to be inside the draw loop.
+
+var salt = createSprite(200,200);
+salt.setAnimation("salt");
+
+
+function draw(){
+  background("skyblue");
+  salt.x=200+randomNumber(-10,10);
+  salt.y=250+randomNumber((-10,10));
+  drawSprites();
+}
+//1) Add or draw your sprites in the Animation Tab.
+
+//2) Create your sprites and set its animation.
+var imog=createSprite(200,250);
+imog.setAnimation("emoji_10_1");
+//3) Add a draw loop and add the code needed to animate your favorite animal.
+function draw(){
+background("green");
+imog.x=200+randomNumber(-5,5);
+imog.y=200+randomNumber(-5,5);
+drawSprites();
+  
+}
 
 
