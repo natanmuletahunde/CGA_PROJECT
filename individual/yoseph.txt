@@ -959,5 +959,169 @@ textSize(40);
 text("lets play together",50,350);
   
 }
+#lesson15
+Boolean Expressions
 
+Boolean expression - an expression that can only evaluate to TRUE or FALSE
+ooleans
+
+The program draws a race car and a finish line. We are going to figure out when the race car crosses the finish line. The sprites have all been set up for you.
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Counter pattern to make car move across the screen
+  raceCar.x = raceCar.x - 2;
+  
+  //Program text
+  fill("black");
+  strokeWeight(5);
+  textSize(25);
+  text("The race car has crossed the finish line:", 100, 20, 300, 60);
+  fill("blue");
+  //1) Add blocks to the text command to print the boolean to the screen
+  text(raceCar.x<finishLine.x,100, 100);
+  
+  
+  // Draw Animations
+  drawSprites();
+}
+
+If Statement
+
+Boolean expressions allow us to ask questions, but in order to use those questions to change the program's behavior, we need an if () statement.
+
+
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update values
+  raceCar.x = raceCar.x - 2;
+  if (raceCar.x < finishLine.x) {
+    text("THE ORANGE CAR IS THE WINNER!",100,100);
+  }
+  // Draw Animations
+  drawSprites();
+Changing Fruit
+
+Now that we know how to use if () statements, you can do more than just check if the apple has reached a scale of 2. You turn it into a pear once it happens.
+var fruit = createSprite(200, 200);
+fruit.setAnimation("apple");
+fruit.scale = 0.1;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  fruit.scale = fruit.scale + 0.01;
+  
+  //1) Add a conditional to the draw loop.
+  if(fruit.scale>2){
+    fruit.setAnimation("pear");
+
+  }
+  //2) Add code to the conditional statement that asks if the scale of the fruit greater than 2.
+  //3) Add code inside the conditional to change the fruit to a pear.
+
+
+
+
+  // Draw Animations
+  drawSprites();
+Boolean Expressions
+
+The simplest Boolean expressions are questions that the computer can answer with true or false. Another way to say this is that Boolean expressions evaluate to true or false.
+// Modify these sprite properties so that all of the
+// boolean commands print true on the screen
+var sprite1 = createSprite(200, 200);
+sprite1.setAnimation("apple");
+sprite1.rotation = 30;
+sprite1.scale = 0.5;
+
+var sprite2 = createSprite(100, 100);
+sprite2.setAnimation("carrot");
+sprite2.rotation = 30;
+sprite2.scale = 0.5;
+
+// Do NOT edit the following (I'm serious!!!)
+drawSprites();
+textSize(20);
+fill("blue");
+text("Comparison 1: " + (sprite2.x == sprite2.y), 0, 15);
+text("Comparison 2: " + (sprite2.rotation < 40), 0, 40);
+text("Comparison 3: " + (sprite1.scale == sprite2.scale), 0, 65);
+text("Comparison 4: " + (sprite1.x > 150), 0, 90);
+text("Comparison 5: " + (sprite2.y < 200), 0, 115);
+
+Magic Dinosaur
+
+Use an if () statement to make the dinosaur turn into a pterodactyl when it reaches the sky.
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sci_fi");
+var dinosaur = createSprite(200, 350);
+dinosaur.scale = 0.2;
+dinosaur.setAnimation("tyrannosaurus");
+
+function draw() {
+  //move the dinosaur up
+  dinosaur.y = dinosaur.y - 5;
+
+  //2) Add a conditional that detects when the dinosaur is in the sky.
+  //3) Set the sprite's animation to a pterodactyl when it reaches the sky.
+if(dinosaur.y<150){
+  dinosaur.setAnimation("pterodactyl");
+}
+
+  //draw everything
+  drawSprites();
+}
+Visible
+
+Sometimes it's useful to hide the image for a while and then have it appear when you want. You can do this using the visible property. The visible property is a little different from other properties you have seen in the past: It is a Boolean value, either true (the sprite is visible) or false (the sprite is not visible). By default, visible is set to true.
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+//1) Create a pop sprite which uses the "pop" visual in the animation tab.
+
+var pop =createSprite(300,200);
+pop.setAnimation("pop");
+//2) Set the pop sprite to be hidden at the beginning.
+
+pop.visible=false;
+function draw() {
+  // Draw Background
+  background("white");
+
+  // Update Values
+  balloon.scale = balloon.scale + 0.001;
+
+  //3) Add a conditional that checks the size of the balloon to see when it touches the edge of the screen.
+  //4) Inside your conditional, set the balloon sprite to be hidden *and* set the pop sprite to appear.
+if(balloon.scale>1){
+  balloon.visible=false;
+pop.visible=true;
+
+}
+
+
+
+  // Draw Animations
+  drawSprites();
+}
 
