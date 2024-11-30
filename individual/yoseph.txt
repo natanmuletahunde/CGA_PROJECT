@@ -1124,4 +1124,154 @@ pop.visible=true;
   // Draw Animations
   drawSprites();
 }
+#lesson 16
+changing Sprites
 
+This program uses the keyDown() block to detect whether a specific keys are being pressed down.
+//1) Run the code and try pressing the "p" and "h" keys.
+var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe");
+
+function draw() {
+  background("white");
+
+  //2) Look inside the first two conditional statements to see how the code works.
+  if(keyDown("h")) {
+     sprite.setAnimation("hippo");
+  }
+
+  if(keyDown("p")) {
+     sprite.setAnimation("pig");
+  }
+
+  if(keyDown("r")) {
+      //3) Add code to change the sprite to a different animal when the "r" key is pressed.
+sprite.setAnimation("rabbit");
+  }
+
+  drawSprites();
+}
+
+Moving Sprites
+
+You can change your sprite's position based on key presses in the same way you changed its animations.
+var bug = createSprite(200, 200);
+bug.setAnimation("ladybug");
+
+function draw() {
+  //Draw Background
+  background("white");
+  //1) Add a conditional statement to check if the right arrow key has been pressed down.
+if(keyDown("RIGHT_ARROW")){
+  bug.x=bug.x+2;
+}
+  //2) Add code to move the sprite right if the right arrow is down.
+
+
+  //Draw Animations
+  drawSprites();
+}
+Gears with Conditionals
+
+Let's make the gears spin only if the space key is being held down.
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+ 
+  //1) Add code that will check if the space key is being pressed down.
+  //2) Adjust the program so that the gears only rotate when the space key is pressed down.
+if(keyDown("space")) {blueGear.rotation = blueGear.rotation - 1;
+  greenGear.rotation = greenGear.rotation + 1;
+  redGear.rotation = redGear.rotation + 1;
+}
+  drawSprites();
+}
+Fish With Arrows
+
+The fish are back. Can you make the fish move left only if the left arrow key is pressed down?
+var bubbleY=400;
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  
+  if(keyDown("LEFT_ARROW")){orangeFish.x = orangeFish.x - 2;
+  greenFish.x = orangeFish.x - 4;
+  blueFish.x = orangeFish.x - 4;}
+   fill("white");
+  stroke("black");
+  ellipse(100, bubbleY, 30, 30); 
+
+ 
+  bubbleY = bubbleY - 2;
+  
+   fill("white");
+  stroke("black");
+  ellipse(150, bubbleY, 30, 30); 
+
+ 
+  bubbleY = bubbleY - 2;
+  
+   fill("white");
+  stroke("black");
+  ellipse(200, bubbleY, 30, 30); 
+
+ 
+  bubbleY = bubbleY - 2;
+  
+  // Draw Animations
+  drawSprites();
+}
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("rainbow");
+var flyer = createSprite(200,200);
+flyer.setAnimation("wing_bot");
+
+function draw() {
+
+  //1) Add code to move the sprite left when the left arrow is pressed
+if(keyDown("right")){
+ flyer.x=flyer.x+2;
+}
+  //2) Add code to move the sprite right when the right arrow is pressed
+if(keyDown("left")){
+  flyer.x=flyer.x-2
+}
+  //3) Add code to move the sprite up when the up arrow is pressed
+if(keyDown("DOWN_ARROW")){
+ flyer.y=flyer.y+2;
+}
+  //4) Add code to move the sprite down when the down arrow is pressed
+if(keyDown("UP_ARROW")){
+  flyer.y=flyer.y-2;
+}
+drawSprites();
+}
+Keyboard Input Challenges
+
+Try out these new blocks and challenges with keyboard input.
+Responding to a Single Click
+
+This game counts how many times someone pressed the space bar, but it keeps giving points when the space bar is still pressed, even if it's not a new press.
+
+The block keyWentDown() will only give a point for new presses, so it's a better choice for this program.
+var clicks = 0;
+
+function draw() {
+  // 2) Change the code to use the new block, so the program only gives you a point for new clicks.
+  if (keyWentDown("space")) {
+      clicks = clicks + 1;
+  }
+  background("white");
+  textSize(50);
+  text(clicks, 165, 175, 70, 50);
+}
