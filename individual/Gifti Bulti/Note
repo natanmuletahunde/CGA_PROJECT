@@ -66,3 +66,61 @@ Vocabulary
 1.Bug: A part of a program that does not work correctly.
 2.Debugging: The process of finding and fixing problems in an algorithm or program.
 3.Program: An algorithm that has been coded into something that can be run by a machine.
+
+
+
+
+
+
+LESSON 5: VARIABLE
+
+Variables
+A variable lets you store a single value in your computer's memory with a descriptive name. Using variables lets you easily refer to the same value many times in your program or save a number that you'd like to refer to later.
+
+Creating Variables
+var size;
+The command var will create a new variable with the label that you give it. This variable has the label size .
+
+Assigning Values
+
+size = 100;
+The assignment operator = will assign a new value to your variable. This command assigned 100 to the variable size . The variable must always be on the left side. You
+would read this command as "size gets 100" since size is getting a new value of 100. Any old values it might have been assigned are lost forever.
+
+Using a Value
+
+llipse(200,200 size,size);
+In order to use a variable's value, place its label in the spot in your code you want to use it. This command uses the value in size to set the width and height of the ellipse.
+
+Initializing
+
+Usually you'll want to give a variable its first (or "initial") value right away. You can initialize a variable in a single command by combining the var and = commands.
+After you initialize a variable you don't need to use the var command to assign a new value. Just use the = as normal.
+
+part 1:
+
+Where will the circle be drawn?
+What will happen if you change the number in Line 1?short 
+
+answer:
+The circle will be drawn at the coordinates specified in Line 1, which likely indicates the center of the circle. If you change the number in Line 1, the position of the circle's center will shift accordingly, affecting where the circle appears on the canvas.
+
+which corner of the screen will the circle be drawn?
+The circle will be drawn in the corner of the screen specified by the coordinates in Line 1. If the coordinates are (0, 0), it will be in the top-left corner. If the coordinates are (width, 0), it will be in the top-right corner; (0, height) will place it in the bottom-left corner, and (width, height) will place it in the bottom-right corner.
+
+LESSON:SIX RENDOM NUMBER
+
+Random Numbers
+Using Random Numbers
+The randomNumber() block can be used to generate random numbers in your programs. The parameters set the minimum and maximum value that could be generated. You
+can use this block anywhere that you could write a number.
+
+Drawing and Random Numbers
+You can use randomNumber() as a parameter in drawing commands to make random drawings. With the following command, your program might generate different
+drawings each time it's run.
+ELLIPSE(rendomNumber(O,200))
+
+Multiple Random Numbers
+If you use randomNumber() multiple times in your program it will generate new random numbers every time. You can think of each randomNumber() like a new roll of a die.
+
+ellipse(rendomNumber(0,300), rendomNumber(0,200))
