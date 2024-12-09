@@ -1463,3 +1463,57 @@ function draw() {
 
   drawSprites();
 }
+#lesson 18 Interactive Card 
+// PROJECT
+// Create sprites
+var heart = createSprite(200, 200);
+heart.setAnimation("heart");
+var emoji1 = createSprite(70, 250);
+emoji1.setAnimation("emoji1");
+var emoji2 = createSprite(350, 250);
+emoji2.setAnimation("emoji2");
+
+// Initialize properties
+heart.rotation = 0;
+heart.scale = 0.5;
+
+emoji1.rotation = 0;
+emoji1.scale = 0.5;
+emoji2.rotation = 0;
+emoji2.scale = 0.5;
+
+function draw() {
+  background("skyblue");
+  
+
+  // Display and animate text and rotate sprites when the space bar is pressed
+  if (keyDown("space")) {
+    // Display secret message
+    textSize(30);
+    fill("purple");
+    text("I LOVE YOU !!!", random(50, 60),100); // Animate position
+    text("XO XO", random(50, 60), 150); // Animate position
+                                                                                                                                                      
+    heart.x = randomNumber(195,205);  
+    emoji1.rotation -= 3; // Rotate first emoji
+    emoji2.rotation += 3; // Rotate second emoji  
+    emoji1.visible=true;
+    emoji2.visible=true;
+    heart.visible=true;
+    
+  }
+  else{
+    textSize(30);
+    fill("black");
+    text("Press space bar to ", 10, 180);
+    text(" see the secret message", 2, 220);
+    
+  
+   emoji1.visible=false;
+    emoji2.visible=false;
+    heart.visible=false;
+    
+  }
+
+  drawSprites();
+}
