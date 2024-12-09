@@ -106,3 +106,115 @@ arc(300, 300, 100, 100, 0,60);
 
 fill("red")
 arc(200, 200, 100, 100, 0,270);
+
+- Lesson 5: Variables
+    - Overview
+    - Question of the Day: How can we use variables to store information in our programs?
+
+
+    - Vocabulary
+        - Variable - A label for a piece of information used in a program.
+
+    - Introduced Code
+    - var x = ___;
+
+    - var x;
+
+- Debug Adding a variables
+
+// Update the variable names at the top of the code
+var size = 100;
+var color1 = "green";
+var color2 = "red";
+var color3 = "orange";
+
+// Read through the code and identify the four variables
+fill(color1);
+ellipse(200, 100, size, size);
+noFill();
+rect(150, 50, size, size);
+fill(color2);
+ellipse(200, 200, size, size);
+noFill();
+rect(150, 150, size, size);
+fill(color3);
+ellipse(200, 300, size, size);
+noFill();
+rect(150, 250, size, size);
+
+    -using variables excercise
+
+// Change the program to use the eyeSize variable.
+var eyeSize = 27;
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200,200,200,200);
+
+// Eyes
+fill("black");
+ellipse(160,170,eyeSize,eyeSize);
+ellipse(240,170,eyeSize,eyeSize);
+
+// Mouth
+fill("white");
+rect(160,240,80,20);
+
+
+    - Challenge -> updating variables
+
+var x = 50;
+var y = 50;
+
+fill("red");
+ellipse(x, y);
+// Increase x by 50, now x is 100
+y = y + 50;
+ellipse(x, y);
+// Increase x by 50, now x is 150
+y = y + 50;
+ellipse(x, y);
+
+    - String Variables
+
+var color1 = "green";
+var color2 = "yellow";
+var color3 = "red";
+
+
+fill(color1);
+regularPolygon(200, 200, 5, 200);
+fill(color2);
+regularPolygon(200, 200, 6, 150);
+fill(color3);
+regularPolygon(200, 200, 7, 100);
+
+    - Abstract Art 
+
+var flagWidth = 400;
+var flagHeight = 250;
+var circleSize = 100;
+var circleX = flagWidth / 2;
+var circleY = flagHeight / 2;
+var stripeHeight = 50;
+var stripeColor1 = "skyblue";
+var stripeColor2 = "white";
+
+fill("green");
+rect(0, 0, flagWidth, flagHeight);  
+
+fill(stripeColor1);
+rect(0, 0, flagWidth, stripeHeight);  
+fill(stripeColor2);
+rect(0, stripeHeight, flagWidth, stripeHeight); 
+
+fill("yellow");
+ellipse(circleX, circleY, circleSize, circleSize); 
+
+stroke("black");
+strokeWeight(5);
+noFill();
+rect(0, 0, flagWidth, flagHeight);  
