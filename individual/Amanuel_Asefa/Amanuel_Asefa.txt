@@ -523,3 +523,22 @@ text("Red Score: 3", 0, 40)
 
 fill("white")
 text("Red Score: 3", 331, 40)
+
+
+    - lesson 11
+    -create your scene
+
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+drawSprites()
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
