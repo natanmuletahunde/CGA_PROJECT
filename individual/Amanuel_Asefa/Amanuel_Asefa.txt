@@ -1,1 +1,329 @@
 Lesson 1: Programming for a Purpose
+Lesson 2: Plotting Shapes
+Lesson 3: Drawing in Game Lab
+
+
+Lesson 4: Shapes and Parameters
+
+Overview
+
+  - The Lesson Starts with "How can we use parameters to give the computer more specific instructions?"
+  - the main idea of the lesson so far is manipulating the "parameters" of the shapes to control their appearance.
+
+Vocabulary
+
+  - Parameter - Additional information provided as input to a block to customize its functionality
+
+Introduced Code
+
+  - background(color) -> sets the background color of the canvas to the parameters color
+  - ellipse(x, y, w, h) -> the newly Introduced parameters are used to identify the width and height of the ellipse being constructed 
+  - rect(x, y, w, h) -> the newly Introduced parameters are used to identify the width and height of the rectangle being constructed 
+
+one example of the above methods would be
+
+//Debug this program to make the cloud wider than it is tall, like in the image.
+
+// Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(300,50,50,50);
+
+// Draw grass
+fill("green");
+rect(0,300,400,100);
+
+// Draw cloud
+fill("white");
+ellipse(150,100,200,100);
+
+- Regular Polygon practise excercise
+
+regularPolygon(50, 75, 3, 50);
+regularPolygon(150, 75, 4, 50);
+regularPolygon(50, 175, 7, 50);
+regularPolygon(50, 275, 11, 50);
+// Add code to finish the drawing so it matches the picture
+regularPolygon(250, 75, 5, 50)
+regularPolygon(350, 75, 6, 50)
+regularPolygon(150, 175, 8, 50);
+regularPolygon(250, 175, 9, 50);
+regularPolygon(350, 175, 10, 50);
+
+regularPolygon(150, 275, 12, 50);
+regularPolygon(250, 275, 13, 50);
+regularPolygon(350, 275, 14, 50);
+
+ - new blocks shape example
+
+fill("red");
+shape(200, 200, 0, 400, 400, 400);
+fill("blue");
+shape(200, 200, 0, 0, 400, 0);
+// Finish the code so it matches the picture
+fill("green")
+shape(0,0,200,200, 0,400)
+
+fill("yellow")
+shape(400,0,200,200, 400,400)
+
+ - drawing complicated Lines
+
+ line(0, 0, 50, 400);
+line(0, 50, 100, 400);
+line(0, 100, 150, 400);
+line(0, 150, 200, 400);
+line(0, 200, 250, 400);
+line(0, 250, 300, 400);
+line(0, 300, 350, 400);
+line(0, 350, 400, 400);
+// Finish the code so it matches the picture
+line(0, 0, 400, 0);
+line(400, 0, 400, 400);
+line(350, 0, 400, 300);
+line(250, 0, 400, 200);
+line(150, 0, 400, 100);
+
+line(200, 0, 400, 150);
+line(300, 0, 400, 250);
+line(100, 0, 400, 100);
+line(150, 0, 400, 150);
+
+ - new block arc
+
+arc(50, 100, 100, 100, 0, 360);
+arc(200, 100, 100, 100, 0, 300);
+fill("green");
+arc(350, 100, 100, 100, 90, 180);
+noFill();
+arc(50, 200, 100, 100, 0, 180);
+arc(200, 200, 100, 100, 30, 210);
+//Create two more shapes on the screen using the arc block!
+fill("red")
+arc(300, 300, 100, 100, 0,60);
+
+fill("red")
+arc(200, 200, 100, 100, 0,270);
+
+- Lesson 5: Variables
+    - Overview
+    - Question of the Day: How can we use variables to store information in our programs?
+
+
+    - Vocabulary
+        - Variable - A label for a piece of information used in a program.
+
+    - Introduced Code
+    - var x = ___;
+
+    - var x;
+
+- Debug Adding a variables
+
+// Update the variable names at the top of the code
+var size = 100;
+var color1 = "green";
+var color2 = "red";
+var color3 = "orange";
+
+// Read through the code and identify the four variables
+fill(color1);
+ellipse(200, 100, size, size);
+noFill();
+rect(150, 50, size, size);
+fill(color2);
+ellipse(200, 200, size, size);
+noFill();
+rect(150, 150, size, size);
+fill(color3);
+ellipse(200, 300, size, size);
+noFill();
+rect(150, 250, size, size);
+
+    -using variables excercise
+
+// Change the program to use the eyeSize variable.
+var eyeSize = 27;
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200,200,200,200);
+
+// Eyes
+fill("black");
+ellipse(160,170,eyeSize,eyeSize);
+ellipse(240,170,eyeSize,eyeSize);
+
+// Mouth
+fill("white");
+rect(160,240,80,20);
+
+
+    - Challenge -> updating variables
+
+var x = 50;
+var y = 50;
+
+fill("red");
+ellipse(x, y);
+// Increase x by 50, now x is 100
+y = y + 50;
+ellipse(x, y);
+// Increase x by 50, now x is 150
+y = y + 50;
+ellipse(x, y);
+
+    - String Variables
+
+var color1 = "green";
+var color2 = "yellow";
+var color3 = "red";
+
+
+fill(color1);
+regularPolygon(200, 200, 5, 200);
+fill(color2);
+regularPolygon(200, 200, 6, 150);
+fill(color3);
+regularPolygon(200, 200, 7, 100);
+
+    - Abstract Art 
+
+var flagWidth = 400;
+var flagHeight = 250;
+var circleSize = 100;
+var circleX = flagWidth / 2;
+var circleY = flagHeight / 2;
+var stripeHeight = 50;
+var stripeColor1 = "skyblue";
+var stripeColor2 = "white";
+
+fill("green");
+rect(0, 0, flagWidth, flagHeight);  
+
+fill(stripeColor1);
+rect(0, 0, flagWidth, stripeHeight);  
+fill(stripeColor2);
+rect(0, stripeHeight, flagWidth, stripeHeight); 
+
+fill("yellow");
+ellipse(circleX, circleY, circleSize, circleSize); 
+
+stroke("black");
+strokeWeight(5);
+noFill();
+rect(0, 0, flagWidth, flagHeight);  
+
+
+    -Random Numbers
+    You have a new block in the Math drawer called randomNumber().
+    If you make your drawings with random numbers it will look a little bit 
+    different every time you run your program. Click on the block to read
+    it's documentation and learn more about how it works
+
+    Right now, the program only draws the ellipse on the right side of the screen.
+    Let's update the code so the ellipse could appear anywhere horizontally on the screen.
+
+background("tomato");
+
+// Change the code so the ellipse can appear anywhere horizontally on the screen
+fill("orange");
+ellipse(randomNumber(0,400), 200, 50, 50);
+
+    - randomNumber(xin,yin) generates random number between the given intervals
+
+    - modifying the scence practise
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+
+
+    - rainbow
+
+//2) Add at least three new different colored circles to your rainbow snake.
+//3) Use randomNumber to make the rest of the snake's body move up and down like the first three.
+
+background("skyBlue");
+
+fill("red");
+ellipse(100, randomNumber(190,210), 50, 50);
+
+fill("orange");
+ellipse(140, randomNumber(190,210), 50, 50);
+
+fill("yellow");
+ellipse(180, randomNumber(190,210), 50, 50);
+
+fill("green");
+ellipse(220, randomNumber(190,210), 50, 50);
+
+fill("blue");
+ellipse(260, randomNumber(190,210), 50, 50);
+
+fill("violate");
+ellipse(300, randomNumber(190,210), 50, 50);
+
+
+- challenges
+
+// Update the background to be a random color
+background(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+
+// Update each arc of the rainbow to a random color
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 400, 400);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 340, 340);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 280, 280);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 220, 220);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 160, 160);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 100, 100);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 40, 40);
+
+// Update the ground to a random color
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+rect(0, 200, 400, 200);
+
+- random Lines
+
+// Randomize the position of each of the lines
+
+var x1 = randomNumber(0,400)
+var x2 = randomNumber(0,400)
+
+var y1 = randomNumber(0,400)
+var y2 = randomNumber(0,400)
+
+line(x1, 0, 0, 150);
+line(x1, 200, 0, 350);
+line(x1, 0, 100, 150);
+line(x1, 200, 100, 350);
+line(x1, 0, 200, 150);
+line(x1, 200, 200, 350);
+line(x1, 0, 300, 150);
+line(x1, 200, 300, 350);
+
+
+
+
