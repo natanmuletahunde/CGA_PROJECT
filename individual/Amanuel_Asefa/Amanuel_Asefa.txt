@@ -506,3 +506,20 @@ elephant.setAnimation("elephant");
 elephant.scale = 0.7;
 
 drawSprites();
+
+challenges
+
+// Add text to the scene so that it matches the scene in the picture
+var field = createSprite(200, 200);
+field.setAnimation("field");
+var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.15;
+
+
+drawSprites();
+fill("white")
+text("Red Score: 3", 0, 40)
+
+fill("white")
+text("Red Score: 3", 331, 40)
