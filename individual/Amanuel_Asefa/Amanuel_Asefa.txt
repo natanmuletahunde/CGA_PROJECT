@@ -325,5 +325,51 @@ line(x1, 0, 300, 150);
 line(x1, 200, 300, 350);
 
 
+- Lesson 7
+    -robot Face
+
+regularPolygon(200, 175, 6, 90);
+fill("white")
+ellipse(165,150,20,20)
+
+fill("white")
+ellipse(225,150,20,20)
+
+fill("white")
+rect(170, 200,56, 10);
+
+fill("black")
+ellipse(150,90,20,20)
+
+fill("black")
+ellipse(170,90,20,20)
+
+fill("black")
+ellipse(190,90,20,20)
+
+fill("black")
+ellipse(210,90,20,20)
+
+fill("black")
+ellipse(230,90,20,20)
+
+fill("black")
+ellipse(250,90,20,20)
+
+fill("black")
+ellipse(160,75,20,20)
+
+fill("black")
+ellipse(180,75,20,20)
+
+fill("black")
+ellipse(200,75,20,20)
+
+fill("black")
+ellipse(220,75,20,20)
+
+fill("black")
+ellipse(240,75,20,20)
+
 
 
