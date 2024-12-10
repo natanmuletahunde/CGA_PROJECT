@@ -1275,3 +1275,489 @@ function draw() {
   textSize(50);
   text(clicks, 165, 175, 70, 50);
 }
+# lesson 17 MOUSE INPUT
+If/Else Predict
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.6;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // update balloon size based on user input
+  if (keyDown("space")) {
+      balloon.scale = balloon.scale + 0.02;
+  } else {
+      balloon.scale = balloon.scale - 0.01;
+  }
+
+  // Draw Animations
+  drawSprites();
+}
+Reverse the Gears
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (keyDown("space")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //1) Make the gears spin the opposite way when the space bar is **not** being pressed.
+  else{
+    blueGear.rotation = blueGear.rotation +1;
+    greenGear.rotation = greenGear.rotation -1;
+    redGear.rotation = redGear.rotation -1;
+  }
+  drawSprites();
+}
+Control the Gears
+Here is the same program, but with one small difference.
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (mouseDown("leftButton")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //3) Make the gears spin the opposite way when there is no user input.
+else{
+   blueGear.rotation = blueGear.rotation +1;
+    greenGear.rotation = greenGear.rotation -1;
+    redGear.rotation = redGear.rotation -1;
+}
+  
+  drawSprites();
+}
+Mouse Clicks
+Here's a program that drops a balloon down the screen. Use an if / else statement to make the balloon go up and down according to whether or not the user is pressing the mouse.
+var balloon = createSprite(200, 50);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+function draw() {
+  background("white");
+  
+  //1) Add code that checks whether the mouse is being pressed.
+  //2) Move the balloon up the screen if the mouse is being pressed.
+  //3) Otherwise, move the balloon down the screen.
+
+ if(mouseDown()) {balloon.y = balloon.y -1;
+}
+else{
+  balloon.y = balloon.y +1;
+}
+  drawSprites();
+}
+World.mouseX
+This program uses an if () block to shake the blender when the mouse is on left side of the screen.
+var blender = createSprite(100, 300);
+blender.setAnimation("blender");
+var mixer = createSprite(300, 300);
+mixer.setAnimation("mixer");
+
+function draw() {
+  background("lightyellow");
+  fill("burlywood");
+  rect(0, 350, 400, 50);
+  if (World.mouseX < 200) {
+    blender.x = randomNumber(95, 105);
+    blender.y = randomNumber(295, 305);
+  }
+  
+  //2) Add to the conditional so that when the mouse is on the other side of the screen, the mixer shakes instead.
+else{
+  mixer.x=randomNumber((295,300));
+  mixer.y=randomNumber((295,300));
+}
+  drawSprites();
+}
+Emoji Reactions
+Add code so that when the user presses down the mouse, the emoji changes to a new face. Otherwise, the emoji returns to a smiling emoji.
+var emoji = createSprite(200, 200);
+emoji.setAnimation("smileEmoji");
+
+function draw() {
+  background("white");
+  //1)If the mouse is pressed down, change the emoji to a different emoji
+  if (mouseDown()) {
+    emoji.setAnimation("glassesEmoji");
+    
+  }
+  
+  
+  //2)Otherwise, keep the emoji as a smile emoji
+  else {
+    emoji.setAnimation("smileEmoji");
+  }
+  
+  
+  
+  drawSprites();
+}
+Fix the Program
+This program should only shake the creature when the mouse is pressed, and only show directions when the mouse is not pressed.
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+function draw() {
+  //1) Change the code so that the creature only shakes when the mouse is pressed.
+ if(mouseDown()) {creature.rotation = randomNumber(-5,5);
+  drawSprites();}
+
+  //2) Change the code so the directions ("Press the mouse to shake the creature.") **only show** 
+  //when the user is **NOT** pressing the mouse.
+ else{ 
+   fill("black");
+  textSize(40);
+  text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+ }
+}
+Mouse Challenges
+Try out these new blocks and challenges with mouse input.
+Changing Emoji
+var emoji1 = createSprite(200, 200);
+var emoji2 = createSprite(200, 200);
+emoji1.setAnimation("emoji1");
+emoji2.setAnimation("emoji2");
+
+// Start with emoji1 visible and emoji2 hidden
+emoji1.visible = true;
+emoji2.visible = false;
+
+function draw() {
+  background("white");
+
+  // Check if the mouse is pressed
+  if (mouseWentDown("leftButton")) {
+    // Show emoji2 and hide emoji1 when the mouse is pressed
+    emoji1.visible = false;
+    emoji2.visible = true;
+  } else if (mouseWentUp("leftButton")) {
+    // Show emoji1 and hide emoji2 when the mouse is released
+    emoji1.visible = true;
+    emoji2.visible = false;
+  }
+
+  drawSprites();
+}
+#lesson 18 Interactive Card 
+// PROJECT
+// Create sprites
+var heart = createSprite(200, 200);
+heart.setAnimation("heart");
+var emoji1 = createSprite(70, 250);
+emoji1.setAnimation("emoji1");
+var emoji2 = createSprite(350, 250);
+emoji2.setAnimation("emoji2");
+
+// Initialize properties
+heart.rotation = 0;
+heart.scale = 0.5;
+
+emoji1.rotation = 0;
+emoji1.scale = 0.5;
+emoji2.rotation = 0;
+emoji2.scale = 0.5;
+
+function draw() {
+  background("skyblue");
+  
+
+  // Display and animate text and rotate sprites when the space bar is pressed
+  if (keyDown("space")) {
+    // Display secret message
+    textSize(30);
+    fill("purple");
+    text("I LOVE YOU !!!", random(50, 60),100); // Animate position
+    text("XO XO", random(50, 60), 150); // Animate position
+                                                                                                                                                      
+    heart.x = randomNumber(195,205);  
+    emoji1.rotation -= 3; // Rotate first emoji
+    emoji2.rotation += 3; // Rotate second emoji  
+    emoji1.visible=true;
+    emoji2.visible=true;
+    heart.visible=true;
+    
+  }
+  else{
+    textSize(30);
+    fill("black");
+    text("Press space bar to ", 10, 180);
+    text(" see the secret message", 2, 220);
+    
+  
+   emoji1.visible=false;
+    emoji2.visible=false;
+    heart.visible=false;
+    
+  }
+
+  drawSprites();
+}
+##############################
+chapter 2 Building a Game
+Predict
+
+You've learned about the counter pattern - now let's compare that to the new velocity block.
+var fly = createSprite(25, 150);
+fly.setAnimation("fly");
+fly.velocityX = 2;
+
+var mouse = createSprite(25, 335);
+mouse.setAnimation("mouse");
+
+function draw() {
+  // draw the background
+  background("lightblue");
+  fill("green");
+  noStroke();
+  rect(0, 350, 400, 50);
+  
+  mouse.x = mouse.x + 2;
+  
+  drawSprites();
+}
+velocityX
+
+One way to move sprites in Game Lab is with the counter pattern. For example moves a sprite by 1 pixel each frame of the draw loop. This pattern is so common that sprites have a velocityX property that does this for you.
+var fish = createSprite(50, 150);
+fish.setAnimation("orange_fish");
+//1) Add the new movement block outside of the draw loop.
+fish.velocityX=1;
+
+
+//2) Assign the velocity a value of 1.
+
+function draw() {
+  // draw the background
+  background(rgb(0,50,250));
+  fill(rgb(250,250,250, 80));
+  noStroke();
+  ellipse(60, 20, 50, 50);
+  ellipse(150, 100, 50, 50);
+  ellipse(300, 130, 50, 50);
+  ellipse(250, 200, 50, 50);
+  ellipse(20, 250, 50, 50);
+  ellipse(370, 330, 50, 50);
+  fill(rgb(219, 208, 125));
+  noStroke();
+  ellipse(100, 400, 300, 100);
+  ellipse(300, 400, 300, 75);
+  
+  drawSprites();
+}
+Immersive Reader
+Moving Down
+
+Here is a feather sprite that should be floating down the screen. If velocityX makes a sprite move to the right, can you find the block that will make the feather move down?
+//1) Find the block that will make the feather sprite go down the screen
+
+var feather = createSprite(200, 50);
+feather.setAnimation("feather");
+//2) Use that block outside of the draw loop.
+feather.velocityY=1;
+
+
+//3) Give the block a value to make the feather move down the screen.
+
+function draw() {
+  background("skyblue");
+  drawSprites();
+}
+rotationSpeed
+
+You can use rotationSpeed to make your sprites spin. If you want your sun to rotate by two degrees each time it's drawn, you can use sun.rotationSpeed = 2; outside of the draw loop, after you create your sprite.
+var sun = createSprite(200, 200);
+sun.setAnimation("sun");
+//1) Make the sun rotate by 3 degrees each time it's drawn.
+sun.rotationSpeed=3;
+
+
+function draw() {
+  background("blue");
+  drawSprites();
+}
+Controlling Speed
+
+You used rotationSpeed outside the draw loop to make your sprite rotate when your program started. You can also use rotationSpeed inside the draw loop to change the speed of the sprite during the game. For example, a sprite can start rotating when the user presses the space bar, and it will keep rotating until it's told to stop.
+var wheel = createSprite(200, 200);
+wheel.setAnimation("wheel");
+
+function draw() {
+  background("blue");
+
+
+  if (keyWentDown("space")) {
+    //2) Make the color wheel start spinning when the user presses the space bar.
+wheel.rotationSpeed=3;
+
+  }
+
+  drawSprites();
+}
+Changing Velocity with Position
+
+One advantage to using the velocity blocks inside conditionals (if () blocks) is that your sprite keeps moving, even after the condition stops being true. For example, you only had to press a key once to start the color wheel spinning, and it kept spinning forever. The code below uses if statements to make a fish sprite move in different directions.
+var fish = createSprite(200, 200);
+fish.setAnimation("fishR");
+fish.velocityX = 2;
+
+function draw() {
+  background("blue");
+
+  if (fish.x < 0) {
+    fish.setAnimation("fishR");
+    fish.velocityX = 2;
+  }
+  if (fish.x > 400) {
+    fish.setAnimation("fishL");
+    fish.velocityX = -2;
+  }
+  drawSprites();
+}
+
+Back and Forth
+
+This ball bounces back when it hits the bottom of the screen. Can you make it bounce back when it hits the top of the screen?
+var field = createSprite(200,200);
+field.setAnimation("field");
+var ball = createSprite(200, 50);
+ball.setAnimation("ball");
+ball.scale = 0.2;
+ball.velocityY = 5;
+
+function draw() {
+  //2) Look at how conditionals and velocity are used to make the ball bounce at the bottom of the screen.
+  if (ball.y > 380) {
+    ball.velocityY = -5;
+  }
+  //3) Add code to make the ball bounce at the top of the screen.
+if (ball.y==0){
+  ball.velocityY=+5;
+}
+  drawSprites();
+}
+Paintbrush
+
+Use if () statements with velocity to make the paintbrush dip in the paint.
+var palatte = createSprite(180, 350);
+palatte.setAnimation("paint_pallette");
+var brush = createSprite(220, 50);
+brush.setAnimation("paint_brush");
+
+function draw() {
+  background("skyblue");
+  
+  //1) Use a conditional to send the paint brush down if the down arrow is pressed.
+if(keyDown(DOWN_ARROW)){
+  brush.velocityY= +5;
+}
+
+  //2) Use a different conditional to send the paint brush up if it reaches the palette.
+if(brush.y>350){
+  brush.velocityY = -5;
+}
+
+  drawSprites();
+}
+Swimming Right and Left
+
+The code below should make the fish start moving right once you press the right-arrow, and then it should continually swim back and forth. You should use conditional statements and the velocity block to make the fish swim.
+var fish = createSprite(200, 200);
+fish.setAnimation("fishR");
+
+function draw() {
+  background("blue");
+  //2) Use a the correct block inside each conditional statement to make the three following movements:
+
+  //If the user presses the right arrow key, move the fish to the right.
+  if (keyWentDown("right")) {
+fish.velocityX=2;
+  }
+
+  //If the fish gets to the right-hand side of the screen, move the fish to the left.
+  if (fish.x > 400) {
+fish.velocityX=-2;
+  }
+
+  //If the fish gets to the left-hand side of the screen, move the fish to the right.
+  if (fish.x < 0) {
+    fish.velocityX=2;
+
+  }
+  
+  //3) The fish should always be facing the same direction it's moving, so you will also need to
+  //update the fish's animation inside each of the conditional statements.
+
+  // Draw the fish.
+  drawSprites();
+}
+Changing Course
+
+Study the animation to the right. Notice that the purple alien sprite changes between x and y velocities when it is near each corner of the screen.
+var alien = createSprite(50,200);
+alien.setAnimation("alien");
+alien.velocityX = 0;
+alien.velocityY = -3;
+
+function draw() {
+  //2) Add the appropriate velocity blocks to each conditional 
+  //to make the alien complete the full circuit.
+
+  if (alien.y < 50) {
+alien.velocityX= 5;
+alien.velocityY= 0;
+  }
+  if (alien.x > 350) {
+alien.velocityY= 5;
+alien.velocityX= 0;
+  }
+  if (alien.y > 350) {
+alien.velocityX=-5;
+alien.velocityY=0;
+
+  }
+  if (alien.x <50) {
+alien.velocityX=0;
+alien.velocityY=0;
+
+  }
+  
+  drawSprites();
+}
+
+var space = createSprite(200, 200);
+space.setAnimation("space");
+var flag1 = createSprite(50, 50);
+flag1.setAnimation("yellow_flag");
+var flag2 = createSprite(350, 50);
+flag2.setAnimation("yellow_flag");
+var flag3 = createSprite(350, 350);
+flag3.setAnimation("yellow_flag");
+var flag4 = createSprite(50, 350);
+flag4.setAnimation("yellow_flag");
+alien.depth=7;
+
