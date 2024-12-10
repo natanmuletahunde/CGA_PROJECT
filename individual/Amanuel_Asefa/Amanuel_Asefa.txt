@@ -372,4 +372,83 @@ fill("black")
 ellipse(240,75,20,20)
 
 
+- Lesson 8: Sprites
+    Overview
+        - How can we use sprites to help us keep track of lots of information in our programs?
+
+Today you will learn about sprites which will not only give you a way to keep track of various pieces of information in your programs but will also allow you to create more interesting and fun images!
+
+- Vocabulary
+    
+    Sprite - A character on the screen with properties that describe its location, movement, and look.
+
+Introduced Code
+
+    - drawSprites()
+
+    - sprite.setAnimation(label)
+
+    - var sprite = createSprite(x, y, w, h)
+
+
+excercise - creative thinking
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+
+added a text "Get Ready"
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+var sprite = createSprite(200, 200);
+sprite.setAnimation("textGetReady");
+drawSprites()
+
+ - Uploading images
+
+ // Create kite sprite and set animation
+var kite = createSprite(300, 50);
+kite.setAnimation("sprite.png_1");
+
+// Draw background
+background("skyblue");
+
+// Draw grass
+fill("green");
+noStroke();
+rect(0, 300, 400, 100);
+
+// Draw string
+stroke("black");
+strokeWeight(5);
+line(150, 300, 300, 50);
+
+// Draw sprite
+drawSprites();
+
+
+
+
 
