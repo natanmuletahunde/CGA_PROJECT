@@ -542,3 +542,96 @@ fill("white")
 var t =text("Mario", 200, 100)
 t.scale(4)
 textSize(200)
+
+
+    - lesson 12
+
+    - functions - the draw function is run over and over again by the game lab
+noStroke();
+fill("SeaGreen");
+
+function draw(){
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+// Add code to this program so that your drawing has orange circles being drawn, too.
+noStroke();
+
+function draw(){
+  fill("green");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+  fill("orange");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - a nice simple trick inorder to clear the screen
+
+World.frameRate = 5;
+
+noStroke();
+background("blue");
+fill("Yellow");
+
+function draw(){
+  background("Red");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - change while drawing
+// Run the program to see how it works.
+var pencil = createSprite(100,200);
+pencil.setAnimation("pencil");
+
+var brush = createSprite(300,200);
+brush.setAnimation("brush");
+
+function draw(){
+  background("white");
+  pencil.x = randomNumber(100,110);
+  brush.x = randomNumber(300,310);
+  // Edit the code in this program to make the second sprite shake like the first one.
+
+  drawSprites();
+}
+
+    - Debug: Sprite Not Moving
+
+
+     drawSprites(); 
+
+     - Updating Properties
+
+// Add the draw loop block to the bottom of this program.
+// Move any blocks that need to be inside the draw loop.
+
+var salt = createSprite(200,200);
+salt.setAnimation("salt");
+background("skyblue");
+drawSprites();
+
+function draw(){
+  background("skyblue");
+  salt.y = randomNumber(200,100)
+  drawSprites();
+}
+
+    - Extend Your Scene
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
+
+function draw(){
+  sprite1.x=randomNumber(100,200)
+  drawSprites()
+}
