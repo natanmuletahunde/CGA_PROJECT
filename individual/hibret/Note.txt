@@ -1,2 +1,0 @@
-in this lesson i have learned different functions like recr() to create rectangle 
-ellise() to create ellipse , fill() to fill the color and so on.

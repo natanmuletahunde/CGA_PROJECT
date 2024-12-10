@@ -1,1 +1,0 @@
-From this series of lessons, I learned to build small gaming projects and understand key game development functionalities.
