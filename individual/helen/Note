@@ -1,0 +1,5 @@
+fill() used to fill the color of the selected shape.
+rect() to create the shape rectangle.
+ellipse() to create ellipse.
+point() to make point.
+strokeWidth()

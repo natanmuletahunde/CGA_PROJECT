@@ -1,0 +1,126 @@
+Lesson 1: Programming for a Purpose
+
+Overview
+In this lesson, we explore how to design animations and games tailored to user needs.
+
+Question of the Day
+How can we design animations and games based on the needs of a user?
+
+Key Concepts
+1.Understanding the User:
+    Identify the target audience and their needs (entertainment, education, etc.).
+2.Purpose of the Animation/Game:
+      Educational: Teach concepts.
+      Entertainment: Provide fun experiences.
+      Therapeutic: Support mental health or rehabilitation.
+3.User-Centric Design:
+       Incorporate user feedback.
+       Ensure accessibility.
+       Allow customization of experiences.
+4.Prototyping and Testing:
+       Use rapid prototyping.
+       Conduct user testing to refine designs.
+5.Iterative Design Process:
+       Follow the cycle: Design → Prototype → Test → Refine.
+Activities
+1.Identify a User Group: Choose a target audience and discuss their needs.
+2.Brainstorm Game Ideas: Generate concepts for games or animations tailored to your audience.
+3.Mock-up Design: Create a simple design mock-up of your game or animation.
+4.Present Your Ideas: Share your concept and explain how it meets user needs.
+
+
+
+
+Lesson 2: Plotting Shapes
+
+Overview
+In this lesson, we will learn how to effectively communicate the process of drawing shapes on a screen using programming concepts.
+
+Question of the Day
+How can we clearly communicate how to draw something on a screen?
+
+Explanation
+To communicate drawing instructions clearly, we can:
+
+1.Use Simple Commands: Break down the drawing process into clear, concise steps (e.g., "move to (x, y)", "draw a line to (x2, y2)").
+2.Visual Representation: Provide visual examples alongside instructions to illustrate what the final shape should look like.
+3.Coordinate System: Explain the coordinate system (e.g., x and y axes) to help users understand where to plot points.
+4.Interactive Feedback: Implement interactive tools that allow  users to see immediate results as they follow the instructions.
+5.Consistent Terminology: Use consistent language and terminology throughout the instructions to avoid confusion.
+
+
+Lesson 3: Drawing in Game Lab
+Overview
+In this lesson, we will learn how to communicate with a computer to draw shapes on the screen using Game Lab. We will focus on positioning shapes and understanding the concepts of sequencing and debugging.
+
+Question of the Day
+How can we communicate to a computer how to draw shapes on the screen?
+
+Explanation
+To draw shapes on the screen, we use specific commands that tell the computer what to do. For example:
+
+    ellipse(x, y, w, h): Draws an ellipse at the coordinates (x, y) with a width w and height h.
+    fill(color): Sets the fill color for shapes that will be drawn afterward.
+    rect(x, y, w, h): Draws a rectangle at the coordinates (x, y) with a width w and height h.
+Vocabulary
+1.Bug: A part of a program that does not work correctly.
+2.Debugging: The process of finding and fixing problems in an algorithm or program.
+3.Program: An algorithm that has been coded into something that can be run by a machine.
+
+
+
+
+
+
+LESSON 5: VARIABLE
+
+Variables
+A variable lets you store a single value in your computer's memory with a descriptive name. Using variables lets you easily refer to the same value many times in your program or save a number that you'd like to refer to later.
+
+Creating Variables
+var size;
+The command var will create a new variable with the label that you give it. This variable has the label size .
+
+Assigning Values
+
+size = 100;
+The assignment operator = will assign a new value to your variable. This command assigned 100 to the variable size . The variable must always be on the left side. You
+would read this command as "size gets 100" since size is getting a new value of 100. Any old values it might have been assigned are lost forever.
+
+Using a Value
+
+llipse(200,200 size,size);
+In order to use a variable's value, place its label in the spot in your code you want to use it. This command uses the value in size to set the width and height of the ellipse.
+
+Initializing
+
+Usually you'll want to give a variable its first (or "initial") value right away. You can initialize a variable in a single command by combining the var and = commands.
+After you initialize a variable you don't need to use the var command to assign a new value. Just use the = as normal.
+
+part 1:
+
+Where will the circle be drawn?
+What will happen if you change the number in Line 1?short 
+
+answer:
+The circle will be drawn at the coordinates specified in Line 1, which likely indicates the center of the circle. If you change the number in Line 1, the position of the circle's center will shift accordingly, affecting where the circle appears on the canvas.
+
+which corner of the screen will the circle be drawn?
+The circle will be drawn in the corner of the screen specified by the coordinates in Line 1. If the coordinates are (0, 0), it will be in the top-left corner. If the coordinates are (width, 0), it will be in the top-right corner; (0, height) will place it in the bottom-left corner, and (width, height) will place it in the bottom-right corner.
+
+LESSON:SIX RENDOM NUMBER
+
+Random Numbers
+Using Random Numbers
+The randomNumber() block can be used to generate random numbers in your programs. The parameters set the minimum and maximum value that could be generated. You
+can use this block anywhere that you could write a number.
+
+Drawing and Random Numbers
+You can use randomNumber() as a parameter in drawing commands to make random drawings. With the following command, your program might generate different
+drawings each time it's run.
+ELLIPSE(rendomNumber(O,200))
+
+Multiple Random Numbers
+If you use randomNumber() multiple times in your program it will generate new random numbers every time. You can think of each randomNumber() like a new roll of a die.
+
+ellipse(rendomNumber(0,300), rendomNumber(0,200))
