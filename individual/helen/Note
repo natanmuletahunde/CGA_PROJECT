@@ -1,0 +1,12 @@
+fill() used to fill the color of the selected shape.
+rect() to create the shape rectangle.
+ellipse() to create ellipse.
+point() to make point.
+strokeWidth()
+backround() used to make background and specifiy the color of the background.
+line()to draw a line.
+regularpolygon()to draw a plolygon
+and also about variable a variable name doesn't contain numbers,space and soon.
+randomNumber() take random position.
+Sprites are like containers - they can hold several properties that make it easier to manage our animations and make more complex drawings.
+
