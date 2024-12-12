@@ -325,5 +325,313 @@ line(x1, 0, 300, 150);
 line(x1, 200, 300, 350);
 
 
+- Lesson 7
+    -robot Face
+
+regularPolygon(200, 175, 6, 90);
+fill("white")
+ellipse(165,150,20,20)
+
+fill("white")
+ellipse(225,150,20,20)
+
+fill("white")
+rect(170, 200,56, 10);
+
+fill("black")
+ellipse(150,90,20,20)
+
+fill("black")
+ellipse(170,90,20,20)
+
+fill("black")
+ellipse(190,90,20,20)
+
+fill("black")
+ellipse(210,90,20,20)
+
+fill("black")
+ellipse(230,90,20,20)
+
+fill("black")
+ellipse(250,90,20,20)
+
+fill("black")
+ellipse(160,75,20,20)
+
+fill("black")
+ellipse(180,75,20,20)
+
+fill("black")
+ellipse(200,75,20,20)
+
+fill("black")
+ellipse(220,75,20,20)
+
+fill("black")
+ellipse(240,75,20,20)
 
 
+- Lesson 8: Sprites
+    Overview
+        - How can we use sprites to help us keep track of lots of information in our programs?
+
+Today you will learn about sprites which will not only give you a way to keep track of various pieces of information in your programs but will also allow you to create more interesting and fun images!
+
+- Vocabulary
+    
+    Sprite - A character on the screen with properties that describe its location, movement, and look.
+
+Introduced Code
+
+    - drawSprites()
+
+    - sprite.setAnimation(label)
+
+    - var sprite = createSprite(x, y, w, h)
+
+
+excercise - creative thinking
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+
+added a text "Get Ready"
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+var sprite = createSprite(200, 200);
+sprite.setAnimation("textGetReady");
+drawSprites()
+
+ - Uploading images
+
+ // Create kite sprite and set animation
+var kite = createSprite(300, 50);
+kite.setAnimation("sprite.png_1");
+
+// Draw background
+background("skyblue");
+
+// Draw grass
+fill("green");
+noStroke();
+rect(0, 300, 400, 100);
+
+// Draw string
+stroke("black");
+strokeWeight(5);
+line(150, 300, 300, 50);
+
+// Draw sprite
+drawSprites();
+
+
+
+Lesson 9: Sprite Properties
+Overview
+Question of the Day: How can we use sprite properties to change their appearance on the screen?
+
+In this lesson, you will continue working with sprites, using their properties to change their appearance.
+
+Vocabulary
+Dot notation - the way that sprites' properties are used in Game Lab, by connecting the sprite and property with a dot.
+Property - A label for a characteristic of a sprite, such as its location and appearance
+Introduced Code
+sprite.rotation
+
+sprite.scale
+
+sprite.x
+
+sprite.y
+
+ - skill building level 2
+
+ // Run the program to see where the sprites appear.
+var palette = createSprite();
+palette.setAnimation("paint_palette");
+var brush = createSprite();
+brush.setAnimation("paint_brush");
+palette.x = 100;
+palette.y = 300;
+// Change the location of the paint brush to touch the paint palette.
+brush.x= 103;
+brush.y = 276;
+drawSprites();
+
+
+    - Scaling Property
+
+// Fix the code so that it looks like the picture.
+background("darkseagreen");
+fill("deepskyblue");
+ellipse(75, 75, 75, 75);
+var fly = createSprite(25, 25);
+fly.setAnimation("fly");
+fly.scale = 1;
+
+var fish = createSprite(75, 75);
+fish.setAnimation("fish");
+fish.scale = 0.5;
+
+var cow = createSprite(150, 150);
+cow.setAnimation("cow");
+cow.scale = 0.4;
+
+var elephant = createSprite(300, 300);
+elephant.setAnimation("elephant");
+elephant.scale = 0.7;
+
+drawSprites();
+
+challenges
+
+// Add text to the scene so that it matches the scene in the picture
+var field = createSprite(200, 200);
+field.setAnimation("field");
+var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.15;
+
+
+drawSprites();
+fill("white")
+text("Red Score: 3", 0, 40)
+
+fill("white")
+text("Red Score: 3", 331, 40)
+
+
+    - lesson 11
+    -create your scene
+
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+drawSprites()
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
+
+
+    - lesson 12
+
+    - functions - the draw function is run over and over again by the game lab
+noStroke();
+fill("SeaGreen");
+
+function draw(){
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+// Add code to this program so that your drawing has orange circles being drawn, too.
+noStroke();
+
+function draw(){
+  fill("green");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+  fill("orange");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - a nice simple trick inorder to clear the screen
+
+World.frameRate = 5;
+
+noStroke();
+background("blue");
+fill("Yellow");
+
+function draw(){
+  background("Red");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - change while drawing
+// Run the program to see how it works.
+var pencil = createSprite(100,200);
+pencil.setAnimation("pencil");
+
+var brush = createSprite(300,200);
+brush.setAnimation("brush");
+
+function draw(){
+  background("white");
+  pencil.x = randomNumber(100,110);
+  brush.x = randomNumber(300,310);
+  // Edit the code in this program to make the second sprite shake like the first one.
+
+  drawSprites();
+}
+
+    - Debug: Sprite Not Moving
+
+
+     drawSprites(); 
+
+     - Updating Properties
+
+// Add the draw loop block to the bottom of this program.
+// Move any blocks that need to be inside the draw loop.
+
+var salt = createSprite(200,200);
+salt.setAnimation("salt");
+background("skyblue");
+drawSprites();
+
+function draw(){
+  background("skyblue");
+  salt.y = randomNumber(200,100)
+  drawSprites();
+}
+
+    - Extend Your Scene
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
+
+function draw(){
+  sprite1.x=randomNumber(100,200)
+  drawSprites()
+}
