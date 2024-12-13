@@ -9,4 +9,6 @@ regularpolygon()to draw a plolygon
 and also about variable a variable name doesn't contain numbers,space and soon.
 randomNumber() take random position.
 Sprites are like containers - they can hold several properties that make it easier to manage our animations and make more complex drawings.
+Tint is a property that will overlay a color on top of a sprite to tint it. 
+alpha is a property that can control the transparency of a sprite. It uses decimal values to represent transparency.
 
