@@ -1,3 +1,1 @@
-From this series of lessons, I learned how to build small gaming projects, 
-gained insights into game development functionality, and 
-explored the basics of creating interactive games using JavaScript.
+From this series of lessons, I learned   to build small gaming project and understand key game development functionalities.
