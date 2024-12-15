@@ -1,2 +1,14 @@
 in this lesson i have learned different functions like recr() to create rectangle 
 ellise() to create ellipse , fill() to fill the color and so on.
+backround() used to make background and specifiy the color of the background.
+line()to draw a line.
+regularpolygon()to draw a plolygon
+and also about variable a variable name doesn't contain numbers,space and soon.
+randomNumber() take random position.
+Sprites are like containers - they can hold several properties that make it easier to manage our animations and make more complex drawings.
+Tint is a property that will overlay a color on top of a sprite to tint it. 
+alpha is a property that can control the transparency of a sprite. It uses decimal values to represent transparency.
+also a sprite.scale used to change the size of the sprites .
+spite. rotation for rotation process on the sprite.
+text used to add a text 
+texrsize used to change the size of the text.
