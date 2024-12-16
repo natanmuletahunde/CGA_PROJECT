@@ -1360,3 +1360,96 @@ function draw(){
 
 
 }
+
+Adding Sprites
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+var clicked = 0;
+
+
+function draw() {
+  drawSprites() 
+}
+
+user input 
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+}
+
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite1.x = sprite1.x - 1;
+  }
+}
+
+
+Finishing touches
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+
+text("Balls Game", 10,10);
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite.x = sprite.x - 1;
+  }
+}
