@@ -635,3 +635,150 @@ function draw(){
   sprite1.x=randomNumber(100,200)
   drawSprites()
 }
+
+lesson 13 : Sprite movement
+
+The Counter Pattern
+
+This program creates a variable counter and then uses the counter pattern to make it count up.
+
+var counter = 0;
+
+function draw(){
+  background("white");
+  textSize(counter);
+  text(counter, 0, 400);
+  counter = counter + 1;
+}
+
+Sprite Movement
+
+
+var jet = createSprite(350, 350);
+jet.setAnimation("jet");
+var plane = createSprite(50, 200);
+plane.setAnimation("plane");
+
+function draw() {
+  background("skyblue");
+  
+  //1) Read the code that makes the jet go up the screen
+  jet.y = jet.y - 3;
+  plane.x = plane.x + 3
+  
+
+
+  Moving to the Left
+
+  var fly = createSprite(350, 200);
+fly.setAnimation("fly");
+
+function draw() {
+  background("skyblue");
+  //1) Use the counter pattern to make the sprite move to the left.
+  fly.x = fly.x - 3
+
+  drawSprites();
+}
+
+Diagonal Movement
+
+//1) Read the code that makes the mouse go down.
+//2) Run the program and look at the watchers to see what is happening 
+
+var mouse = createSprite(50, 50);
+mouse.setAnimation("mouse");
+mouse.scale = 0.5;
+
+function draw() {
+  background("lightgreen");
+  mouse.y = mouse.y + 2;
+  mouse.x = mouse.x + 2;
+  //3) Add one more line of code to make the mouse move diagonally.
+  
+  drawSprites();
+}
+
+//4) Run your code again and look at the watchers.
+
+
+Debug: Watching the Counter Pattern
+
+
+//1) Take a look at the value in the watcher
+//2) Add a watcher for the y property
+//3) Run the program to see what happens to the properties and why the motorcycle disappears
+//4) Debug the code so the program runs like the image
+
+var cycle = createSprite(0, 400);
+cycle.setAnimation("motorcycle");
+cycle.rotation = 45;
+
+function draw() {
+  background("lightgrey");
+  cycle.x = cycle.x + 10;
+  cycle.y = cycle.y - 10;
+  drawSprites();
+}
+
+Fish Animation
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4
+  greenFish.x = greenFish.x - 3
+  
+  //1) Use the counter pattern to make the blue fish move across the screen faster than the other fish
+
+  //2) Use the counter pattern to make the green fish move across the screen slower than the other fish.
+  
+  // Draw Animations
+  drawSprites();
+}
+
+More Fish
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4;
+  greenFish.x = greenFish.x - 3;
+  
+  orangeFish.rotation = orangeFish.rotation + randomNumber(1, 10);
+  orangeFish.rotation = orangeFish.rotation - randomNumber(1, 10);
+  
+  blueFish.rotation = blueFish.rotation + randomNumber(1, 10);
+  blueFish.rotation = blueFish.rotation - randomNumber(1, 10);
+  
+  greenFish.rotation = greenFish.rotation + randomNumber(1, 10);
+  greenFish.rotation = greenFish.rotation - randomNumber(1, 10);
+  
+  
+  
+  drawSprites();
+}
+
+
