@@ -1936,6 +1936,87 @@ function draw() {
   if(keyDown("right")) {
     ghost.x = ghost.x + 5;
   }
+
   drawSprites();
 }
+Lesson 21: Mini-Project - Side Scroller
+
+// GAME SETUP
+var frog = createSprite(150, 300);
+frog.setAnimation("frog");
+var mushroom = createSprite(450, 320);
+mushroom.setAnimation("mushroom");
+var targetfly = createSprite(450, randomNumber(50, 250));
+targetfly.setAnimation("fly");
+
+// Set initial velocities
+mushroom.velocityX = -4;
+targetfly.velocityX = -4;
+
+// Variables
+var score = 0;
+var health = 100;
+
+// Gravity constant
+var gravity = 0.5;
+
+function draw() {
+    // BACKGROUND
+    background("skyblue");
+    fill("brown");
+    rect(0, 300, 400, 100);
+
+    // SPRITE INTERACTIONS
+    if (frog.isTouching(mushroom)) {
+        health -= 3;
+        mushroom.x = 450;
+        mushroom.y = randomNumber(10, 50);
+    }
+    if (frog.isTouching(targetfly)) {
+        score += 3;
+        targetfly.x = 450;
+        targetfly.y = randomNumber(50, 250);
+    }
+
+    // JUMPING
+    if (keyDown("up") && frog.y >= 300) {
+        frog.velocityY = -5; // Apply upward velocity to jump
+    }
+
+    frog.velocityY += gravity; // Apply gravity to pull the frog down
+
+    if (frog.y >= 300) { // Stop the frog when it hits the ground
+        frog.velocityY = 0;
+        frog.y = 300;
+    }
+
+    // LOOPING
+    if (mushroom.x < 0) {
+        mushroom.x = 450;
+        mushroom.y = randomNumber(10, 320);
+    }
+    if (targetfly.x < 0) {
+        targetfly.x = 450;
+        targetfly.y = randomNumber(50, 250);
+    }
+
+    // DRAW SPRITES
+    drawSprites();
+
+    // SCOREBOARD
+    fill("black");
+    textSize(20);
+    text("Score: " + score, 10, 20);
+    text("Health: " + health, 300, 20);
+
+    // GAME OVER
+    if (health <= 0) {
+        background("black");
+        fill("green");
+        textSize(50);
+        text("Game Over!", 50, 200);
+        noLoop();
+    }
+}
+
 
