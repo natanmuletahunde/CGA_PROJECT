@@ -781,4 +781,240 @@ function draw() {
   drawSprites();
 }
 
+lesson 14
 
+Create Your Scene - Background
+
+background("white");
+var sprite = createSprite(10, 200);
+sprite.setAnimation("bowl_1");
+var sprite = createSprite(200, 10);
+sprite.setAnimation("bandage_1");
+function draw() {
+  drawSprites();
+}
+
+Create Your Scene - Sprites
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+
+
+function draw() {
+  drawSprites();
+}
+
+Add a text
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  drawSprites();
+}
+
+Scene Movement
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  background("white");
+  sprite4.x = sprite4.x + 1
+  
+  sprite5.y = sprite5.y + -1
+  drawSprites();
+}
+
+
+lesson 15: Conditionals
+
+booleans
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Counter pattern to make car move across the screen
+  raceCar.x = raceCar.x - 2;
+  
+  //Program text
+  fill("black");
+  strokeWeight(5);
+  textSize(25);
+  text("The race car has crossed the finish line:", 100, 20, 300, 60);
+  fill("blue");
+  //1) Add blocks to the text command to print the boolean to the screen
+  var x =  raceCar.x < 70;
+  
+  text(x, 100, 100);
+  
+  
+  // Draw Animations
+  drawSprites();
+}
+
+if Statments
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update values
+  raceCar.x = raceCar.x - 2;
+  if (raceCar.x < finishLine.x) {
+    text("THE ORANGE CAR IS THE WINNER!",100,100);
+  }
+  // Draw Animations
+  drawSprites();
+}
+
+
+Changing Fruit
+
+var fruit = createSprite(200, 200);
+fruit.setAnimation("apple");
+fruit.scale = 0.1;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  fruit.scale = fruit.scale + 0.01;
+  
+  if (fruit.scale > 2) {
+    fruit.setAnimation("pear");
+  }
+  
+  
+  //1) Add a conditional to the draw loop.
+  //2) Add code to the conditional statement that asks if the scale of the fruit greater than 2.
+  //3) Add code inside the conditional to change the fruit to a pear.
+
+
+
+
+  // Draw Animations
+  drawSprites();
+}
+
+
+Droped Soup
+
+var soup =  createSprite(200,200);
+soup.setAnimation("stew");
+
+function draw() {
+  background("lightgreen");
+  soup.rotation = soup.rotation + 3;
+  
+  //2) Add a conditional that detects when the bowl is upside down.
+  //3) Set the sprite's animation to be an empty bowl when the bowl is upside down.
+  if(soup.rotation == 180){
+    soup.setAnimation("bowl")
+  }
+  drawSprites();
+}
+
+
+Magic Dinosaur
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sci_fi");
+var dinosaur = createSprite(200, 350);
+dinosaur.scale = 0.2;
+dinosaur.setAnimation("tyrannosaurus");
+
+function draw() {
+  //move the dinosaur up
+  dinosaur.y = dinosaur.y - 5;
+
+  //2) Add a conditional that detects when the dinosaur is in the sky.
+  //3) Set the sprite's animation to a pterodactyl when it reaches the sky.
+  
+  if(dinosaur.y == 150){
+    dinosaur.setAnimation("pterodactyl")
+  }  //draw everything
+  drawSprites();
+}
+
+
+
+Conditional Challenge A 
+
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+var pop = createSprite(200,200);
+pop.setAnimation("pop");
+pop.visible = false;
+//1) Create a pop sprite which uses the "pop" visual in the animation tab.
+
+
+//2) Set the pop sprite to be hidden at the beginning.
+
+
+function draw() {
+  // Draw Background
+  background("white");
+
+  // Update Values
+  balloon.scale = balloon.scale + 0.001;
+  console.log(balloon.scale);
+  if(balloon.scale == 0.39700000000000024){
+    balloon.visible = false;
+    pop.visible = true;
+  }
+
+  //3) Add a conditional that checks the size of the balloon to see when it touches the edge of the screen.
+  //4) Inside your conditional, set the balloon sprite to be hidden *and* set the pop sprite to appear.
+
+
+
+  // Draw Animations
+  drawSprites();
+}
