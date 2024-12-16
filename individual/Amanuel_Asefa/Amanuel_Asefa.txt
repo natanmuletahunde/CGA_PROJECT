@@ -1195,3 +1195,168 @@ function draw() {
   textSize(50);
   text(clicks, 165, 175, 70, 50);
 }
+
+If/Else Predict
+
+if space is pressed it increases the scale by 0.02 other wise if any other key is pressed it decreases the scale
+
+Reverse the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (keyDown("space")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //1) Make the gears spin the opposite way when the space bar is **not** being pressed.
+  
+  drawSprites();
+}
+
+Control the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (mouseDown("leftButton")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //3) Make the gears spin the opposite way when there is no user input.
+
+  
+  drawSprites();
+}
+
+Mouse clicks
+
+var balloon = createSprite(200, 50);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+function draw() {
+  background("white");
+  
+  
+  if(mouseDown()){
+      balloon.y = balloon.y + 1;
+  }else{
+    balloon.y = balloon.y - 1;
+  }
+
+  drawSprites();
+}
+
+World.mouseX
+
+
+var blender = createSprite(100, 300);
+blender.setAnimation("blender");
+var mixer = createSprite(300, 300);
+mixer.setAnimation("mixer");
+
+function draw() {
+  background("lightyellow");
+  fill("burlywood");
+  rect(0, 350, 400, 50);
+  if (World.mouseX < 200) {
+    blender.x = randomNumber(95, 105);
+    blender.y = randomNumber(295, 305);
+  }
+  if (World.mouseX > 220) {
+    mixer.x = randomNumber(250, 252);
+    mixer.y = randomNumber(238, 340);
+  }
+  //2) Add to the conditional so that when the mouse is on the other side of the screen, the mixer shakes instead.
+
+  drawSprites();
+}
+
+Emoji Reactions
+
+var emoji = createSprite(200, 200);
+emoji.setAnimation("smileEmoji");
+
+function draw() {
+  background("white");
+  //1)If the mouse is pressed down, change the emoji to a different emoji
+  
+  if(mouseDown()){
+    emoji.setAnimation("glassesEmoji")
+  }else{
+    emoji.setAnimation("smileEmoji")
+  }
+  //2)Otherwise, keep the emoji as a smile emoji
+  
+  drawSprites();
+}
+
+
+Fix The Program
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+function draw() {
+  //1) Change the code so that the creature only shakes when the mouse is pressed.
+  if(mouseDown()){
+    creature.rotation = randomNumber(-5,5);
+  }
+  drawSprites();
+
+  //2) Change the code so the directions ("Press the mouse to shake the creature.") **only show** 
+  //when the user is **NOT** pressing the mouse.
+  fill("black");
+  textSize(40);
+  text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+}
+
+
+Mouse X and Y
+
+
+//Create a bee sprite
+var sprite =  createSprite(200,200)
+sprite.setAnimation("bee")
+
+function draw(){
+  background("white")
+  drawSprites();
+   sprite.x = World.mouseX;
+  sprite.y = World.mouseY;
+ 
+  //Update the position of the bee to the position of the mouse
+
+
+}
