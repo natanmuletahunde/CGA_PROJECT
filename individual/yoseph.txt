@@ -2018,5 +2018,120 @@ function draw() {
         noLoop();
     }
 }
+lesson 22 cmplex sprite movement
+Velocity and the Counter Pattern
 
+This program already makes a car move across the screen, but it's going very slowly. By using the velocityX property with the counter pattern, you can change the sprite's speed during the program. 
+var car = createSprite(50, 200);
+car.setAnimation("red_car");
+car.velocityX = 0.2;
+
+function draw() {
+  background("gray");
+  
+  //1) Add code to make the car speed up.
+
+
+  car.velocityX=car.velocityX+0.5;
+  drawSprites();
+}
+Falling Rock
+
+In this program, the rock should speed up as it falls down the screen.
+var rock = createSprite(200, 50);
+rock.setAnimation("rock");
+rock.velocityY = 0.5;
+
+function draw() {
+  background("skyblue");
+  
+  //1) Add code to make the rock speed up as it falls.
+rock.velocityY=rock.velocityY+0.3;
+    
+  drawSprites();
+}
+Slowing Things Down
+
+The car is going to run into the water! You'll need to use the counter pattern to slow it down.
+var car = createSprite(50, 200);
+car.setAnimation("blue_car");
+car.velocityX =  10;
+
+noStroke();
+
+function draw() {
+  background("burlywood");
+  fill("blue");
+  rect(350,0,100,400);
+  
+  //1) Add code to slow the car down before it goes into the water.
+car.velocityX=car.velocityX-0.25;
+
+
+  drawSprites();
+}
+Sprite Movement Practice
+
+Practice using the new ways to move sprites.
+var bubble = createSprite(200, 350);
+bubble.setAnimation("bubble");
+bubble.velocityY = -0.5;
+
+function draw() {
+  background("blue");
+  
+  //1) Add code to make the bubble speed up as it rises.
+bubble.velocityY=-5;
+
+
+  drawSprites();
+}
+Looks like Gravity
+
+Uh oh! The rock is thrown in the air but it never falls back down!
+var rock = createSprite(200, 350);
+rock.setAnimation("rock");
+rock.velocityY = -10; // Initial upward velocity
+rock.rotationSpeed = 2; // Add a rotation effect
+
+// Gravity constant
+var gravity = 0.5;
+
+function draw() {
+  background("skyblue");
+
+  // Apply gravity to slow the rock down and make it fall
+  rock.velocityY += gravity;
+
+  
+  
+
+  drawSprites();
+}
+Deceleration
+
+For this program, you need to make the car slow to a halt before it goes past the top of the screen.
+var car = createSprite(200, 350);
+car.setAnimation("car");
+
+car.velocityY = -15; // Initial upward velocity
+
+function draw() {
+  background("forestgreen");
+  fill("gray");
+  rect(150, 0, 100, 400);  // The road
+  
+  // 1) Make the car slow down in the draw loop
+  if (car.velocityY < 0) {  // If the car is moving upward
+    car.velocityY += 0.4;   // Gradually reduce the upward velocity
+  }
+  
+  // 2) Use a conditional to detect when the car's velocity is 0 or close to it
+  if (car.velocityY >= -0.5) { 
+    car.velocityY = 0;  // Stop the car when its velocity is near zero
+    car.y = car.y;      // Hold its position
+  }
+
+  drawSprites();
+}
 
