@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PingBall</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="flex flex-row justify-around">
+            <div>
+                <h1 class="text-lg">Press Space to retry</h1>
+                <iframe
+                    width="440"
+                    height="757"
+                    style="border: 0px"
+                    src="https://studio.code.org/projects/gamelab/Q671ZTlbnhw-_sR3uQEu6C6gtzVpoWCGFyj0-r4cf9s/embed"
+                ></iframe>
+            </div>
+            <div>
+                <pre class="text-xs">
+                    var handle = createSprite(200,310);
+                    handle.setAnimation("handle");
+
+                    var ball = createSprite(200,200);
+                    ball.setAnimation("ball");
+
+                    var ballSpeedX = 10;
+                    var ballSpeedY = 14;
+                    ball.velocityX = ballSpeedX;
+                    ball.velocityY = ballSpeedY;
+
+                    var retry = false;
+                    var gameOverNow = false;
+
+                    function gameOver(){
+                    ball.velocityY = 0;
+                    ball.velocityX = 0;
+                    ball.visible = false;
+                    handle.visible = false;
+                    background("red");
+                    fill("white");
+                    textSize(50);
+                    text("Game Over", 80,200);
+                    
+
+                    
+                    if(keyWentDown("space")){
+                        retry = true;
+                        handle.visible =  true;      
+                        ball.visible = true;
+                        ball.velocityY = ballSpeedX;
+                    ball.velocityX = ballSpeedY;
+                    }
+                    }
+
+                    function draw() {
+                    background("white");
+                    
+                    if(World.mouseX < 410 && World.mouseX > 35){
+                        handle.x = World.mouseX;
+                    }
+                    if(ball.isTouching(handle)){
+                        ball.bounceOff(handle);
+                    }
+                    
+
+                    
+                    if(ball.y > 310){
+                    if(retry != true){
+                        gameOverNow = true;
+                        gameOver();
+                    }
+                    if(retry){
+                        ball.x=0;
+                        ball.y=0;
+                    }
+                    }
+                    drawSprites();
+                    createEdgeSprites();
+                    ball.bounceOff(edges);
+                    ball.collide(edges);
+                    ball.collide(handle);
+                    
+                    }
+
+                </pre>
+            </div>
+        </div>
+    </body>
+</html>
