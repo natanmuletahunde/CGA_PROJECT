@@ -1,1 +1,1455 @@
 Lesson 1: Programming for a Purpose
+Lesson 2: Plotting Shapes
+Lesson 3: Drawing in Game Lab
+
+
+Lesson 4: Shapes and Parameters
+
+Overview
+
+  - The Lesson Starts with "How can we use parameters to give the computer more specific instructions?"
+  - the main idea of the lesson so far is manipulating the "parameters" of the shapes to control their appearance.
+
+Vocabulary
+
+  - Parameter - Additional information provided as input to a block to customize its functionality
+
+Introduced Code
+
+  - background(color) -> sets the background color of the canvas to the parameters color
+  - ellipse(x, y, w, h) -> the newly Introduced parameters are used to identify the width and height of the ellipse being constructed 
+  - rect(x, y, w, h) -> the newly Introduced parameters are used to identify the width and height of the rectangle being constructed 
+
+one example of the above methods would be
+
+//Debug this program to make the cloud wider than it is tall, like in the image.
+
+// Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(300,50,50,50);
+
+// Draw grass
+fill("green");
+rect(0,300,400,100);
+
+// Draw cloud
+fill("white");
+ellipse(150,100,200,100);
+
+- Regular Polygon practise excercise
+
+regularPolygon(50, 75, 3, 50);
+regularPolygon(150, 75, 4, 50);
+regularPolygon(50, 175, 7, 50);
+regularPolygon(50, 275, 11, 50);
+// Add code to finish the drawing so it matches the picture
+regularPolygon(250, 75, 5, 50)
+regularPolygon(350, 75, 6, 50)
+regularPolygon(150, 175, 8, 50);
+regularPolygon(250, 175, 9, 50);
+regularPolygon(350, 175, 10, 50);
+
+regularPolygon(150, 275, 12, 50);
+regularPolygon(250, 275, 13, 50);
+regularPolygon(350, 275, 14, 50);
+
+ - new blocks shape example
+
+fill("red");
+shape(200, 200, 0, 400, 400, 400);
+fill("blue");
+shape(200, 200, 0, 0, 400, 0);
+// Finish the code so it matches the picture
+fill("green")
+shape(0,0,200,200, 0,400)
+
+fill("yellow")
+shape(400,0,200,200, 400,400)
+
+ - drawing complicated Lines
+
+ line(0, 0, 50, 400);
+line(0, 50, 100, 400);
+line(0, 100, 150, 400);
+line(0, 150, 200, 400);
+line(0, 200, 250, 400);
+line(0, 250, 300, 400);
+line(0, 300, 350, 400);
+line(0, 350, 400, 400);
+// Finish the code so it matches the picture
+line(0, 0, 400, 0);
+line(400, 0, 400, 400);
+line(350, 0, 400, 300);
+line(250, 0, 400, 200);
+line(150, 0, 400, 100);
+
+line(200, 0, 400, 150);
+line(300, 0, 400, 250);
+line(100, 0, 400, 100);
+line(150, 0, 400, 150);
+
+ - new block arc
+
+arc(50, 100, 100, 100, 0, 360);
+arc(200, 100, 100, 100, 0, 300);
+fill("green");
+arc(350, 100, 100, 100, 90, 180);
+noFill();
+arc(50, 200, 100, 100, 0, 180);
+arc(200, 200, 100, 100, 30, 210);
+//Create two more shapes on the screen using the arc block!
+fill("red")
+arc(300, 300, 100, 100, 0,60);
+
+fill("red")
+arc(200, 200, 100, 100, 0,270);
+
+- Lesson 5: Variables
+    - Overview
+    - Question of the Day: How can we use variables to store information in our programs?
+
+
+    - Vocabulary
+        - Variable - A label for a piece of information used in a program.
+
+    - Introduced Code
+    - var x = ___;
+
+    - var x;
+
+- Debug Adding a variables
+
+// Update the variable names at the top of the code
+var size = 100;
+var color1 = "green";
+var color2 = "red";
+var color3 = "orange";
+
+// Read through the code and identify the four variables
+fill(color1);
+ellipse(200, 100, size, size);
+noFill();
+rect(150, 50, size, size);
+fill(color2);
+ellipse(200, 200, size, size);
+noFill();
+rect(150, 150, size, size);
+fill(color3);
+ellipse(200, 300, size, size);
+noFill();
+rect(150, 250, size, size);
+
+    -using variables excercise
+
+// Change the program to use the eyeSize variable.
+var eyeSize = 27;
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200,200,200,200);
+
+// Eyes
+fill("black");
+ellipse(160,170,eyeSize,eyeSize);
+ellipse(240,170,eyeSize,eyeSize);
+
+// Mouth
+fill("white");
+rect(160,240,80,20);
+
+
+    - Challenge -> updating variables
+
+var x = 50;
+var y = 50;
+
+fill("red");
+ellipse(x, y);
+// Increase x by 50, now x is 100
+y = y + 50;
+ellipse(x, y);
+// Increase x by 50, now x is 150
+y = y + 50;
+ellipse(x, y);
+
+    - String Variables
+
+var color1 = "green";
+var color2 = "yellow";
+var color3 = "red";
+
+
+fill(color1);
+regularPolygon(200, 200, 5, 200);
+fill(color2);
+regularPolygon(200, 200, 6, 150);
+fill(color3);
+regularPolygon(200, 200, 7, 100);
+
+    - Abstract Art 
+
+var flagWidth = 400;
+var flagHeight = 250;
+var circleSize = 100;
+var circleX = flagWidth / 2;
+var circleY = flagHeight / 2;
+var stripeHeight = 50;
+var stripeColor1 = "skyblue";
+var stripeColor2 = "white";
+
+fill("green");
+rect(0, 0, flagWidth, flagHeight);  
+
+fill(stripeColor1);
+rect(0, 0, flagWidth, stripeHeight);  
+fill(stripeColor2);
+rect(0, stripeHeight, flagWidth, stripeHeight); 
+
+fill("yellow");
+ellipse(circleX, circleY, circleSize, circleSize); 
+
+stroke("black");
+strokeWeight(5);
+noFill();
+rect(0, 0, flagWidth, flagHeight);  
+
+
+    -Random Numbers
+    You have a new block in the Math drawer called randomNumber().
+    If you make your drawings with random numbers it will look a little bit 
+    different every time you run your program. Click on the block to read
+    it's documentation and learn more about how it works
+
+    Right now, the program only draws the ellipse on the right side of the screen.
+    Let's update the code so the ellipse could appear anywhere horizontally on the screen.
+
+background("tomato");
+
+// Change the code so the ellipse can appear anywhere horizontally on the screen
+fill("orange");
+ellipse(randomNumber(0,400), 200, 50, 50);
+
+    - randomNumber(xin,yin) generates random number between the given intervals
+
+    - modifying the scence practise
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+
+
+    - rainbow
+
+//2) Add at least three new different colored circles to your rainbow snake.
+//3) Use randomNumber to make the rest of the snake's body move up and down like the first three.
+
+background("skyBlue");
+
+fill("red");
+ellipse(100, randomNumber(190,210), 50, 50);
+
+fill("orange");
+ellipse(140, randomNumber(190,210), 50, 50);
+
+fill("yellow");
+ellipse(180, randomNumber(190,210), 50, 50);
+
+fill("green");
+ellipse(220, randomNumber(190,210), 50, 50);
+
+fill("blue");
+ellipse(260, randomNumber(190,210), 50, 50);
+
+fill("violate");
+ellipse(300, randomNumber(190,210), 50, 50);
+
+
+- challenges
+
+// Update the background to be a random color
+background(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+
+// Update each arc of the rainbow to a random color
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 400, 400);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 340, 340);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 280, 280);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 220, 220);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 160, 160);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 100, 100);
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+ellipse(200, 200, 40, 40);
+
+// Update the ground to a random color
+fill(rgb(randomNumber(0,255), randomNumber(0,255), randomNumber(0,255)));
+rect(0, 200, 400, 200);
+
+- random Lines
+
+// Randomize the position of each of the lines
+
+var x1 = randomNumber(0,400)
+var x2 = randomNumber(0,400)
+
+var y1 = randomNumber(0,400)
+var y2 = randomNumber(0,400)
+
+line(x1, 0, 0, 150);
+line(x1, 200, 0, 350);
+line(x1, 0, 100, 150);
+line(x1, 200, 100, 350);
+line(x1, 0, 200, 150);
+line(x1, 200, 200, 350);
+line(x1, 0, 300, 150);
+line(x1, 200, 300, 350);
+
+
+- Lesson 7
+    -robot Face
+
+regularPolygon(200, 175, 6, 90);
+fill("white")
+ellipse(165,150,20,20)
+
+fill("white")
+ellipse(225,150,20,20)
+
+fill("white")
+rect(170, 200,56, 10);
+
+fill("black")
+ellipse(150,90,20,20)
+
+fill("black")
+ellipse(170,90,20,20)
+
+fill("black")
+ellipse(190,90,20,20)
+
+fill("black")
+ellipse(210,90,20,20)
+
+fill("black")
+ellipse(230,90,20,20)
+
+fill("black")
+ellipse(250,90,20,20)
+
+fill("black")
+ellipse(160,75,20,20)
+
+fill("black")
+ellipse(180,75,20,20)
+
+fill("black")
+ellipse(200,75,20,20)
+
+fill("black")
+ellipse(220,75,20,20)
+
+fill("black")
+ellipse(240,75,20,20)
+
+
+- Lesson 8: Sprites
+    Overview
+        - How can we use sprites to help us keep track of lots of information in our programs?
+
+Today you will learn about sprites which will not only give you a way to keep track of various pieces of information in your programs but will also allow you to create more interesting and fun images!
+
+- Vocabulary
+    
+    Sprite - A character on the screen with properties that describe its location, movement, and look.
+
+Introduced Code
+
+    - drawSprites()
+
+    - sprite.setAnimation(label)
+
+    - var sprite = createSprite(x, y, w, h)
+
+
+excercise - creative thinking
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+
+added a text "Get Ready"
+
+background("lightblue");
+// Randomize the x position of the sun
+fill("yellow");
+ellipse(randomNumber(0,400), 50);
+// Randomize the x position of the mountains
+fill("brown");
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 200);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+regularPolygon(randomNumber(0,400), 300, 3, 250);
+fill("lightgreen");
+rect(0, 300, 400, 100);
+var sprite = createSprite(200, 200);
+sprite.setAnimation("textGetReady");
+drawSprites()
+
+ - Uploading images
+
+ // Create kite sprite and set animation
+var kite = createSprite(300, 50);
+kite.setAnimation("sprite.png_1");
+
+// Draw background
+background("skyblue");
+
+// Draw grass
+fill("green");
+noStroke();
+rect(0, 300, 400, 100);
+
+// Draw string
+stroke("black");
+strokeWeight(5);
+line(150, 300, 300, 50);
+
+// Draw sprite
+drawSprites();
+
+
+
+Lesson 9: Sprite Properties
+Overview
+Question of the Day: How can we use sprite properties to change their appearance on the screen?
+
+In this lesson, you will continue working with sprites, using their properties to change their appearance.
+
+Vocabulary
+Dot notation - the way that sprites' properties are used in Game Lab, by connecting the sprite and property with a dot.
+Property - A label for a characteristic of a sprite, such as its location and appearance
+Introduced Code
+sprite.rotation
+
+sprite.scale
+
+sprite.x
+
+sprite.y
+
+ - skill building level 2
+
+ // Run the program to see where the sprites appear.
+var palette = createSprite();
+palette.setAnimation("paint_palette");
+var brush = createSprite();
+brush.setAnimation("paint_brush");
+palette.x = 100;
+palette.y = 300;
+// Change the location of the paint brush to touch the paint palette.
+brush.x= 103;
+brush.y = 276;
+drawSprites();
+
+
+    - Scaling Property
+
+// Fix the code so that it looks like the picture.
+background("darkseagreen");
+fill("deepskyblue");
+ellipse(75, 75, 75, 75);
+var fly = createSprite(25, 25);
+fly.setAnimation("fly");
+fly.scale = 1;
+
+var fish = createSprite(75, 75);
+fish.setAnimation("fish");
+fish.scale = 0.5;
+
+var cow = createSprite(150, 150);
+cow.setAnimation("cow");
+cow.scale = 0.4;
+
+var elephant = createSprite(300, 300);
+elephant.setAnimation("elephant");
+elephant.scale = 0.7;
+
+drawSprites();
+
+challenges
+
+// Add text to the scene so that it matches the scene in the picture
+var field = createSprite(200, 200);
+field.setAnimation("field");
+var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.15;
+
+
+drawSprites();
+fill("white")
+text("Red Score: 3", 0, 40)
+
+fill("white")
+text("Red Score: 3", 331, 40)
+
+
+    - lesson 11
+    -create your scene
+
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+drawSprites()
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
+
+
+    - lesson 12
+
+    - functions - the draw function is run over and over again by the game lab
+noStroke();
+fill("SeaGreen");
+
+function draw(){
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+// Add code to this program so that your drawing has orange circles being drawn, too.
+noStroke();
+
+function draw(){
+  fill("green");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+  fill("orange");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - a nice simple trick inorder to clear the screen
+
+World.frameRate = 5;
+
+noStroke();
+background("blue");
+fill("Yellow");
+
+function draw(){
+  background("Red");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+
+    - change while drawing
+// Run the program to see how it works.
+var pencil = createSprite(100,200);
+pencil.setAnimation("pencil");
+
+var brush = createSprite(300,200);
+brush.setAnimation("brush");
+
+function draw(){
+  background("white");
+  pencil.x = randomNumber(100,110);
+  brush.x = randomNumber(300,310);
+  // Edit the code in this program to make the second sprite shake like the first one.
+
+  drawSprites();
+}
+
+    - Debug: Sprite Not Moving
+
+
+     drawSprites(); 
+
+     - Updating Properties
+
+// Add the draw loop block to the bottom of this program.
+// Move any blocks that need to be inside the draw loop.
+
+var salt = createSprite(200,200);
+salt.setAnimation("salt");
+background("skyblue");
+drawSprites();
+
+function draw(){
+  background("skyblue");
+  salt.y = randomNumber(200,100)
+  drawSprites();
+}
+
+    - Extend Your Scene
+var sprite = createSprite(200, 200);
+sprite.setAnimation("bg.jpg_1");
+var sprite1 = createSprite(264, 286);
+sprite1.setAnimation("animalhead_arcticfox_1");
+sprite1.scale = 0.1
+
+
+
+
+
+fill("white")
+var t =text("Mario", 200, 100)
+t.scale(4)
+textSize(200)
+
+function draw(){
+  sprite1.x=randomNumber(100,200)
+  drawSprites()
+}
+
+lesson 13 : Sprite movement
+
+The Counter Pattern
+
+This program creates a variable counter and then uses the counter pattern to make it count up.
+
+var counter = 0;
+
+function draw(){
+  background("white");
+  textSize(counter);
+  text(counter, 0, 400);
+  counter = counter + 1;
+}
+
+Sprite Movement
+
+
+var jet = createSprite(350, 350);
+jet.setAnimation("jet");
+var plane = createSprite(50, 200);
+plane.setAnimation("plane");
+
+function draw() {
+  background("skyblue");
+  
+  //1) Read the code that makes the jet go up the screen
+  jet.y = jet.y - 3;
+  plane.x = plane.x + 3
+  
+
+
+  Moving to the Left
+
+  var fly = createSprite(350, 200);
+fly.setAnimation("fly");
+
+function draw() {
+  background("skyblue");
+  //1) Use the counter pattern to make the sprite move to the left.
+  fly.x = fly.x - 3
+
+  drawSprites();
+}
+
+Diagonal Movement
+
+//1) Read the code that makes the mouse go down.
+//2) Run the program and look at the watchers to see what is happening 
+
+var mouse = createSprite(50, 50);
+mouse.setAnimation("mouse");
+mouse.scale = 0.5;
+
+function draw() {
+  background("lightgreen");
+  mouse.y = mouse.y + 2;
+  mouse.x = mouse.x + 2;
+  //3) Add one more line of code to make the mouse move diagonally.
+  
+  drawSprites();
+}
+
+//4) Run your code again and look at the watchers.
+
+
+Debug: Watching the Counter Pattern
+
+
+//1) Take a look at the value in the watcher
+//2) Add a watcher for the y property
+//3) Run the program to see what happens to the properties and why the motorcycle disappears
+//4) Debug the code so the program runs like the image
+
+var cycle = createSprite(0, 400);
+cycle.setAnimation("motorcycle");
+cycle.rotation = 45;
+
+function draw() {
+  background("lightgrey");
+  cycle.x = cycle.x + 10;
+  cycle.y = cycle.y - 10;
+  drawSprites();
+}
+
+Fish Animation
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4
+  greenFish.x = greenFish.x - 3
+  
+  //1) Use the counter pattern to make the blue fish move across the screen faster than the other fish
+
+  //2) Use the counter pattern to make the green fish move across the screen slower than the other fish.
+  
+  // Draw Animations
+  drawSprites();
+}
+
+More Fish
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4;
+  greenFish.x = greenFish.x - 3;
+  
+  orangeFish.rotation = orangeFish.rotation + randomNumber(1, 10);
+  orangeFish.rotation = orangeFish.rotation - randomNumber(1, 10);
+  
+  blueFish.rotation = blueFish.rotation + randomNumber(1, 10);
+  blueFish.rotation = blueFish.rotation - randomNumber(1, 10);
+  
+  greenFish.rotation = greenFish.rotation + randomNumber(1, 10);
+  greenFish.rotation = greenFish.rotation - randomNumber(1, 10);
+  
+  
+  
+  drawSprites();
+}
+
+lesson 14
+
+Create Your Scene - Background
+
+background("white");
+var sprite = createSprite(10, 200);
+sprite.setAnimation("bowl_1");
+var sprite = createSprite(200, 10);
+sprite.setAnimation("bandage_1");
+function draw() {
+  drawSprites();
+}
+
+Create Your Scene - Sprites
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+
+
+function draw() {
+  drawSprites();
+}
+
+Add a text
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  drawSprites();
+}
+
+Scene Movement
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  background("white");
+  sprite4.x = sprite4.x + 1
+  
+  sprite5.y = sprite5.y + -1
+  drawSprites();
+}
+
+
+lesson 15: Conditionals
+
+booleans
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Counter pattern to make car move across the screen
+  raceCar.x = raceCar.x - 2;
+  
+  //Program text
+  fill("black");
+  strokeWeight(5);
+  textSize(25);
+  text("The race car has crossed the finish line:", 100, 20, 300, 60);
+  fill("blue");
+  //1) Add blocks to the text command to print the boolean to the screen
+  var x =  raceCar.x < 70;
+  
+  text(x, 100, 100);
+  
+  
+  // Draw Animations
+  drawSprites();
+}
+
+if Statments
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update values
+  raceCar.x = raceCar.x - 2;
+  if (raceCar.x < finishLine.x) {
+    text("THE ORANGE CAR IS THE WINNER!",100,100);
+  }
+  // Draw Animations
+  drawSprites();
+}
+
+
+Changing Fruit
+
+var fruit = createSprite(200, 200);
+fruit.setAnimation("apple");
+fruit.scale = 0.1;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  fruit.scale = fruit.scale + 0.01;
+  
+  if (fruit.scale > 2) {
+    fruit.setAnimation("pear");
+  }
+  
+  
+  //1) Add a conditional to the draw loop.
+  //2) Add code to the conditional statement that asks if the scale of the fruit greater than 2.
+  //3) Add code inside the conditional to change the fruit to a pear.
+
+
+
+
+  // Draw Animations
+  drawSprites();
+}
+
+
+Droped Soup
+
+var soup =  createSprite(200,200);
+soup.setAnimation("stew");
+
+function draw() {
+  background("lightgreen");
+  soup.rotation = soup.rotation + 3;
+  
+  //2) Add a conditional that detects when the bowl is upside down.
+  //3) Set the sprite's animation to be an empty bowl when the bowl is upside down.
+  if(soup.rotation == 180){
+    soup.setAnimation("bowl")
+  }
+  drawSprites();
+}
+
+
+Magic Dinosaur
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sci_fi");
+var dinosaur = createSprite(200, 350);
+dinosaur.scale = 0.2;
+dinosaur.setAnimation("tyrannosaurus");
+
+function draw() {
+  //move the dinosaur up
+  dinosaur.y = dinosaur.y - 5;
+
+  //2) Add a conditional that detects when the dinosaur is in the sky.
+  //3) Set the sprite's animation to a pterodactyl when it reaches the sky.
+  
+  if(dinosaur.y == 150){
+    dinosaur.setAnimation("pterodactyl")
+  }  //draw everything
+  drawSprites();
+}
+
+
+
+Conditional Challenge A 
+
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+var pop = createSprite(200,200);
+pop.setAnimation("pop");
+pop.visible = false;
+//1) Create a pop sprite which uses the "pop" visual in the animation tab.
+
+
+//2) Set the pop sprite to be hidden at the beginning.
+
+
+function draw() {
+  // Draw Background
+  background("white");
+
+  // Update Values
+  balloon.scale = balloon.scale + 0.001;
+  console.log(balloon.scale);
+  if(balloon.scale == 0.39700000000000024){
+    balloon.visible = false;
+    pop.visible = true;
+  }
+
+  //3) Add a conditional that checks the size of the balloon to see when it touches the edge of the screen.
+  //4) Inside your conditional, set the balloon sprite to be hidden *and* set the pop sprite to appear.
+
+
+
+  // Draw Animations
+  drawSprites();
+}
+
+lesson 16
+
+Prediction - keyDown()
+
+// Run this code and observe what happens
+// When you press the space bar
+
+function draw() {
+  //Draw Background
+  background("white");
+  
+  // Draw Animations
+  textAlign("center", "center");
+  textSize(100);
+  text(keyDown("space"), 200, 200);
+}
+
+Changing Sprites
+
+
+
+//1) Run the code and try pressing the "p" and "h" keys.
+var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe");
+
+function draw() {
+  background("white");
+
+  //2) Look inside the first two conditional statements to see how the code works.
+  if(keyDown("h")) {
+     sprite.setAnimation("hippo");
+  }
+
+  if(keyDown("p")) {
+     sprite.setAnimation("pig");
+  }
+
+  if(keyDown("r")) {
+      //3) Add code to change the sprite to a different animal when the "r" key is pressed.
+      sprite.setAnimation("hippo")
+  }
+
+  drawSprites();
+}
+
+
+
+Moving Sprites
+
+
+var bug = createSprite(200, 200);
+bug.setAnimation("ladybug");
+
+function draw() {
+  //Draw Background
+  background("white");
+  //1) Add a conditional statement to check if the right arrow key has been pressed down.
+
+  //2) Add code to move the sprite right if the right arrow is down.
+  if(keyDown("LEFT")){
+    bug.x = bug.x - 5;
+    
+  }
+  if(keyDown("RIGHT")){
+    bug.x = bug.x + 5;
+    
+  }
+
+
+  //Draw Animations
+  drawSprites();
+}
+
+Gears with Conditionals
+
+
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  if(keyDown("space")){
+    blueGear.rotation = blueGear.rotation - 1;
+  greenGear.rotation = greenGear.rotation + 1;
+  redGear.rotation = redGear.rotation + 1;
+  }
+
+  //1) Add code that will check if the space key is being pressed down.
+  //2) Adjust the program so that the gears only rotate when the space key is pressed down.
+
+  drawSprites();
+}
+
+Debug Turtle Movement
+
+
+
+var turtle = createSprite(200,200);
+turtle.setAnimation("turtle");
+turtle.scale = 0.5;
+
+function draw() {
+  background("navy");
+  if (keyDown("up")) {
+    turtle.y = turtle.y - 3;
+  }
+  if (keyDown("down")) {
+    turtle.y = turtle.y + 3;
+  }
+  if (keyDown("left")) {
+    turtle.x = turtle.x - 3;
+  }
+  if (keyDown("right")) {
+    turtle.x = turtle.x + 3;
+  }
+  drawSprites();
+}
+
+
+Move in all directions
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("rainbow");
+var flyer = createSprite(200,200);
+flyer.setAnimation("wing_bot");
+
+function draw() {
+  if(keyDown("up")){
+    flyer.y = flyer.y - 5;
+  }
+
+   if(keyDown("down")){
+    flyer.y=flyer.y + 5;
+  }
+
+ if(keyDown("left")){
+    flyer.x=flyer.x - 5;
+  }
+
+ if(keyDown("right")){
+    flyer.x=flyer.x + 5;
+  }
+
+  //1) Add code to move the sprite left when the left arrow is pressed
+
+  //2) Add code to move the sprite right when the right arrow is pressed
+
+  //3) Add code to move the sprite up when the up arrow is pressed
+
+  //4) Add code to move the sprite down when the down arrow is pressed
+
+drawSprites();
+}
+
+Responding to a Single Click
+
+
+
+var clicks = 0;
+
+function draw() {
+  // 2) Change the code to use the new block, so the program only gives you a point for new clicks.
+  if (keyWentDown("space")) {
+      clicks = clicks + 1;
+  }
+  background("white");
+  textSize(50);
+  text(clicks, 165, 175, 70, 50);
+}
+
+If/Else Predict
+
+if space is pressed it increases the scale by 0.02 other wise if any other key is pressed it decreases the scale
+
+Reverse the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (keyDown("space")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //1) Make the gears spin the opposite way when the space bar is **not** being pressed.
+  
+  drawSprites();
+}
+
+Control the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (mouseDown("leftButton")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //3) Make the gears spin the opposite way when there is no user input.
+
+  
+  drawSprites();
+}
+
+Mouse clicks
+
+var balloon = createSprite(200, 50);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+function draw() {
+  background("white");
+  
+  
+  if(mouseDown()){
+      balloon.y = balloon.y + 1;
+  }else{
+    balloon.y = balloon.y - 1;
+  }
+
+  drawSprites();
+}
+
+World.mouseX
+
+
+var blender = createSprite(100, 300);
+blender.setAnimation("blender");
+var mixer = createSprite(300, 300);
+mixer.setAnimation("mixer");
+
+function draw() {
+  background("lightyellow");
+  fill("burlywood");
+  rect(0, 350, 400, 50);
+  if (World.mouseX < 200) {
+    blender.x = randomNumber(95, 105);
+    blender.y = randomNumber(295, 305);
+  }
+  if (World.mouseX > 220) {
+    mixer.x = randomNumber(250, 252);
+    mixer.y = randomNumber(238, 340);
+  }
+  //2) Add to the conditional so that when the mouse is on the other side of the screen, the mixer shakes instead.
+
+  drawSprites();
+}
+
+Emoji Reactions
+
+var emoji = createSprite(200, 200);
+emoji.setAnimation("smileEmoji");
+
+function draw() {
+  background("white");
+  //1)If the mouse is pressed down, change the emoji to a different emoji
+  
+  if(mouseDown()){
+    emoji.setAnimation("glassesEmoji")
+  }else{
+    emoji.setAnimation("smileEmoji")
+  }
+  //2)Otherwise, keep the emoji as a smile emoji
+  
+  drawSprites();
+}
+
+
+Fix The Program
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+function draw() {
+  //1) Change the code so that the creature only shakes when the mouse is pressed.
+  if(mouseDown()){
+    creature.rotation = randomNumber(-5,5);
+  }
+  drawSprites();
+
+  //2) Change the code so the directions ("Press the mouse to shake the creature.") **only show** 
+  //when the user is **NOT** pressing the mouse.
+  fill("black");
+  textSize(40);
+  text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+}
+
+
+Mouse X and Y
+
+
+//Create a bee sprite
+var sprite =  createSprite(200,200)
+sprite.setAnimation("bee")
+
+function draw(){
+  background("white")
+  drawSprites();
+   sprite.x = World.mouseX;
+  sprite.y = World.mouseY;
+ 
+  //Update the position of the bee to the position of the mouse
+
+
+}
+
+Adding Sprites
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+var clicked = 0;
+
+
+function draw() {
+  drawSprites() 
+}
+
+user input 
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+}
+
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite1.x = sprite1.x - 1;
+  }
+}
+
+
+Finishing touches
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+
+text("Balls Game", 10,10);
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite.x = sprite.x - 1;
+  }
+}
