@@ -2325,3 +2325,81 @@ function draw() {
   
   drawSprites();
 }
+
+Lesson 24 Mini project -flyer Game
+Create Your Sprites
+
+First create the sprites you will use in your program. The player sprite has already been created for you, but you can change its animation.
+
+You'll need at least 4 sprites: a player (the flyer), a target (the coin), and two obstacles (the rocks). You can change their animations to anything you want.
+// GAME SETUP
+// create player, target, and obstacles
+var player = createSprite(200, 100);
+player.setAnimation("fly_bot");
+player.scale = 0.8;
+var coin = createSprite(randomNumber(0,400), randomNumber(0,400));
+coin.setAnimation("coin");
+coin.scale = 0.8;
+var rock = createSprite(-15, 100);
+rock.setAnimation("rock");
+rock.scale = 0.8;
+
+rock.velocityX=3;
+var rock2 = createSprite(200, -15);
+rock2.setAnimation("rock2");
+rock2.velocityY=3;
+function draw() {
+  background("lightblue");
+  
+  // FALLING
+  player.velocityY+=1;
+  // LOOPING
+  if(rock.x>400){
+    rock.x=0;
+      rock.y=randomNumber(50,350);
+  }
+  if(rock2.y>400){
+    rock2.y=0;
+      rock2.x=randomNumber(50,350);
+  }
+  
+  
+  // PLAYER CONTROLS
+  // change the y velocity when the user clicks "up"
+ if (keyDown(UP_ARROW)) {
+    player.velocityY=-1;
+    player.velocityX=0;
+  }
+  // decrease the x velocity when user clicks "left"
+  if (keyDown(LEFT_ARROW)) {
+    player.velocityX-=1;
+    player.velocityY=0;
+  }
+  // increase the x velocity when the user clicks "right"
+  if (keyDown(RIGHT_ARROW)) {
+    player.velocityX+=1;
+    player.velocityY=0;
+  }
+  // SPRITE INTERACTIONS
+  // reset the coin when the player touches it
+  if(player.isTouching(coin)){
+    coin.x=randomNumber(0,400);
+    coin.y=randomNumber(0,400);
+  }
+  // make the obstacles push the player
+  rock.displace(player);
+  rock2.displace(player);
+  
+  // DRAW SPRITES
+  drawSprites();
+  
+  // GAME OVER
+  if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+    background("black");
+    textSize(50);
+    fill("green");
+    text("Game Over!", 50, 200);
+  }
+  
+}
+
