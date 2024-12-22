@@ -1816,3 +1816,184 @@ function draw() {
 }
 
 
+Lesson 21 : Side Scroller
+
+//GAME SETUP
+// Create the sprites
+// set velocity for the obstacle and the target
+var frog = createSprite(220,360);
+frog.setAnimation("frog");
+
+var fly = createSprite(380,250);
+fly.setAnimation("fly");
+fly.velocityX=-5;
+
+var mushroom = createSprite(380,360);
+mushroom.setAnimation("mushroom");
+
+mushroom.velocityX=-5;
+//create the variables
+var score = 0;
+var health = 100;
+
+function draw() {
+  // BACKGROUND
+  background("white");
+  
+  if(mushroom.x < 0){
+    mushroom.x = 400;
+     mushroom.rotation = 0;
+  }
+  
+  if(keyDown("up")){
+    frog.velocityY = -8;
+  }
+  
+  if(frog.y == 200){
+    frog.y = 360;
+    frog.velocityY = 0;
+  }
+  if(fly.x < 0){
+    fly.x = 400;
+    fly.y = randomNumber(250,350);
+  }
+  
+  if(mushroom.isTouching(frog)){
+    mushroom.rotation = 20;
+    health = health - 10;
+    mushroom.x = 400;
+  }
+  
+  if(frog.isTouching(fly)){
+    score = score + 10;
+    fly.x = 400;
+  }
+  
+
+  drawSprites();
+  
+  // SCOREBOARD
+  // add scoreboard and health meter
+  fill("black");
+  textSize(20);
+  text("Health:", 280, 30);
+  text (health, 350, 30);
+  
+  fill("black");
+  textSize(20);
+  text("Score:", 280, 60);
+  text (score, 350, 60);
+  
+  // GAME OVER
+  // if health runs out
+  // show Game over
+  if (health < 0) {
+    background("black");
+    fill("green");
+    textSize(50);
+    text("Game Over!" , 40, 200);
+  }
+}
+
+lesson 22
+
+Velocity and the Counter Pattern
+
+var car = createSprite(50, 200);
+car.setAnimation("red_car");
+car.velocityX = 0.2;
+
+function draw() {
+  background("gray");
+  
+  //1) Add code to make the car speed up.
+
+ car.velocityX = car.velocityX + 0.5;
+  
+  drawSprites();
+}
+
+Falling rock
+
+var rock = createSprite(200, 50);
+rock.setAnimation("rock");
+rock.velocityY = 0.5;
+
+function draw() {
+  background("skyblue");
+  rock.velocityY = rock.velocityY + 0.1;
+  
+  //1) Add code to make the rock speed up as it falls.
+  
+  drawSprites();
+}
+
+Slowing Things down
+
+var car = createSprite(50, 200);
+car.setAnimation("blue_car");
+car.velocityX =  10;
+
+noStroke();
+
+function draw() {
+  background("burlywood");
+  fill("blue");
+  rect(350,0,100,400);
+  car.velocityX = car.velocityX - 0.2;
+  
+  //1) Add code to slow the car down before it goes into the water.
+
+
+  drawSprites();
+}
+
+Slow down and reverse
+
+var scenery = createSprite(200, 200);
+scenery.setAnimation("park_view");
+var cat = createSprite(50, 250);
+cat.setAnimation("brown_cat");
+cat.scale = 0.5;
+
+var mouse = createSprite(375, 325);
+mouse.setAnimation("mouse");
+//1) Take a look at the code that makes the mouse move.
+mouse.velocityX = -20;
+
+
+function draw() {
+  //2) Add code to make the mouse change directions when it reaches the cat.
+  if(mouse.x < 100){
+    
+    mouse.velocityX = mouse.velocityX + 50;
+  }
+
+  drawSprites();
+}
+
+Looks like Gravity
+
+var rock = createSprite(200, 350);
+rock.setAnimation("rock");
+rock.velocityY =  -10;
+rock.rotationSpeed = 2;
+
+function draw() {
+  background("skyblue");
+  
+  if(rock.y < 100){
+    rock.velocityY = rock.velocityY + 11
+  }
+  
+  //1) Add code to make the rock slow down and then fall.
+
+  
+  drawSprites();
+}
+
+jumping
+
+  if(alien.y < 100){
+    alien.velocityY = 25;
+  }
