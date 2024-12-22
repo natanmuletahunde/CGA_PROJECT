@@ -2403,3 +2403,336 @@ function draw() {
   
 }
 
+Lesson 25 Functions
+Functions
+
+This program creates several functions called drawBackground, drawPlanet, and drawStar, and then calls these functions in order to draw what is inside them. 
+drawBackground();
+drawPlanet();
+drawPlanet();
+
+
+function drawBackground() {
+  noStroke();
+  background("black");
+  drawStar();
+  drawStar();
+  drawStar();
+  drawStar();
+  drawStar();
+}
+
+
+function drawStar() {
+  fill("yellow");
+  ellipse(random(0,400),random(0,400),5,5);
+}
+
+
+function drawPlanet() {
+  noStroke();
+  fill(rgb(random(100,255), random(100,255), random(100,255)));
+  ellipse(random(10, 350), random(10,350), 50, 50);
+Calling Functions
+
+Functions let you build your own blocks and decide what code goes inside of them. This program has already created two functions, but only one of them is being called.
+drawSky();
+//1) Call the drawBalloons function to reveal the full image. 
+drawBalloons();
+
+
+function drawSky(){
+ noStroke();
+ background(rgb(0,200,255));
+ fill("yellow");
+ ellipse(350,50,50,50);
+}
+
+function drawBalloons(){
+ stroke("black");
+ line(100,100,140,450);
+ noStroke();
+ fill("red");
+ ellipse(100,100,50,50);
+ 
+ stroke("black");
+ line(120,120,140,450);
+ noStroke();
+ fill("orange");
+ ellipse(120,120,50,50);
+ 
+ stroke("black");
+ line(140,80,140,450);
+ noStroke();
+ fill("yellow");
+ ellipse(140,80,50,50);
+ 
+ stroke("black");
+ line(160,90,140,450);
+ noStroke();
+ fill("red");
+ ellipse(160,90,50,50);
+}
+Reordering Code
+
+Placing code inside functions makes it easy to read and make changes to. Good names for functions indicate what your program is doing to a reader. You can call your functions in a different order to quickly make significant changes to how your program runs.
+//1) Read the 4 functions to understand what each one does.
+//2) Call the functions in an order that draws the scene in the way that looks best to you.
+
+drawBackground();
+drawTrees();
+drawClouds();
+drawFence();
+function drawBackground(){
+  noStroke();
+  background(rgb(0,200,255));
+  fill("green");
+  rect(0,380,400,20);
+}
+
+function drawTrees(){
+  noStroke();
+  //Draw All Trunks
+  fill(rgb(150,100,0));
+  rect(210,330,30,50);
+  rect(290,330,30,50);
+  rect(360,330,30,50);
+  //Draw All Branches
+  fill("green");
+  regularPolygon(225,280,3,100);
+  regularPolygon(305,280,3,110);
+  regularPolygon(375,290,3,95);
+}
+
+function drawClouds(){
+  noStroke();
+  fill(rgb(255,255,255,100));
+  ellipse(300,200,200,50);
+  ellipse(320,200,200,70);
+  ellipse(340,200,200,50);
+  
+  ellipse(100,100,200,50);
+  ellipse(120,100,200,70);
+  ellipse(140,100,200,50);  
+}
+
+function drawFence(){
+  stroke("white");
+  strokeWeight(5);
+  line(0,360,400,360);
+  line(20,350,20,380);
+  line(50,350,50,380);
+  line(80,350,80,380);
+  line(110,350,110,380);
+  line(140,350,140,380);
+  line(170,350,170,380);
+  line(200,350,200,380);
+  line(230,350,230,380);
+  line(260,350,260,380);
+  line(290,350,290,380);
+  line(320,350,320,380);
+  line(350,350,350,380);
+  line(380,350,380,380);
+}
+Write Your Own Function
+
+Time to practice writing functions of your own. This is a very simple game in which coins fall from the sky and the bunny tries to catch them. All you need to do is write the function that sets up the coin.
+var coin = createSprite(200,10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200,350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  background("white");
+  
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  if(coin.y > 400){
+    setCoin();
+  }
+  
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  drawSprites();
+}
+
+function setCoin(){
+coin.velocityY=2;
+
+
+coin.y=0;
+coin.x=randomNumber(0,400);
+}
+Catch the Coin, Increase the Score
+
+Let's make that score change now, too, to complete the game. You'll need to be able to tell when the bunny is touching the coin and then reset it.
+var coin = createSprite(200, 10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200, 350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  background("white");
+
+  // Bunny movement
+  if (keyDown("left")) {
+    bunny.x = bunny.x - 2;
+  }
+
+  if (keyDown("right")) {
+    bunny.x = bunny.x + 2;
+  }
+
+  // Check if coin goes out of bounds
+  if (coin.y > 400) {
+    setCoin();
+  }
+
+  // Check if bunny collects the coin
+  if (bunny.isTouching(coin)) {
+    score += 10;
+    setCoin(); // Reset coin after it's collected
+  }
+
+  // Display the score
+  textSize(20);
+  text("Score: " + score, 10, 20);
+
+  drawSprites();
+}
+
+function setCoin() {
+  coin.velocityY = randomNumber(2, 5); // Set random speed
+  coin.y = 0; // Reset position to the top
+  coin.x = randomNumber(0, 400); // Random horizontal position
+}
+Change the Background with the Score
+
+Once you've caught 10 coins it's time to celebrate. You should change the background to be something fun.
+var coin = createSprite(200, 10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+drawBackground();
+drawBackground2();
+
+
+
+var bunny = createSprite(200, 350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  background("white");
+
+  // Bunny movement
+  if (keyDown("left")) {
+    bunny.x = bunny.x - 2;
+  }
+
+  if (keyDown("right")) {
+    bunny.x = bunny.x + 2;
+  }
+
+  // Check if coin goes out of bounds
+  if (coin.y > 400) {
+    setCoin();
+  }
+
+  // Check if bunny collects the coin
+  if (bunny.isTouching(coin)) {
+    score += 10;
+    setCoin(); // Reset coin after it's collected
+  }
+
+  // Display the score
+  textSize(20);
+  text("Score: " + score, 10, 20);
+
+  drawSprites();
+}
+
+function setCoin() {
+  coin.velocityY = randomNumber(2, 5); // Set random speed
+  coin.y = 0; // Reset position to the top
+  coin.x = randomNumber(0, 400); // Random horizontal position
+}
+function drawBackground(){
+  if(score==10){
+  background("green");
+  //setCoin();
+  }
+}
+function drawBackground2(){
+  if(score>10){
+  background("skyblue");}
+  //setCoin();
+}
+function draw() {
+  background("white");
+  
+  // Check mouse position to switch scenes
+  if (mouseX < 200) {
+    drawScene1();
+  } else {
+    drawScene2();
+  }
+}
+Creating Functions to Draw Scenes
+
+The provided code draws one of two different scenes based on where the mouse is on the screen. It either calls the drawScene1(); function or the drawScene2(); function. However, these functions don't exist yet! 
+// Draw the first scene
+function drawScene1() {
+  background("skyblue");
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Ground
+  fill("green");
+  rect(0, 300, 400, 100);
+  
+  // House
+  fill("brown");
+  rect(150, 200, 100, 100);
+  fill("red");
+  triangle(150, 200, 200, 150, 250, 200);
+}
+
+// Draw the second scene
+function drawScene2() {
+  background("midnightblue");
+  
+  // Stars
+  fill("white");
+  ellipse(50, 50, 5, 5);
+  ellipse(100, 80, 5, 5);
+  ellipse(200, 30, 5, 5);
+  ellipse(300, 100, 5, 5);
+  
+  // Moon
+  fill("lightgray");
+  ellipse(300, 50, 60, 60);
+  
+  // Tree
+  fill("brown");
+  rect(170, 250, 20, 50);
+  fill("darkgreen");
+  ellipse(180, 230, 60, 60);
+}
+
