@@ -2213,5 +2213,193 @@ function draw(){
   
   drawSprites();
 }
+More Collision Blocks
 
+Three new types of sprite interactions have been added to the toolbox, sprite.collide(), sprite.bounce(), and sprite.bounceOff(). How do you think they'll affect the sprites?
+var parrot = createSprite(50,200);
+parrot.setAnimation("parrot");
+parrot.velocityX = 2;
+parrot.scale = 0.3;
+
+var penguin = createSprite(350,200);
+penguin.setAnimation("penguin");
+penguin.velocityX = -2;
+penguin.scale = 0.3;
+
+function draw() {
+  //1) Switch out the displace block for the new blocks, one at a time 
+  // to see what each one does.
+  //parrot.displace(penguin);
+  //parrot.collide(penguin);
+ // parrot.bounce(penguin);
+ parrot.bounceOff(penguin);
+
+  
+  background("white");
+  drawSprites();
+}
+Collision Types
+
+There are four types of collisions that we use in Game Lab: displace(), collide(), bounce(), and bounceOff(). These blocks will cause a certain type of interaction between the sprite and its target.
+var basketball = createSprite(200, 0);
+basketball.setAnimation("basketball");
+basketball.setCollider("circle");
+
+var wood = createSprite(200, 375);
+wood.setAnimation("floor");
+
+function draw() {
+  basketball.velocityY = basketball.velocityY + 0.3;
+  basketball.rotationSpeed = 2;
+  
+  //1) Choose the best block to model the basketball's interaction with the floor.
+  basketball.bounceOff(wood);
+  background("skyblue");
+  drawSprites();
+}
+Sprite Interactions
+
+You've now seen four different types of sprite interactions. You'll need them all for this challenge.
+// create sprites
+var giraffe = createSprite(50, 50);
+giraffe.setAnimation("giraffe");
+giraffe.velocityX = 3;
+var hippo = createSprite(50, 150);
+hippo.setAnimation("hippo");
+hippo.velocityX = 3;
+var rabbit = createSprite(50, 250);
+rabbit.setAnimation("rabbit");
+rabbit.velocityX = 3;
+var snake = createSprite(50, 350);
+snake.setAnimation("snake");
+snake.velocityX = 3;
+var parrot = createSprite(350, 50);
+parrot.setAnimation("parrot");
+parrot.velocityX = -3;
+var elephant = createSprite(350, 150);
+elephant.setAnimation("elephant");
+elephant.velocityX = -3;
+var monkey = createSprite(350, 250);
+monkey.setAnimation("monkey");
+monkey.velocityX = -3;
+var pig = createSprite(350, 350);
+pig.setAnimation("pig");
+pig.velocityX = -3;
+
+
+function draw() {
+  background("lightblue");
+
+  //1) For each pair of animals, choose the sprite interaction 
+  // that matches the target image.
+giraffe.bounce(parrot);
+hippo.displace(elephant);
+rabbit.collide(pig);
+giraffe.bounce(parrot);
+snake.bounceOff(pig);
+
+  drawSprites();
+}
+Debug
+
+Sometimes sprites will behave in ways that are unexpected. There is a special debug property you can use to better understand why the sprites interact the way that they do.
+// Create Gold Coin
+var goldCoin = createSprite(51,50);
+goldCoin.setAnimation("gold_coin");
+goldCoin.velocityX = 2;
+goldCoin.velocityY = 2;
+goldCoin.debug = false;
+
+// Create Silver Coin
+var silverCoin = createSprite(350,350);
+silverCoin.setAnimation("silver_coin");
+silverCoin.velocityX = -2;
+silverCoin.velocityY = -2;
+silverCoin.debug = false;
+
+function draw() {
+  background("darkgreen");
+
+  // Sprite Interactions
+  goldCoin.bounce(silverCoin);
+  
+  drawSprites();
+}
+
+Lesson 24 Mini project -flyer Game
+Create Your Sprites
+
+First create the sprites you will use in your program. The player sprite has already been created for you, but you can change its animation.
+
+You'll need at least 4 sprites: a player (the flyer), a target (the coin), and two obstacles (the rocks). You can change their animations to anything you want.
+// GAME SETUP
+// create player, target, and obstacles
+var player = createSprite(200, 100);
+player.setAnimation("fly_bot");
+player.scale = 0.8;
+var coin = createSprite(randomNumber(0,400), randomNumber(0,400));
+coin.setAnimation("coin");
+coin.scale = 0.8;
+var rock = createSprite(-15, 100);
+rock.setAnimation("rock");
+rock.scale = 0.8;
+
+rock.velocityX=3;
+var rock2 = createSprite(200, -15);
+rock2.setAnimation("rock2");
+rock2.velocityY=3;
+function draw() {
+  background("lightblue");
+  
+  // FALLING
+  player.velocityY+=1;
+  // LOOPING
+  if(rock.x>400){
+    rock.x=0;
+      rock.y=randomNumber(50,350);
+  }
+  if(rock2.y>400){
+    rock2.y=0;
+      rock2.x=randomNumber(50,350);
+  }
+  
+  
+  // PLAYER CONTROLS
+  // change the y velocity when the user clicks "up"
+ if (keyDown(UP_ARROW)) {
+    player.velocityY=-1;
+    player.velocityX=0;
+  }
+  // decrease the x velocity when user clicks "left"
+  if (keyDown(LEFT_ARROW)) {
+    player.velocityX-=1;
+    player.velocityY=0;
+  }
+  // increase the x velocity when the user clicks "right"
+  if (keyDown(RIGHT_ARROW)) {
+    player.velocityX+=1;
+    player.velocityY=0;
+  }
+  // SPRITE INTERACTIONS
+  // reset the coin when the player touches it
+  if(player.isTouching(coin)){
+    coin.x=randomNumber(0,400);
+    coin.y=randomNumber(0,400);
+  }
+  // make the obstacles push the player
+  rock.displace(player);
+  rock2.displace(player);
+  
+  // DRAW SPRITES
+  drawSprites();
+  
+  // GAME OVER
+  if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+    background("black");
+    textSize(50);
+    fill("green");
+    text("Game Over!", 50, 200);
+  }
+  
+}
 
