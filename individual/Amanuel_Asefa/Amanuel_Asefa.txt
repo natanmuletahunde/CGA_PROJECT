@@ -1997,3 +1997,782 @@ jumping
   if(alien.y < 100){
     alien.velocityY = 25;
   }
+
+Lesson 23
+
+Program a Sprite Interaction
+
+// Create giraffe sprite
+var giraffe = createSprite(30,200);
+giraffe.setAnimation("giraffe");
+giraffe.velocityX = 1;
+giraffe.scale = 0.3;
+
+// Create monkey sprite
+var monkey = createSprite(300,200);
+monkey.setAnimation("monkey");
+monkey.scale = 0.3;
+
+function draw(){
+  // Draw background
+  background("white");
+  
+  //1) Program the giraffe to push the monkey off the screen.
+  
+  if(giraffe.isTouching(monkey)){
+    monkey.velocityX = 1;
+  }
+
+  
+  drawSprites();
+}
+
+
+Immersive Reader
+Write Your Own Sprite Interaction
+
+
+// Create elephant sprite
+var elephant = createSprite(200, 400);
+elephant.setAnimation("elephant");
+elephant.scale = 0.5;
+elephant.velocityY = randomNumber(-3,-1);
+
+// Create hippo sprite
+var hippo = createSprite(200,100);
+hippo.setAnimation("hippo");
+hippo.scale = 0.5;
+
+function draw(){
+  // Draw background
+  background("white");
+  if(elephant.isTouching(hippo)){
+    hippo.velocityY = randomNumber(-3,-1);
+  }
+  
+  //2) Add code to make the elephant push the hippo off the screen.
+
+  
+  drawSprites();
+}
+
+
+Displace
+
+// Create elephant sprite
+var elephant = createSprite(200, 350);
+elephant.setAnimation("elephant");
+elephant.scale = 0.5;
+elephant.velocityY = randomNumber(-3,-1);
+
+// Create hippo sprite
+var hippo = createSprite(200,50);
+hippo.setAnimation("hippo");
+hippo.scale = 0.5;
+hippo.velocityY = randomNumber(1,3);
+
+function draw(){
+  // Draw background
+  background("white");
+  
+  //2) Take a look at the new block and how it is being used.
+  //3) Fix the block so that the elephant is pushing the hippo.
+  elephant.displace(hippo);
+  
+  drawSprites();
+}
+
+Collision types
+
+var arrow = createSprite(0, 200);
+arrow.setAnimation("arrow");
+arrow.rotation=45;
+arrow.velocityX = 3;
+
+var apple = createSprite(300, 200);
+apple.setAnimation("apple");
+
+function draw() {
+  //1) Choose the best block to make the arrow stop when it reaches the apple.
+  if(arrow.collide(apple)){
+    arrow.velocityX = 0;
+  }
+  
+  background("lightBlue");
+  drawSprites();
+}
+
+Sprite interactions
+
+// create sprites
+var giraffe = createSprite(50, 50);
+giraffe.setAnimation("giraffe");
+giraffe.velocityX = 3;
+var hippo = createSprite(50, 150);
+hippo.setAnimation("hippo");
+hippo.velocityX = 3;
+var rabbit = createSprite(50, 250);
+rabbit.setAnimation("rabbit");
+rabbit.velocityX = 3;
+var snake = createSprite(50, 350);
+snake.setAnimation("snake");
+snake.velocityX = 3;
+var parrot = createSprite(350, 50);
+parrot.setAnimation("parrot");
+parrot.velocityX = -3;
+var elephant = createSprite(350, 150);
+elephant.setAnimation("elephant");
+elephant.velocityX = -3;
+var monkey = createSprite(350, 250);
+monkey.setAnimation("monkey");
+monkey.velocityX = -3;
+var pig = createSprite(350, 350);
+pig.setAnimation("pig");
+pig.velocityX = -3;
+
+
+function draw() {
+  background("lightblue");
+  
+  giraffe.displace(parrot);
+  hippo.displace(elephant);
+  monkey.displace(rabbit);
+
+    snake.bounceOff(pig);
+
+  //1) For each pair of animals, choose the sprite interaction 
+  // that matches the target image.
+
+
+  drawSprites();
+}
+Debug
+
+
+// Create Gold Coin
+var goldCoin = createSprite(51,50);
+goldCoin.setAnimation("gold_coin");
+goldCoin.velocityX = 2;
+goldCoin.velocityY = 2;
+
+// Create Silver Coin
+var silverCoin = createSprite(350,350);
+silverCoin.setAnimation("silver_coin");
+silverCoin.velocityX = -2;
+silverCoin.velocityY = -2;
+silverCoin.debug = false;
+
+function draw() {
+  background("darkgreen");
+
+  // Sprite Interactions
+  goldCoin.bounce(silverCoin);
+  
+  drawSprites();
+}
+
+lesson 24
+
+
+Create Sprite
+// GAME SETUP
+// create player, target, and obstacles
+var player = createSprite(200, 100);
+player.setAnimation("fly_bot");
+player.scale = 0.8;
+
+var coin = createSprite(randomNumber(0,350), randomNumber(0,350));
+coin.setAnimation("coin");
+
+var rock1 = createSprite(0, randomNumber(100,300));
+rock1.setAnimation("rock");
+
+rock1.velocityX = 8;
+
+var rock2 = createSprite(randomNumber(100,300), 0);
+rock2.setAnimation("rock");
+
+rock2.velocityY = 8;
+
+
+function draw() {
+  background("lightblue");
+  
+  // FALLING
+  player.velocityY = 10;
+  
+  // LOOPING
+  
+  
+  // PLAYER CONTROLS
+  // change the y velocity when the user clicks "up"
+  
+  // decrease the x velocity when user clicks "left"
+  
+  // increase the x velocity when the user clicks "right"
+  
+  // SPRITE INTERACTIONS
+  // reset the coin when the player touches it
+  
+  // make the obstacles push the player
+  
+  
+  // DRAW SPRITES
+  drawSprites();
+  
+  // GAME OVER
+  if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+    background("black");
+    textSize(50);
+    fill("green");
+    text("Game Over!", 50, 200);
+  }
+  
+}
+
+
+final 
+// GAME SETUP
+// create player, target, and obstacles
+var player = createSprite(200, 100);
+player.setAnimation("fly_bot");
+player.scale = 0.8;
+
+var coin = createSprite(randomNumber(0,350), randomNumber(0,350));
+coin.setAnimation("coin");
+
+var rock1 = createSprite(0, randomNumber(100,300));
+rock1.setAnimation("rock");
+
+rock1.velocityX = 8; // Moving to the right
+
+var rock2 = createSprite(randomNumber(100,300), 0);
+rock2.setAnimation("rock");
+
+rock2.velocityY = 8; // Moving downward
+
+// gravity
+var gravity = 0.5;
+var jumpStrength = -10;
+
+// velocity control for floating left and right
+var floatSpeed = 2; // Speed at which the player floats left and right
+
+function draw() {
+  background("lightblue");
+  
+  // PLAYER FALLING
+  player.velocityY += gravity;  // Apply gravity
+  
+  // PLAYER CONTROLS
+  // Jump when the user presses the "up" arrow
+  if (keyDown("up") && player.y > 50) {  // Prevent jumping if the player is too close to the top
+    player.velocityY = jumpStrength;  // Set velocityY to negative to jump
+  }
+  
+  // Move left when the "left" arrow is pressed
+  if (keyDown("left")) {
+    player.velocityX = -floatSpeed;  // Decrease the x velocity to move left
+  }
+  
+  // Move right when the "right" arrow is pressed
+  if (keyDown("right")) {
+    player.velocityX = floatSpeed;  // Increase the x velocity to move right
+  }
+  
+  // Reset the player's velocityX to 0 when no key is pressed
+  if (!keyDown("left") && !keyDown("right")) {
+    player.velocityX = 0;
+  }
+  
+  // SPRITE INTERACTIONS
+  // Reset the coin when the player touches it
+  if (player.isTouching(coin)) {
+    coin.x = randomNumber(0, 350);
+    coin.y = randomNumber(0, 350);
+  }
+  
+  // Make the obstacles push the player across the screen
+  if (player.isTouching(rock1)) {
+    if (rock1.velocityX > 0) {
+      player.velocityX = 5;  // Push the player to the right
+    } else {
+      player.velocityX = -5; // Push the player to the left
+    }
+  }
+
+  if (player.isTouching(rock2)) {
+    if (rock2.velocityY > 0) {
+      player.velocityY = 5;  // Push the player down
+    } else {
+      player.velocityY = -5; // Push the player up
+    }
+  }
+
+  // LOOPING
+  // Reset rock1 when it reaches the right edge, and send it back to a random position from the left
+  if (rock1.x > 400) {
+    rock1.x = 0;  // Start from the left edge
+    rock1.y = randomNumber(50, 350);  // Random vertical position between 50 and 350
+  }
+  
+  // Reset rock2 when it reaches the bottom edge, and send it back to a random position from the top
+  if (rock2.y > 400) {
+    rock2.y = 0;  // Start from the top edge
+    rock2.x = randomNumber(50, 350);  // Random horizontal position between 50 and 350
+  }
+  
+  // Draw the sprites
+  drawSprites();
+  
+  // GAME OVER
+  if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+    background("black");
+    textSize(50);
+    fill("green");
+    text("Game Over!", 50, 200);
+  }
+}
+
+lesson 25 : functions
+
+drawSky();
+// 1) Call the drawBalloons function to reveal the full image.
+drawBalloons();  // <-- This is the line you're adding
+
+// Function to draw the sky with a sun
+function drawSky(){
+  noStroke();
+  background(rgb(0,200,255));  // Set the sky color
+  fill("yellow");
+  ellipse(350, 50, 50, 50);  // Draw the sun
+}
+
+// Function to draw the balloons
+function drawBalloons(){
+  stroke("black");
+  line(100, 100, 140, 450);   // Draw string for the first balloon
+  noStroke();
+  fill("red");
+  ellipse(100, 100, 50, 50);  // Draw the first red balloon
+
+  stroke("black");
+  line(120, 120, 140, 450);   // Draw string for the second balloon
+  noStroke();
+  fill("orange");
+  ellipse(120, 120, 50, 50);  // Draw the second orange balloon
+
+  stroke("black");
+  line(140, 80, 140, 450);    // Draw string for the third balloon
+  noStroke();
+  fill("yellow");
+  ellipse(140, 80, 50, 50);   // Draw the third yellow balloon
+
+  stroke("black");
+  line(160, 90, 140, 450);    // Draw string for the fourth balloon
+  noStroke();
+  fill("red");
+  ellipse(160, 90, 50, 50);   // Draw the fourth red balloon
+}
+
+
+//1) Read the 4 functions to understand what each one does.
+//2) Call the functions in an order that draws the scene in the way that looks best to you.
+
+
+
+function drawBackground(){
+  noStroke();
+  background(rgb(0,200,255));
+  fill("green");
+  rect(0,380,400,20);
+}
+
+function drawTrees(){
+  noStroke();
+  //Draw All Trunks
+  fill(rgb(150,100,0));
+  rect(210,330,30,50);
+  rect(290,330,30,50);
+  rect(360,330,30,50);
+  //Draw All Branches
+  fill("green");
+  regularPolygon(225,280,3,100);
+  regularPolygon(305,280,3,110);
+  regularPolygon(375,290,3,95);
+}
+
+function drawClouds(){
+  noStroke();
+  fill(rgb(255,255,255,100));
+  ellipse(300,200,200,50);
+  ellipse(320,200,200,70);
+  ellipse(340,200,200,50);
+  
+  ellipse(100,100,200,50);
+  ellipse(120,100,200,70);
+  ellipse(140,100,200,50);  
+}
+
+function drawFence(){
+  stroke("white");
+  strokeWeight(5);
+  line(0,360,400,360);
+  line(20,350,20,380);
+  line(50,350,50,380);
+  line(80,350,80,380);
+  line(110,350,110,380);
+  line(140,350,140,380);
+  line(170,350,170,380);
+  line(200,350,200,380);
+  line(230,350,230,380);
+  line(260,350,260,380);
+  line(290,350,290,380);
+  line(320,350,320,380);
+  line(350,350,350,380);
+  line(380,350,380,380);
+}
+
+
+drawBackground();   
+drawClouds();       
+drawTrees();        
+drawFence();        
+
+
+Calling functions on the draw loop
+
+// Create sprite for flyman
+var flyman = createSprite(400, 200);
+flyman.velocityX = -1;
+flyman.setAnimation("flyMan_fly");
+
+function draw(){
+  // Call the treesBackground function to draw the background
+  treesBackground();  // Draw the background
+  
+  drawSprites();  // Draw all sprites (like the flyman)
+}
+
+// Function to draw the background with trees and the sun
+function treesBackground(){
+  noStroke();
+  background(rgb(0,200,255));  // Set the sky color
+  
+  fill("green");
+  rect(0, 380, 400, 20);  // Draw the ground
+  
+  fill("yellow");
+  ellipse(350, 50, 20, 20);  // Draw the sun
+  
+  strokeWeight(20);
+  stroke(rgb(150, 100, 0));  // Set tree trunk color
+  
+  // Draw tree trunks
+  line(20, 300, 20, 380);
+  line(80, 300, 80, 380);
+  line(120, 300, 120, 380);
+  line(160, 300, 160, 380);
+  line(200, 300, 200, 380);
+  line(250, 300, 250, 380);
+  
+  fill("green");
+  noStroke();
+  
+  // Draw tree canopies (circles)
+  ellipse(20, 300, 100, 100);
+  ellipse(80, 300, 110, 110);
+  ellipse(120, 300, 95, 95);
+  ellipse(160, 300, 110, 110);
+  ellipse(200, 300, 100, 100);
+  ellipse(250, 300, 100, 100);
+}
+
+Write Your Own Function
+
+
+var coin = createSprite(200, 10);
+coin.setAnimation("coin_gold_1");
+setCoin();  // Call the setCoin function to set the initial position and velocity
+
+var bunny = createSprite(200, 350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  background("white");
+  
+  // Move bunny left or right
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  // If the coin reaches the bottom of the screen, reset its position
+  if(coin.y > 400){
+    setCoin();
+    score++;  // Increment score when coin falls
+  }
+  
+  // Display score
+  textSize(20);
+  text("Score: " + score, 10, 10);
+  
+  // Draw all sprites
+  drawSprites();
+}
+
+// Function to set the coin's position and velocity
+function setCoin(){
+  // Set the coin's y position to the top of the screen
+  coin.y = 10;
+  
+  // Randomize the coin's x position within the screen width
+  coin.x = random(50, 350);
+  
+  // Set the coin's velocity to move down (fall)
+  coin.velocityY = 5;  // Adjust this value for the falling speed
+}
+
+Change the backfround with the score
+
+var coin = createSprite(200, 10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200, 350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  // Check if score is 10 or more
+  if (score >= 10) {
+    drawCelebrationBackground();  // Fun background for when score reaches 10
+  } else {
+    drawRegularBackground();  // Regular background for normal gameplay
+  }
+  
+  // Move bunny left or right
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  // If the coin reaches the bottom of the screen, reset its position
+  if(coin.y > 400){
+    setCoin();
+    score++;  // Increment score when coin falls
+  }
+  
+  // Display score
+  textSize(20);
+  text("Score: " + score, 10, 10);
+  
+  // Draw all sprites
+  drawSprites();
+}
+
+// Function to set the coin's position and velocity
+function setCoin(){
+  // Set the coin's y position to the top of the screen
+  coin.y = 10;
+  
+  // Randomize the coin's x position within the screen width
+  coin.x = random(50, 350);
+  
+  // Set the coin's velocity to move down (fall)
+  coin.velocityY = 5;
+}
+
+// Function to draw the regular background
+function drawRegularBackground() {
+  noStroke();
+  background("white");  // Set a plain white background
+  
+  // Draw the ground
+  fill("green");
+  rect(0, 380, 400, 20);
+  
+  // Draw the sun
+  fill("yellow");
+  ellipse(350, 50, 20, 20);
+  
+  // Draw trees (same as before)
+  strokeWeight(20);
+  stroke(rgb(150, 100, 0));
+  line(20, 300, 20, 380);
+  line(80, 300, 80, 380);
+  line(120, 300, 120, 380);
+  line(160, 300, 160, 380);
+  line(200, 300, 200, 380);
+  line(250, 300, 250, 380);
+  
+  fill("green");
+  noStroke();
+  ellipse(20, 300, 100, 100);
+  ellipse(80, 300, 110, 110);
+  ellipse(120, 300, 95, 95);
+  ellipse(160, 300, 110, 110);
+  ellipse(200, 300, 100, 100);
+  ellipse(250, 300, 100, 100);
+}
+
+// Function to draw the celebration background after 10 coins
+function drawCelebrationBackground() {
+  // Bright and fun background colors
+  background(rgb(255, 223, 186));  // Light yellow-orange background
+  
+  // Confetti (colored circles falling from the top)
+  fill("purple");
+  ellipse(random(0, 400), random(0, 200), 20, 20);
+  fill("blue");
+  ellipse(random(0, 400), random(0, 200), 20, 20);
+  fill("pink");
+  ellipse(random(0, 400), random(0, 200), 20, 20);
+  fill("green");
+  ellipse(random(0, 400), random(0, 200), 20, 20);
+  fill("red");
+  ellipse(random(0, 400), random(0, 200), 20, 20);
+
+  // Draw a "Congrats" message
+  textSize(40);
+  textAlign(CENTER);
+  fill("black");
+  text("Congrats!", 200, 150);
+
+  // Optional: Draw some balloons (fun touch)
+  drawBalloon(100, 100, "red");
+  drawBalloon(250, 100, "blue");
+  drawBalloon(350, 100, "green");
+}
+
+// Function to draw balloons (as part of the celebration background)
+function drawBalloon(x, y, color) {
+  fill(color);
+  ellipse(x, y, 50, 80);  // Draw the balloon
+  
+  // Draw the string for the balloon
+  stroke("black");
+  line(x, y + 40, x, y + 100);
+  noStroke();
+}
+
+game 2 paddle
+
+var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.10;
+ball.velocityY = 5;
+ball.velocityX = 10;
+
+var paddle = createSprite(200, 380);
+paddle.setAnimation("paddle");
+paddle.width = 200;
+
+var brick1 = createSprite(100, 150);
+brick1.setAnimation("brick");
+
+var brick2 = createSprite(300, 75);
+brick2.setAnimation("brick");
+
+var star = createSprite(54, 95);
+star.setAnimation("redstar");
+
+var star2 = createSprite(302, 25);
+star2.setAnimation("redstar");
+
+// Creates an invisible sprite around the edges to detect collisions
+createEdgeSprites();
+
+var score = 0;
+
+function draw() {
+  background("lightblue");
+
+  // Call the functions to update game elements
+  movePaddle();
+  ballBounce();
+  collectStars();
+  
+  // Display the score
+  textSize(20);
+  text("Score: " + score, 10, 10);
+  
+  // Draw all sprites
+  drawSprites();
+}
+
+// Function to move the paddle based on key inputs
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 10;  // Move left
+  }
+  
+  if (keyDown("right")) {
+    paddle.x += 10;  // Move right
+  }
+  
+  // Prevent the paddle from going off-screen
+  if (paddle.x < 50) {
+    paddle.x = 50;
+  }
+  
+  if (paddle.x > 350) {
+    paddle.x = 350;
+  }
+}
+
+// Function to make the ball bounce off walls, the paddle, and bricks
+function ballBounce() {
+  // Bounce off the top wall
+  if (ball.y < 0) {
+    ball.velocityY = -ball.velocityY;
+  }
+
+  // Bounce off the side walls
+  if (ball.x < 0 || ball.x > 400) {
+    ball.velocityX = -ball.velocityX;
+  }
+
+  // Bounce off the paddle
+  if (ball.isTouching(paddle)) {
+    ball.velocityY = -ball.velocityY;
+  }
+
+  // Bounce off bricks
+  if (ball.isTouching(brick1)) {
+    ball.velocityY = -ball.velocityY;
+    brick1.remove();  // Remove brick when hit by the ball
+  }
+  
+  if (ball.isTouching(brick2)) {
+    ball.velocityY = -ball.velocityY;
+    brick2.remove();  // Remove brick when hit by the ball
+  }
+}
+
+// Function to detect when the ball collects stars and update score
+function collectStars() {
+  if (ball.isTouching(star)) {
+    star.remove();  // Remove star from the game
+    setScore();     // Update score
+  }
+
+  if (ball.isTouching(star2)) {
+    star2.remove();  // Remove second star
+    setScore();      // Update score
+  }
+}
+
+// Bonus Function: Set the score whenever a star is collected
+function setScore() {
+  score += 10;  // Increase the score by 10 for each star collected
+}
