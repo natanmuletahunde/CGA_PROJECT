@@ -2776,3 +2776,143 @@ function collectStars() {
 function setScore() {
   score += 10;  // Increase the score by 10 for each star collected
 }
+
+
+lesson 26: Game Design
+
+
+var score = 0;
+var playerSpeed = 5;
+var enemiesAtCake = 0; // Track how many enemies reached the cake
+
+var cake = createSprite(350, 200);
+cake.setAnimation("cake");
+
+var player = createSprite(200, 200);
+player.setAnimation("player");
+
+var enemy1 = createSprite(0, random(160, 250));
+enemy1.setAnimation("enemy");
+
+var enemy2 = createSprite(0, random(160, 250));
+enemy2.setAnimation("enemy");
+
+var enemy3 = createSprite(0, random(160, 250)); // Adding a third enemy
+enemy3.setAnimation("enemy");
+
+function draw() {
+  if (enemiesAtCake >= 3) {
+    // End the game if 3 enemies have reached the cake
+    displayEndGame();
+    return; // Stop drawing the game
+  }
+
+  gameBackground();
+  movePlayer();
+  moveEnemies();
+  checkPlayerPushes();
+  resetEnemies();
+  showScore();
+  drawSprites();
+}
+
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function movePlayer() {
+  if (keyDown("left")) {
+    player.x -= playerSpeed;
+  }
+  if (keyDown("right")) {
+    player.x += playerSpeed;
+  }
+  if (keyDown("up")) {
+    player.y -= playerSpeed;
+  }
+  if (keyDown("down")) {
+    player.y += playerSpeed;
+  }
+  player.x = constrain(player.x, 0, 400);
+  player.y = constrain(player.y, 0, 300);
+}
+
+function moveEnemies() {
+  enemy1.x += 2;
+  enemy2.x += 2;
+  enemy3.x += 2; // Move the third enemy
+}
+
+function checkPlayerPushes() {
+  if (player.isTouching(enemy1)) {
+    enemy1.y += 5; // Player pushes enemy1
+  }
+  if (player.isTouching(enemy2)) {
+    enemy2.y += 5; // Player pushes enemy2
+  }
+  if (player.isTouching(enemy3)) {
+    enemy3.y += 5; // Player pushes enemy3
+  }
+}
+
+function resetEnemies() {
+  if (enemy1.x > 400) {
+    enemy1.x = 0;
+    enemy1.y = random(164, 250);
+    score += 1;
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0;
+    enemy2.y = random(160, 250);
+    score += 1;
+  }
+  if (enemy3.x > 400) {
+    enemy3.x = 0;
+    enemy3.y = random(160, 250);
+    score += 1;
+  }
+
+  if (enemy1.x > cake.x - 10 && enemy1.x < cake.x + 10 && enemy1.y > cake.y - 10 && enemy1.y < cake.y + 10) {
+    enemy1.x = 0;
+    enemy1.y = random(164, 250);
+    score -= 1;
+    enemiesAtCake += 1; // Enemy 1 reached the cake
+  }
+
+  if (enemy2.x > cake.x - 10 && enemy2.x < cake.x + 10 && enemy2.y > cake.y - 10 && enemy2.y < cake.y + 10) {
+    enemy2.x = 0;
+    enemy2.y = random(164, 250);
+    score -= 1;
+    enemiesAtCake += 1; // Enemy 2 reached the cake
+  }
+
+  if (enemy3.x > cake.x - 10 && enemy3.x < cake.x + 10 && enemy3.y > cake.y - 10 && enemy3.y < cake.y + 10) {
+    enemy3.x = 0;
+    enemy3.y = random(164, 250);
+    score -= 1;
+    enemiesAtCake += 1; // Enemy 3 reached the cake
+  }
+}
+
+function displayEndGame() {
+  background(rgb(0, 100, 255)); // Set background to show game over screen
+  fill("white");
+  textSize(30);
+  textAlign(CENTER);
+  text("Game Over!", 200, 150);
+  textSize(20);
+  text("Final Score: " + score, 200, 200);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: " + score, 20, 20);
+}
+
