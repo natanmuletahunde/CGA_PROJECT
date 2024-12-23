@@ -635,3 +635,1365 @@ function draw(){
   sprite1.x=randomNumber(100,200)
   drawSprites()
 }
+
+lesson 13 : Sprite movement
+
+The Counter Pattern
+
+This program creates a variable counter and then uses the counter pattern to make it count up.
+
+var counter = 0;
+
+function draw(){
+  background("white");
+  textSize(counter);
+  text(counter, 0, 400);
+  counter = counter + 1;
+}
+
+Sprite Movement
+
+
+var jet = createSprite(350, 350);
+jet.setAnimation("jet");
+var plane = createSprite(50, 200);
+plane.setAnimation("plane");
+
+function draw() {
+  background("skyblue");
+  
+  //1) Read the code that makes the jet go up the screen
+  jet.y = jet.y - 3;
+  plane.x = plane.x + 3
+  
+
+
+  Moving to the Left
+
+  var fly = createSprite(350, 200);
+fly.setAnimation("fly");
+
+function draw() {
+  background("skyblue");
+  //1) Use the counter pattern to make the sprite move to the left.
+  fly.x = fly.x - 3
+
+  drawSprites();
+}
+
+Diagonal Movement
+
+//1) Read the code that makes the mouse go down.
+//2) Run the program and look at the watchers to see what is happening 
+
+var mouse = createSprite(50, 50);
+mouse.setAnimation("mouse");
+mouse.scale = 0.5;
+
+function draw() {
+  background("lightgreen");
+  mouse.y = mouse.y + 2;
+  mouse.x = mouse.x + 2;
+  //3) Add one more line of code to make the mouse move diagonally.
+  
+  drawSprites();
+}
+
+//4) Run your code again and look at the watchers.
+
+
+Debug: Watching the Counter Pattern
+
+
+//1) Take a look at the value in the watcher
+//2) Add a watcher for the y property
+//3) Run the program to see what happens to the properties and why the motorcycle disappears
+//4) Debug the code so the program runs like the image
+
+var cycle = createSprite(0, 400);
+cycle.setAnimation("motorcycle");
+cycle.rotation = 45;
+
+function draw() {
+  background("lightgrey");
+  cycle.x = cycle.x + 10;
+  cycle.y = cycle.y - 10;
+  drawSprites();
+}
+
+Fish Animation
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4
+  greenFish.x = greenFish.x - 3
+  
+  //1) Use the counter pattern to make the blue fish move across the screen faster than the other fish
+
+  //2) Use the counter pattern to make the green fish move across the screen slower than the other fish.
+  
+  // Draw Animations
+  drawSprites();
+}
+
+More Fish
+
+
+var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2;
+  blueFish.x = blueFish.x - 4;
+  greenFish.x = greenFish.x - 3;
+  
+  orangeFish.rotation = orangeFish.rotation + randomNumber(1, 10);
+  orangeFish.rotation = orangeFish.rotation - randomNumber(1, 10);
+  
+  blueFish.rotation = blueFish.rotation + randomNumber(1, 10);
+  blueFish.rotation = blueFish.rotation - randomNumber(1, 10);
+  
+  greenFish.rotation = greenFish.rotation + randomNumber(1, 10);
+  greenFish.rotation = greenFish.rotation - randomNumber(1, 10);
+  
+  
+  
+  drawSprites();
+}
+
+lesson 14
+
+Create Your Scene - Background
+
+background("white");
+var sprite = createSprite(10, 200);
+sprite.setAnimation("bowl_1");
+var sprite = createSprite(200, 10);
+sprite.setAnimation("bandage_1");
+function draw() {
+  drawSprites();
+}
+
+Create Your Scene - Sprites
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+
+
+function draw() {
+  drawSprites();
+}
+
+Add a text
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  drawSprites();
+}
+
+Scene Movement
+
+background("white");
+var sprite1 = createSprite(10, 200);
+sprite1.setAnimation("bowl_1");
+var sprite2 = createSprite(200, 10);
+sprite2.setAnimation("bandage_1");
+
+var sprite4 = createSprite(100, 390);
+sprite4.setAnimation("arrow_1");
+
+var sprite5 = createSprite(200, 390);
+sprite5.setAnimation("axe_gold_1");
+text("Game", 0, 15);
+
+
+function draw() {
+  background("white");
+  sprite4.x = sprite4.x + 1
+  
+  sprite5.y = sprite5.y + -1
+  drawSprites();
+}
+
+
+lesson 15: Conditionals
+
+booleans
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Counter pattern to make car move across the screen
+  raceCar.x = raceCar.x - 2;
+  
+  //Program text
+  fill("black");
+  strokeWeight(5);
+  textSize(25);
+  text("The race car has crossed the finish line:", 100, 20, 300, 60);
+  fill("blue");
+  //1) Add blocks to the text command to print the boolean to the screen
+  var x =  raceCar.x < 70;
+  
+  text(x, 100, 100);
+  
+  
+  // Draw Animations
+  drawSprites();
+}
+
+if Statments
+
+var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update values
+  raceCar.x = raceCar.x - 2;
+  if (raceCar.x < finishLine.x) {
+    text("THE ORANGE CAR IS THE WINNER!",100,100);
+  }
+  // Draw Animations
+  drawSprites();
+}
+
+
+Changing Fruit
+
+var fruit = createSprite(200, 200);
+fruit.setAnimation("apple");
+fruit.scale = 0.1;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  fruit.scale = fruit.scale + 0.01;
+  
+  if (fruit.scale > 2) {
+    fruit.setAnimation("pear");
+  }
+  
+  
+  //1) Add a conditional to the draw loop.
+  //2) Add code to the conditional statement that asks if the scale of the fruit greater than 2.
+  //3) Add code inside the conditional to change the fruit to a pear.
+
+
+
+
+  // Draw Animations
+  drawSprites();
+}
+
+
+Droped Soup
+
+var soup =  createSprite(200,200);
+soup.setAnimation("stew");
+
+function draw() {
+  background("lightgreen");
+  soup.rotation = soup.rotation + 3;
+  
+  //2) Add a conditional that detects when the bowl is upside down.
+  //3) Set the sprite's animation to be an empty bowl when the bowl is upside down.
+  if(soup.rotation == 180){
+    soup.setAnimation("bowl")
+  }
+  drawSprites();
+}
+
+
+Magic Dinosaur
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sci_fi");
+var dinosaur = createSprite(200, 350);
+dinosaur.scale = 0.2;
+dinosaur.setAnimation("tyrannosaurus");
+
+function draw() {
+  //move the dinosaur up
+  dinosaur.y = dinosaur.y - 5;
+
+  //2) Add a conditional that detects when the dinosaur is in the sky.
+  //3) Set the sprite's animation to a pterodactyl when it reaches the sky.
+  
+  if(dinosaur.y == 150){
+    dinosaur.setAnimation("pterodactyl")
+  }  //draw everything
+  drawSprites();
+}
+
+
+
+Conditional Challenge A 
+
+var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+var pop = createSprite(200,200);
+pop.setAnimation("pop");
+pop.visible = false;
+//1) Create a pop sprite which uses the "pop" visual in the animation tab.
+
+
+//2) Set the pop sprite to be hidden at the beginning.
+
+
+function draw() {
+  // Draw Background
+  background("white");
+
+  // Update Values
+  balloon.scale = balloon.scale + 0.001;
+  console.log(balloon.scale);
+  if(balloon.scale == 0.39700000000000024){
+    balloon.visible = false;
+    pop.visible = true;
+  }
+
+  //3) Add a conditional that checks the size of the balloon to see when it touches the edge of the screen.
+  //4) Inside your conditional, set the balloon sprite to be hidden *and* set the pop sprite to appear.
+
+
+
+  // Draw Animations
+  drawSprites();
+}
+
+lesson 16
+
+Prediction - keyDown()
+
+// Run this code and observe what happens
+// When you press the space bar
+
+function draw() {
+  //Draw Background
+  background("white");
+  
+  // Draw Animations
+  textAlign("center", "center");
+  textSize(100);
+  text(keyDown("space"), 200, 200);
+}
+
+Changing Sprites
+
+
+
+//1) Run the code and try pressing the "p" and "h" keys.
+var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe");
+
+function draw() {
+  background("white");
+
+  //2) Look inside the first two conditional statements to see how the code works.
+  if(keyDown("h")) {
+     sprite.setAnimation("hippo");
+  }
+
+  if(keyDown("p")) {
+     sprite.setAnimation("pig");
+  }
+
+  if(keyDown("r")) {
+      //3) Add code to change the sprite to a different animal when the "r" key is pressed.
+      sprite.setAnimation("hippo")
+  }
+
+  drawSprites();
+}
+
+
+
+Moving Sprites
+
+
+var bug = createSprite(200, 200);
+bug.setAnimation("ladybug");
+
+function draw() {
+  //Draw Background
+  background("white");
+  //1) Add a conditional statement to check if the right arrow key has been pressed down.
+
+  //2) Add code to move the sprite right if the right arrow is down.
+  if(keyDown("LEFT")){
+    bug.x = bug.x - 5;
+    
+  }
+  if(keyDown("RIGHT")){
+    bug.x = bug.x + 5;
+    
+  }
+
+
+  //Draw Animations
+  drawSprites();
+}
+
+Gears with Conditionals
+
+
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  if(keyDown("space")){
+    blueGear.rotation = blueGear.rotation - 1;
+  greenGear.rotation = greenGear.rotation + 1;
+  redGear.rotation = redGear.rotation + 1;
+  }
+
+  //1) Add code that will check if the space key is being pressed down.
+  //2) Adjust the program so that the gears only rotate when the space key is pressed down.
+
+  drawSprites();
+}
+
+Debug Turtle Movement
+
+
+
+var turtle = createSprite(200,200);
+turtle.setAnimation("turtle");
+turtle.scale = 0.5;
+
+function draw() {
+  background("navy");
+  if (keyDown("up")) {
+    turtle.y = turtle.y - 3;
+  }
+  if (keyDown("down")) {
+    turtle.y = turtle.y + 3;
+  }
+  if (keyDown("left")) {
+    turtle.x = turtle.x - 3;
+  }
+  if (keyDown("right")) {
+    turtle.x = turtle.x + 3;
+  }
+  drawSprites();
+}
+
+
+Move in all directions
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("rainbow");
+var flyer = createSprite(200,200);
+flyer.setAnimation("wing_bot");
+
+function draw() {
+  if(keyDown("up")){
+    flyer.y = flyer.y - 5;
+  }
+
+   if(keyDown("down")){
+    flyer.y=flyer.y + 5;
+  }
+
+ if(keyDown("left")){
+    flyer.x=flyer.x - 5;
+  }
+
+ if(keyDown("right")){
+    flyer.x=flyer.x + 5;
+  }
+
+  //1) Add code to move the sprite left when the left arrow is pressed
+
+  //2) Add code to move the sprite right when the right arrow is pressed
+
+  //3) Add code to move the sprite up when the up arrow is pressed
+
+  //4) Add code to move the sprite down when the down arrow is pressed
+
+drawSprites();
+}
+
+Responding to a Single Click
+
+
+
+var clicks = 0;
+
+function draw() {
+  // 2) Change the code to use the new block, so the program only gives you a point for new clicks.
+  if (keyWentDown("space")) {
+      clicks = clicks + 1;
+  }
+  background("white");
+  textSize(50);
+  text(clicks, 165, 175, 70, 50);
+}
+
+If/Else Predict
+
+if space is pressed it increases the scale by 0.02 other wise if any other key is pressed it decreases the scale
+
+Reverse the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (keyDown("space")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //1) Make the gears spin the opposite way when the space bar is **not** being pressed.
+  
+  drawSprites();
+}
+
+Control the Gears
+
+var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (mouseDown("leftButton")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  }else{
+     blueGear.rotation = blueGear.rotation + 1;
+    greenGear.rotation = greenGear.rotation - 1;
+    redGear.rotation = redGear.rotation + 1;
+  }
+  //3) Make the gears spin the opposite way when there is no user input.
+
+  
+  drawSprites();
+}
+
+Mouse clicks
+
+var balloon = createSprite(200, 50);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+function draw() {
+  background("white");
+  
+  
+  if(mouseDown()){
+      balloon.y = balloon.y + 1;
+  }else{
+    balloon.y = balloon.y - 1;
+  }
+
+  drawSprites();
+}
+
+World.mouseX
+
+
+var blender = createSprite(100, 300);
+blender.setAnimation("blender");
+var mixer = createSprite(300, 300);
+mixer.setAnimation("mixer");
+
+function draw() {
+  background("lightyellow");
+  fill("burlywood");
+  rect(0, 350, 400, 50);
+  if (World.mouseX < 200) {
+    blender.x = randomNumber(95, 105);
+    blender.y = randomNumber(295, 305);
+  }
+  if (World.mouseX > 220) {
+    mixer.x = randomNumber(250, 252);
+    mixer.y = randomNumber(238, 340);
+  }
+  //2) Add to the conditional so that when the mouse is on the other side of the screen, the mixer shakes instead.
+
+  drawSprites();
+}
+
+Emoji Reactions
+
+var emoji = createSprite(200, 200);
+emoji.setAnimation("smileEmoji");
+
+function draw() {
+  background("white");
+  //1)If the mouse is pressed down, change the emoji to a different emoji
+  
+  if(mouseDown()){
+    emoji.setAnimation("glassesEmoji")
+  }else{
+    emoji.setAnimation("smileEmoji")
+  }
+  //2)Otherwise, keep the emoji as a smile emoji
+  
+  drawSprites();
+}
+
+
+Fix The Program
+
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+function draw() {
+  //1) Change the code so that the creature only shakes when the mouse is pressed.
+  if(mouseDown()){
+    creature.rotation = randomNumber(-5,5);
+  }
+  drawSprites();
+
+  //2) Change the code so the directions ("Press the mouse to shake the creature.") **only show** 
+  //when the user is **NOT** pressing the mouse.
+  fill("black");
+  textSize(40);
+  text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+}
+
+
+Mouse X and Y
+
+
+//Create a bee sprite
+var sprite =  createSprite(200,200)
+sprite.setAnimation("bee")
+
+function draw(){
+  background("white")
+  drawSprites();
+   sprite.x = World.mouseX;
+  sprite.y = World.mouseY;
+ 
+  //Update the position of the bee to the position of the mouse
+
+
+}
+
+Adding Sprites
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+var clicked = 0;
+
+
+function draw() {
+  drawSprites() 
+}
+
+user input 
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+}
+
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite1.x = sprite1.x - 1;
+  }
+}
+
+
+Finishing touches
+
+var sprite = createSprite(200, 75);
+sprite.setAnimation("eightball_1");
+sprite.scale = 0.3;
+var sprite2 = createSprite(200, 200);
+sprite2.setAnimation("soccer_bw_1");
+sprite2.scale = 0.3;
+var sprite3 = createSprite(200, 320);
+sprite3.setAnimation("baseball_1");
+sprite3.scale = 0.3;
+
+
+text("Balls Game", 10,10);
+
+drawSprites();
+
+function draw() {
+  if(keyDown("space")){
+    sprite.visible = false;
+  }else{
+    sprite.x = sprite.x + 1;
+  }
+  if(keyDown("right")){
+    sprite.x = sprite.x - 1;
+  }
+}
+
+
+lesson 19: Velocity
+
+sprite.velocityX = some_velocity
+sprite.velocityy = some_velocity
+
+
+feather example
+//1) Find the block that will make the feather sprite go down the screen
+
+var feather = createSprite(200, 50);
+feather.setAnimation("feather");
+//2) Use that block outside of the draw loop.
+
+feather.velocityY = 2;
+//3) Give the block a value to make the feather move down the screen.
+
+function draw() {
+  background("skyblue");
+  drawSprites();
+}
+
+
+Rotation Speed
+
+sprite.rotationSpeed = SPEED;
+
+var sun = createSprite(200, 200);
+sun.setAnimation("sun");
+//1) Make the sun rotate by 3 degrees each time it's drawn.
+sun.rotationSpeed = 5;
+
+function draw() {
+  background("blue");
+  drawSprites();
+}
+
+
+example 2
+
+var wheel = createSprite(200, 200);
+wheel.setAnimation("wheel");
+
+function draw() {
+  background("blue");
+
+
+  if (keyWentDown("space")) {
+    //2) Make the color wheel start spinning when the user presses the space bar.
+    wheel.rotationSpeed = wheel.rotationSpeed + 1;
+
+  }
+
+  drawSprites();
+}
+var fish = createSprite(200, 200);
+fish.setAnimation("fishR");
+fish.velocityX = 2;
+
+function draw() {
+  background("blue");
+
+  if (fish.x < 0) {
+    fish.setAnimation("fishR");
+    fish.velocityX = 2;
+  }
+  if (fish.x > 400) {
+    fish.setAnimation("fishL");
+    fish.velocityX = -2;
+  }
+  drawSprites();
+}
+
+var field = createSprite(200,200);
+field.setAnimation("field");
+var ball = createSprite(200, 50);
+ball.setAnimation("ball");
+ball.scale = 0.2;
+ball.velocityY = 5;
+
+function draw() {
+  //2) Look at how conditionals and velocity are used to make the ball bounce at the bottom of the screen.
+  if (ball.y > 380) {
+    ball.velocityY = -5;
+  }
+  if(ball.y < 0){
+    ball.velocityY = 5;
+  }
+  //3) Add code to make the ball bounce at the top of the screen.
+
+  drawSprites();
+}
+
+Paint brush
+var palatte = createSprite(180, 350);
+palatte.setAnimation("paint_pallette");
+var brush = createSprite(220, 50);
+brush.setAnimation("paint_brush");
+ brush.velocityY = 5;
+function draw() {
+  background("skyblue");
+  
+  //1) Use a conditional to send the paint brush down if the down arrow is pressed.
+ 
+  if(brush.y > 320){
+    brush.velocityY = -5;
+  }
+
+
+  //2) Use a different conditional to send the paint brush up if it reaches the palette.
+
+
+  drawSprites();
+}
+
+Swimming Right and Left
+
+var fish = createSprite(200, 200);
+fish.setAnimation("fishR");
+
+function draw() {
+  background("blue");
+  //2) Use a the correct block inside each conditional statement to make the three following movements:
+
+  //If the user presses the right arrow key, move the fish to the right.
+  if (keyWentDown("right")) {
+    fish.velocityX = 5;
+  }
+
+  //If the fish gets to the right-hand side of the screen, move the fish to the left.
+  if (fish.x > 400) {
+    fish.velocityX = -5;
+  }
+
+  //If the fish gets to the left-hand side of the screen, move the fish to the right.
+  if (fish.x < 0) {
+    fish.velocityX = 5;
+  }
+  
+  //3) The fish should always be facing the same direction it's moving, so you will also need to
+  //update the fish's animation inside each of the conditional statements.
+
+  // Draw the fish.
+  drawSprites();
+}
+
+Changing Course
+
+var alien = createSprite(50,200);
+alien.setAnimation("alien");
+alien.velocityX = 0;
+alien.velocityY = -3;
+
+function draw() {
+  //2) Add the appropriate velocity blocks to each conditional 
+  //to make the alien complete the full circuit.
+
+  if (alien.y < 50) {
+    alien.velocityX = 5;
+    alien.velocityY = 0;
+  }
+  if (alien.x > 350) {
+    alien.velocityX = 0;
+    alien.velocityY = 5;
+  }
+  if (alien.y > 350) {
+    alien.velocityX = -5;
+    alien.velocityY = 0;
+  }
+  if (alien.x < 50) {
+    alien.velocityX = 0;
+    alien.velocityY = -5;
+  }
+  
+  drawSprites();
+}
+
+var space = createSprite(200, 200);
+space.setAnimation("space");
+var flag1 = createSprite(50, 50);
+flag1.setAnimation("yellow_flag");
+var flag2 = createSprite(350, 50);
+flag2.setAnimation("yellow_flag");
+var flag3 = createSprite(350, 350);
+flag3.setAnimation("yellow_flag");
+var flag4 = createSprite(50, 350);
+flag4.setAnimation("yellow_flag");
+alien.depth=7;
+
+
+lesson 20
+
+// Create the sprites and start them moving
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("meadow");
+var bunny = createSprite(50, 300);
+bunny.setAnimation("bunny");
+bunny.velocityX = 3;
+var robot = createSprite(400, 320);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+robot.velocityX = -3;
+var dinner = createSprite(370, 350);
+dinner.setAnimation("stew");
+dinner.velocityX = -3;
+
+function draw() {
+  // check if the bunny and dinner are touching
+  if ((((bunny.x > dinner.x) && ((bunny.x - dinner.x) < (bunny.width/2 + dinner.width/2))) || 
+    ((bunny.x < dinner.x) && ((bunny.x - dinner.x) > - (bunny.width/2 + dinner.width/2))))) {
+    // stop everything and change to empty bowl
+    bunny.velocityX = 0;
+    dinner.velocityX = 0;
+    robot.velocityX = 0;
+    dinner.setAnimation("bowl");
+  }
+  drawSprites();
+}
+
+
+sprite.isTouching
+
+// Create the sprites and start them moving
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("meadow");
+var bunny = createSprite(50, 300);
+bunny.setAnimation("bunny");
+bunny.velocityX = 3;
+var robot = createSprite(400, 320);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+robot.velocityX = -3;
+var dinner = createSprite(370, 350);
+dinner.setAnimation("stew");
+dinner.velocityX = -3;
+
+function draw() {
+  //1) Check if the bunny is touching the dinner.
+  if (bunny.isTouching(robot)) {
+    // stop everything and change to empty bowl
+    bunny.velocityX = 0;
+    dinner.velocityX = 0;
+    robot.velocityX = 0;
+    dinner.setAnimation("bowl");
+  }
+  drawSprites();
+}
+
+apple sauese
+
+// create the sprites
+var apple = createSprite(200, -50);
+apple.setAnimation("apple");
+apple.velocityY = 5;
+var blender = createSprite(200, 330);
+blender.setAnimation("blender");
+
+function draw() {
+  //1) Check if the apple is touching the blender.
+
+  //2) Make the blender shake only when the apple is touching it.
+  if(apple.isTouching(blender)){
+      blender.x = 200 + randomNumber(-5,5);
+  }
+
+  //make the background
+  background("skyblue");
+  strokeWeight(0);
+  fill("sienna");
+  rect(0, 340, 400, 60);
+  
+  drawSprites();
+}
+
+Scared Mouse
+
+var kitchen = createSprite(200, 200);
+kitchen.setAnimation("kitchen");
+var cat = createSprite(350, 125);
+cat.setAnimation("cat");
+cat.scale = 0.50;
+var mouse = createSprite(0, 175);
+mouse.setAnimation("mouse_right");
+mouse.velocityX = 4;
+
+
+function draw() {
+  
+  if(mouse.isTouching(cat)){
+    cat.setAnimation("cat_meow");
+    mouse.setAnimation("mouse_left");
+    mouse.velocityX = -5;
+  }
+  //1) Program the mouse to run the other way 
+  // and the cat to look down and meow if the mouse is touching the cat
+
+
+  drawSprites();
+}
+
+Rainbow Horse
+
+// create the sprites
+var horse = createSprite(200, 150);
+horse.setAnimation("horse");
+var rainbow = createSprite(400, 370);
+rainbow.setAnimation("rainbow");
+rainbow.velocityX = -5;
+rainbow.velocityY = -5;
+rainbow.rotateToDirection = true;
+
+function draw() {
+  // draw the background
+  background("skyblue");
+  
+  if(horse.isTouching(rainbow)){
+    horse.setAnimation("unicorn");
+  }
+
+  //1) Change the horse into a unicorn when the rainbow touches it.
+
+
+  
+  drawSprites();
+}
+
+debug add point on collision
+
+//1) Read and run the code to understand how it works, and what is going wrong.
+var points = 0;
+var coin = createSprite(200, 100);
+coin.setAnimation("coin");
+var ghost = createSprite(200, 300);
+ghost.setAnimation("ghost");
+
+function draw() {
+  //2) Identify the code that increases the score.
+  if (ghost.isTouching(coin)) {
+    points = points + 1;
+    coin.x = randomNumber(10,300);
+    coin.y = randomNumber(10,300);
+    //3) Add a line of code so that at least one sprite moves to a new location.
+
+  }
+  background("lightblue");
+  text("Points: " + points, 25, 25);
+  if(keyDown("up")) {
+    ghost.y = ghost.y - 5;
+  }
+  if(keyDown("down")) {
+    ghost.y = ghost.y + 5;
+  }
+  if(keyDown("left")) {
+    ghost.x = ghost.x - 5;
+  }
+  if(keyDown("right")) {
+    ghost.x = ghost.x + 5;
+  }
+  drawSprites();
+}
+
+
+Lesson 21 : Side Scroller
+
+//GAME SETUP
+// Create the sprites
+// set velocity for the obstacle and the target
+var frog = createSprite(220,360);
+frog.setAnimation("frog");
+
+var fly = createSprite(380,250);
+fly.setAnimation("fly");
+fly.velocityX=-5;
+
+var mushroom = createSprite(380,360);
+mushroom.setAnimation("mushroom");
+
+mushroom.velocityX=-5;
+//create the variables
+var score = 0;
+var health = 100;
+
+function draw() {
+  // BACKGROUND
+  background("white");
+  
+  if(mushroom.x < 0){
+    mushroom.x = 400;
+     mushroom.rotation = 0;
+  }
+  
+  if(keyDown("up")){
+    frog.velocityY = -8;
+  }
+  
+  if(frog.y == 200){
+    frog.y = 360;
+    frog.velocityY = 0;
+  }
+  if(fly.x < 0){
+    fly.x = 400;
+    fly.y = randomNumber(250,350);
+  }
+  
+  if(mushroom.isTouching(frog)){
+    mushroom.rotation = 20;
+    health = health - 10;
+    mushroom.x = 400;
+  }
+  
+  if(frog.isTouching(fly)){
+    score = score + 10;
+    fly.x = 400;
+  }
+  
+
+  drawSprites();
+  
+  // SCOREBOARD
+  // add scoreboard and health meter
+  fill("black");
+  textSize(20);
+  text("Health:", 280, 30);
+  text (health, 350, 30);
+  
+  fill("black");
+  textSize(20);
+  text("Score:", 280, 60);
+  text (score, 350, 60);
+  
+  // GAME OVER
+  // if health runs out
+  // show Game over
+  if (health < 0) {
+    background("black");
+    fill("green");
+    textSize(50);
+    text("Game Over!" , 40, 200);
+  }
+}
+
+lesson 22
+
+Velocity and the Counter Pattern
+
+var car = createSprite(50, 200);
+car.setAnimation("red_car");
+car.velocityX = 0.2;
+
+function draw() {
+  background("gray");
+  
+  //1) Add code to make the car speed up.
+
+ car.velocityX = car.velocityX + 0.5;
+  
+  drawSprites();
+}
+
+Falling rock
+
+var rock = createSprite(200, 50);
+rock.setAnimation("rock");
+rock.velocityY = 0.5;
+
+function draw() {
+  background("skyblue");
+  rock.velocityY = rock.velocityY + 0.1;
+  
+  //1) Add code to make the rock speed up as it falls.
+  
+  drawSprites();
+}
+
+Slowing Things down
+
+var car = createSprite(50, 200);
+car.setAnimation("blue_car");
+car.velocityX =  10;
+
+noStroke();
+
+function draw() {
+  background("burlywood");
+  fill("blue");
+  rect(350,0,100,400);
+  car.velocityX = car.velocityX - 0.2;
+  
+  //1) Add code to slow the car down before it goes into the water.
+
+
+  drawSprites();
+}
+
+Slow down and reverse
+
+var scenery = createSprite(200, 200);
+scenery.setAnimation("park_view");
+var cat = createSprite(50, 250);
+cat.setAnimation("brown_cat");
+cat.scale = 0.5;
+
+var mouse = createSprite(375, 325);
+mouse.setAnimation("mouse");
+//1) Take a look at the code that makes the mouse move.
+mouse.velocityX = -20;
+
+
+function draw() {
+  //2) Add code to make the mouse change directions when it reaches the cat.
+  if(mouse.x < 100){
+    
+    mouse.velocityX = mouse.velocityX + 50;
+  }
+
+  drawSprites();
+}
+
+Looks like Gravity
+
+var rock = createSprite(200, 350);
+rock.setAnimation("rock");
+rock.velocityY =  -10;
+rock.rotationSpeed = 2;
+
+function draw() {
+  background("skyblue");
+  
+  if(rock.y < 100){
+    rock.velocityY = rock.velocityY + 11
+  }
+  
+  //1) Add code to make the rock slow down and then fall.
+
+  
+  drawSprites();
+}
+
+jumping
+
+  if(alien.y < 100){
+    alien.velocityY = 25;
+  }
