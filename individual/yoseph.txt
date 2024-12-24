@@ -3023,5 +3023,138 @@ function collectItems() {
     item2.x = randomNumber(50, 350); // Randomize its x position
   }
 }
+Lesson 28 project game design
+// Create your variables here
+var score = 0; 
+var playerSpeed = 5; 
+var playerLives = 3; 
+var gameLevel = 1; 
+var isGameOver = false; 
+var obstacleCount = 5; 
+var trackWidth = 400; 
+
+// Create your sprites
+var car; // Declare the car sprite
+var obstacles = []; // Array to hold obstacle sprites
+
+function setup() {
+  createCanvas(400, 600);
+  
+  // Initialize the car sprite with an animation
+  car = createSprite(200, 500); // Center it on the track
+  car.setAnimation("pieceBlack_multi12_1"); // Set the initial animation to idle
+  
+  // Create obstacle sprites
+  for (var i = 0; i < obstacleCount; i++) {
+    var obstacle = createSprite(random(0, trackWidth), random(-600, 0)); // Random position
+    obstacle.setAnimation("castle_08_1"); // Set obstacle animation
+    obstacle.velocityY = 3; // Set velocity to move downward
+    obstacles.push(obstacle); // Add to the obstacles array
+  }
+}
+
+// Function for Background 1
+function background1() {
+  background("skyblue"); // Set the background color for the first background
+}
+
+// Function for Background 2
+function background2() {
+  background("lightgreen"); // Set the background color for the second background
+}
+
+// Function for Background 3
+function background3() {
+  background("darkgray"); // Set the background color for the third background
+}
+
+// Function to display the information on the screen
+function displayBoard() {
+  fill("white"); // Set text color
+  textSize(20); // Set text size
+  text("Score: " + score, 10, 30); // Display score
+  text("Level: " + gameLevel, 10, 60); // Display game level
+  text("Lives: " + playerLives, 10, 90); // Display lives remaining
+}
+
+// Function to reset the position of the car
+function resetCarPosition() {
+  car.position.x = 200; // Reset to center
+  car.position.y = 500; // Reset to bottom
+}
+
+// Function for car movement to the left
+function moveCarLeft() {
+  car.position.x -= playerSpeed; // Move left
+  car.setAnimation("pieceBlack_multi12_1"); // Set moving left animation
+}
+
+// Function for car movement to the right
+function moveCarRight() {
+  car.position.x += playerSpeed; // Move right
+  car.setAnimation("pieceYellow_multi12_1"); // Set moving right animation
+}
+
+// Function for idle state
+function idleCar() {
+  car.setAnimation("pieceBlack_multi12_1"); // Set idle animation
+}
+
+// Function to handle user controls
+function handleUserControls() {
+  if (keyIsDown(LEFT_ARROW)) {
+    moveCarLeft(); // Call function to move left
+  } else if (keyIsDown(RIGHT_ARROW)) {
+    moveCarRight(); // Call function to move right
+  } else {
+    idleCar(); // Call function for idle state
+  }
+}
+
+// Function to handle sprite interactions
+function handleSpriteInteractions() {
+  for (var i = 0; i < obstacles.length; i++) {
+    if (car.overlap(obstacles[i])) {
+      playerLives--; // Reduce lives when colliding with an obstacle
+      obstacles[i].position.y = random(-600, 0); // Reset obstacle position
+      obstacles[i].position.x = random(0, trackWidth); // Random horizontal position
+      if (playerLives <= 0) {
+        isGameOver = true; // Set game over flag if no lives left
+      }
+    }
+  }
+}
+
+function draw() {
+  // Choose background based on score
+  if (score < 10) {
+    background1(); // Use the first background for scores below 10
+  } else if (score < 20) {
+    background2(); // Use the second background for scores between 10 and 20
+  } else {
+    background3(); // Use the third background for scores of 20 and above
+  }
+
+  // Handle user controls
+  handleUserControls(); // Call the user control function
+
+  // Handle sprite interactions
+  handleSpriteInteractions(); // Call the sprite interaction function
+
+  // Draw the display board
+  displayBoard();
+
+  // Update obstacle positions
+  for (var i = 0; i < obstacles.length; i++) {
+    if (obstacles[i].position.y > height) {
+      obstacles[i].position.y = random(-600, 0); // Reset obstacle to top
+      obstacles[i].position.x = random(0, trackWidth); // Random horizontal position
+    }
+  }
+
+  // Update sprites
+  drawSprites();
+}
+
 
 
