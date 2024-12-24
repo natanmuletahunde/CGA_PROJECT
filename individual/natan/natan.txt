@@ -1,0 +1,3756 @@
+From this series of lessons, I learned   to build small gaming project and understand key game development functionalities.
+// Lesson 1   Interactive Animations & Games Rapid Survey! answer
+ 
+1/What prior experiences have you had with computer science?
+C. I have already taken classes or done longer online tutorials on computer science
+2/What prior experiences have you had with creating Interactive Animation & Games?
+B. I have done smaller creating Interactive Animation & Games activities (for example: an hour of code), but this is my first longer class 
+3/ I like computer science.
+B. Agree 
+4.I have the ability to learn computer science
+A strongly Agree
+5 I want to take more computer science classes in the future
+A/  Strongly agree 
+// lessons 2  Drawing Shapes
+Run start the program 
+// Lesson 3: Drawing in Game Lab
+  level 1 run rect(100,100);
+  level 2 run  rect(300, 300) 
+  to place it in the bottom-right corner.
+  level 3 run function setup() {
+  createCanvas(400, 400); 
+  
+
+  rect(0, 0, 100, 100);
+  
+  
+  rect(300, 300, 100, 100); 
+}
+  level 4  run function setup() {
+  createCanvas(400, 400); // Create a 400x400 canvas
+  
+
+  fill("yellow");
+  
+  
+  rect(100, 100, 100, 100); 
+  
+  
+  rect(250, 100, 100, 100); 
+  
+  
+  rect(150, 250, 100, 100); 
+}
+  level 5  run function setup() {
+  createCanvas(400, 400); // Create a 400x400 canvas
+  
+  // Draw the blue rectangle first
+  fill("blue");
+  rect(200, 200, 100, 100); // x = 200, y = 200, width = 100, height = 100
+  
+  // Draw the green rectangle second (this will appear on top)
+  fill("green");
+}
+  rect(175, 175, 100, 100); 
+   level 6 run  function setup() {
+  createCanvas(400, 400); 
+  
+  
+  fill("teal");
+  ellipse(100, 100, 50, 50); 
+  
+  
+  fill("orange");
+  ellipse(300, 300, 60, 60);
+}
+  level 7  choose c and the code snippet is 
+rect(175, 100);
+rect(175, 150);
+rect(175, 200);
+
+
+fill("red");
+ellipse(200, 125);
+
+
+fill("yellow");
+ellipse(200, 175);
+
+
+fill("green");
+ellipse(200, 225);
+   level 8    run function setup() {
+  createCanvas(400, 400);
+
+  // Draw the purple rectangle first (background)
+  fill("purple");
+  rect(150, 150, 100, 100);
+
+  // Draw the orange circles on top of the rectangle
+  fill("orange");
+  ellipse(150, 150, 50, 50); // Top-left circle
+  ellipse(200, 150, 50, 50); // Top-right circle
+  ellipse(150, 200, 50, 50); // Bottom-left circle
+  ellipse(200, 200, 50, 50); // Bottom-right circle
+}
+   level 9  choose c  run function setup() {
+  createCanvas(400, 400);
+  noFill();
+  ellipse(200, 200, 50, 50); 
+  ellipse(200, 225, 50, 50);
+  ellipse(200, 250, 50, 50);
+  ellipse(178, 237, 50, 50);
+  ellipse(222, 237, 50, 50); 
+  ellipse(200, 175, 50, 50);
+  ellipse(200, 150, 50, 50);
+  ellipse(178, 162, 50, 50);
+  ellipse(222, 162, 50, 50);
+  ellipse(178, 212, 50, 50);
+  ellipse(222, 212, 50, 50);
+}
+
+  // Lesson 4: Shapes and Parameters
+  level 1  run fill("blue");
+rect(100,100,100,200);
+
+fill("red");
+rect(250,100,100,150);
+  level 2  run fill("blue");
+rect(100, 100, 100, 200);
+
+fill("red");
+rect(250, 100, 200, 150);  // Increased the width from 100 to 200
+   level 3 run  fill("orange");
+ellipse(200, 200, 150, 200);  // Orange ellipse is taller than green
+
+fill("green");
+ellipse(200, 200, 140, 100);  // Green ellipse
+  level 4  run // Change the background from yellow to orange
+background("orange"); 
+
+// Draw the purple square
+fill("purple");
+rect(50, 50, 100, 100);
+
+// Draw the blue square
+fill("blue");
+rect(250, 250, 100, 100);
+  level 5 run 
+  // Make a black background behind the green circle
+background("black");
+
+// Draw the green circle
+fill("green");
+ellipse(200, 200, 200, 200);
+   level 6  run 
+    // Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(350, 50, 50, 50);
+
+// Draw grass
+fill("green");
+rect(0, 300, 400, 100); // Change the width to 400 to extend the grass across the entire bottom
+  level 7  choose B  and run  
+  fill("black");
+rect(500, 50, 300, 300);  // First black rectangle
+
+fill("white");
+rect(510, 60, 250, 250);  // Second white rectangle, slightly moved
+
+fill("black");
+rect(520, 70, 200, 200);  // Third black rectangle, slightly moved
+
+fill("white");
+rect(530, 80, 150, 150);  // Fourth white rectangle, slightly moved
+
+fill("black");
+rect(540, 90, 100, 100);  // Fifth black rectangle, slightly moved
+
+fill("white");
+rect(550, 100, 50, 50);  // Sixth white rectangle, slightly moved
+    level 8 run  
+    // Draw sky
+background("skyblue");
+
+// Draw sun
+fill("yellow");
+ellipse(300, 50, 50, 50);
+
+// Draw grass
+fill("green");
+rect(0, 300, 400, 100);
+// Draw cloud (wider than tall)
+fill("white");
+ellipse(150, 100, 200, 100);  // width: 200, height: 100
+  level 9  choose  B run 
+   // Draw the red shape
+fill("red");
+shape(200, 200, 0, 400, 400, 400);  // Custom coordinates for red shape
+
+// Draw the blue shape
+fill("blue");
+shape(200, 200, 0, 0, 400, 0);   // Custom coordinates for blue shape
+  // Lesson 5: Variables
+   level 1 run  
+   var xPosition = 50;
+
+ellipse(xPosition, 350, 100, 100);
+  level 2  
+  var xPosition = 300;
+var whatsTheY = 100;
+
+ellipse(xPosition, whatsTheY);  
+level 3 run 
+  var xPosition = 200; // Center horizontally
+var whatsTheY = 350; // Near the bottom vertically
+
+ellipse(xPosition, whatsTheY, 50, 50); // Draw the ellipse
+   level 4 
+    var sizeOfCircle = 150; // Fixed: No spaces
+var dimension1 = 100;   // Fixed: No starting number
+var yLocation = 200;    // No change needed
+
+fill("OrangeRed");
+ellipse(dimension1, yLocation, sizeOfCircle, sizeOfCircle);
+   level 5  run  
+   var sizeOfCircle = 150; // Fixed: No spaces
+var dimension1 = 100;   // Fixed: No starting number
+var yLocation = 200;    // No change needed
+
+fill("OrangeRed");
+ellipse(dimension1, yLocation, sizeOfCircle, sizeOfCircle);
+      level 6 choose B run 
+       var x = 50; // Correctly declared
+var y = 200; // Correctly declared
+
+fill("deeppink");
+ellipse(x, 100, 50, 50); // Corrected to use lowercase x
+ellipse(350, y, 50, 50); // Corrected to use lowercase y
+rect(x, y, 100, 50); // Added width and height for the rectangle
+    level 7 run 
+     var eyeSize = 27; // Eye size variable
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200, 200, 200, 200);
+
+// Eyes
+fill("black");
+ellipse(160, 170, eyeSize, eyeSize); // Left eye
+ellipse(240, 170, eyeSize, eyeSize); // Right eye, updated to use eyeSize
+
+// Mouth
+fill("white");
+rect(160, 240, 80, 20);
+   level 8 choose B run 
+    var x = 50;
+var y = 100; // All circles stay on the same y-coordinate
+
+fill("blue");
+
+// Draw the first circle
+ellipse(x, y);
+
+// Update x and draw the next circle
+x = x + 50;
+ellipse(x, y);
+
+// Update x and draw the next circle
+x = x + 50;
+ellipse(x, y);
+
+// Update x and draw the next circle
+x = x + 50;
+ellipse(x, y);
+//
+
+var x = 50;
+var y = 50;
+
+fill("green");
+
+// Draw the first circle
+ellipse(x, y);
+
+// Update both x and y, then draw the next circle
+x = x + 50;
+y = y + 50;
+ellipse(x, y);
+
+// Update both x and y again, then draw the next circle
+x = x + 50;
+y = y + 50;
+ellipse(x, y);
+//
+var x = 200; // All circles stay on the same x-coordinate
+var y = 50;
+
+fill("purple");
+
+// Draw the first circle
+ellipse(x, y);
+
+// Update y and draw the next circle
+y = y + 50;
+ellipse(x, y);
+
+// Update y and draw the next circle
+y = y + 50;
+ellipse(x, y);
+
+// Update y and draw the next circle
+y = y + 50;
+ellipse(x, y);
+ // Lesson 6: Random Numbers
+   level 1  run 
+    background("tomato");
+
+fill("orange");
+ellipse(randomNumber(200,400), 200, 50, 50);
+level 2 run 
+ // Set the background color to tomato
+background("tomato");
+
+// Set the fill color to orange
+fill("orange");
+
+// Draw an ellipse with a random x-coordinate anywhere horizontally on the screen
+// Assuming the screen width is 400, the x-coordinate range is updated to 0-400
+ellipse(randomNumber(0, 400), 200, 50, 50);
+   level 3 run 
+    // Set the background color to tomato
+background("tomato");
+
+// Set the fill color to orange
+fill("orange");
+
+// Draw an ellipse with random x and y coordinates anywhere on the screen
+// Assuming the screen size is 400x400
+ellipse(randomNumber(0, 400), randomNumber(0, 400), 50, 50);
+   level 4  run 
+    // Assign a random size to the eyes
+var eyeSize = randomNumber(10, 50); // Eyes will have a size between 10 and 50
+
+noStroke();
+background("green");
+
+// Face
+fill("yellow");
+ellipse(200, 200, 200, 200);
+
+// Eyes
+fill("black");
+ellipse(160, 170, eyeSize, eyeSize); // Left eye
+ellipse(240, 170, eyeSize, eyeSize); // Right eye
+
+// Mouth
+fill("white");
+rect(160, 240, 80, 20);
+   level 5 run
+    var petalSize;
+background("green");
+
+// 1 Update the first flower's petals to be a random size
+petalSize = randomNumber(20, 50); // First flower petals will have random sizes between 20 and 50
+// petals
+fill("purple");
+ellipse(75, 100, petalSize, petalSize);
+ellipse(125, 100, petalSize, petalSize);
+ellipse(100, 75, petalSize, petalSize);
+ellipse(100, 125, petalSize, petalSize);
+// center
+fill("yellow");
+ellipse(100, 100, 50, 50);
+
+// 2 Update the second flower's petals to be a random size
+petalSize = randomNumber(40, 80); // Second flower petals will have random sizes between 40 and 80
+// petals
+fill("purple");
+ellipse(275, 300, petalSize, petalSize);
+ellipse(325, 300, petalSize, petalSize);
+ellipse(300, 275, petalSize, petalSize);
+ellipse(300, 325, petalSize, petalSize);
+// center
+fill("yellow");
+ellipse(300, 300, 50, 50);
+     level 6  choose B run 
+     // 2Update the code so the rectangles appear stacked at random x positions
+var xPosition = randomNumber(0, 150); // Assign a random x position to xPosition
+
+fill("pink");
+rect(xPosition, 100, 250, 50); // Use the same xPosition for all rectangles
+fill("purple");
+rect(xPosition, 150, 250, 50);
+fill("firebrick");
+rect(xPosition),
+   level 7 run 
+    background("skyBlue");
+
+// First three circles
+fill("red");
+ellipse(100, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+fill("orange");
+ellipse(140, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+fill("yellow");
+ellipse(180, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+
+// Additional three circles
+fill("green");
+ellipse(220, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+fill("blue");
+ellipse(260, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+fill("purple");
+ellipse(300, randomNumber(190, 210), randomNumber(40, 60), randomNumber(40, 60)); // Random size
+     level 8  choose  B run 
+       background("white");
+
+// Draw butterfly wings and body
+noStroke();
+fill("lightGreen");
+ellipse(120, 180, 160, 200);
+ellipse(280, 180, 160, 200);
+ellipse(155, 280, 90, 110);
+ellipse(245, 280, 90, 110);
+stroke("black");
+fill("black");
+ellipse(200, 210, 50, 240);
+ellipse(200, 90, 50, 50);
+noFill();
+arc(160, 60, 75, 75, 180, 45);
+arc(240, 60, 75, 75, 135, 0);
+noStroke();
+
+// Draw the first pair of red spots
+var spot1 = randomNumber(90, 155);
+fill("red");
+// Left red spot
+ellipse(spot1, 240, 25, 25);
+// Right red spot (symmetrical)
+ellipse(400 - spot1, 240, 25, 25);
+
+// Draw the second pair of yellow spots
+var spot2 = randomNumber(60, 165);
+fill("yellow");
+// Left yellow spot
+ellipse(100, 140, 20, 20);
+// Right yellow spot (symmetrical)
+ellipse(400 - spot2, 140, 20, 20);
+
+// Draw the third pair of blue spots (for demonstration)
+var spot3 = randomNumber(60, 165);
+fill("blue");
+// Left blue spot
+ellipse(150, 100, 15, 15);   
+// Right blue spot (symmetrical)
+ellipse(400 - 150, 100, 15, 15);
+  // Lesson 7: Mini-Project - Robot Faces
+  level 1 choose D run  
+   // Randomize the position of each of the lines
+line(randomNumber(0, 50), randomNumber(0, 50), randomNumber(0, 50), randomNumber(0, 150));
+line(randomNumber(0, 100), randomNumber(200, 350), randomNumber(0, 100), randomNumber(200, 350));
+line(randomNumber(0, 100), randomNumber(0, 150), randomNumber(0, 100), randomNumber(0, 150));
+line(randomNumber(100, 200), randomNumber(200, 350), randomNumber(100, 200), randomNumber(200, 350));
+line(randomNumber(200, 300), randomNumber(0, 150), randomNumber(200, 300), randomNumber(0, 150));
+line(randomNumber(200, 300), randomNumber(200, 350), randomNumber(200, 300), randomNumber(200, 350));
+line(randomNumber(300, 400), randomNumber(0, 150), randomNumber(300, 400), randomNumber(0, 150));
+line(randomNumber(300, 400), randomNumber(200, 350), randomNumber(300, 400), randomNumber(200, 350));
+   level  2 run 
+    // Variables with random numbers for unique features
+var eyeSize = randomNumber(20, 50); // Random size for the eyes
+var eyeX1 = randomNumber(120, 160); // Random X position for left eye
+var eyeX2 = randomNumber(180, 220); // Random X position for right eye
+var mouthWidth = randomNumber(60, 100); // Random width for the mouth
+var headSize = randomNumber(150, 200); // Random size for the head
+var antennaLength = randomNumber(40, 80); // Random length for the antenna
+var antennaX = randomNumber(160, 190); // Random X position for the antenna
+
+// Background color
+background("lightBlue");
+
+// Robot head
+fill("gray");
+ellipse(200, 200, headSize, headSize); // Random head size
+
+// Eyes
+fill("white");
+ellipse(eyeX1, 170, eyeSize, eyeSize); // Left eye
+ellipse(eyeX2, 170, eyeSize, eyeSize); // Right eye
+
+// Pupils (random size within a smaller range)
+fill("black");
+ellipse(eyeX1, 170, randomNumber(10, 15), randomNumber(10, 15)); // Left pupil
+ellipse(eyeX2, 170, randomNumber(10, 15), randomNumber(10, 15)); // Right pupil
+
+// Mouth
+fill("red");
+rect(200 - mouthWidth / 2, 240, mouthWidth, 20); // Random mouth width
+
+// Antenna
+stroke("black");
+line(antennaX, 150, antennaX, 150 - antennaLength); // Random antenna length and position
+
+// Optional: Add more details like ears or robotic features if desired
+       // Lesson 8: Sprites  
+level  1 run 
+        var fruit = createSprite(100, 200);
+fruit.setAnimation("apple");
+var vegetable = createSprite(300, 200);
+vegetable.setAnimation("carrot");
+drawSprites();  
+level 2  run
+ //1 Create a new sprite variable called sprite1
+var sprite1 = createSprite(200, 200); // Creates the sprite at (200, 200)
+
+//2 Draw your sprites on the screen
+drawSprites(); // Draws the sprite on the screen
+       level 3  run 
+        var leftSprite = createSprite(100, 200);
+var rightSprite = createSprite(300, 200);
+drawSprites();
+   level 4  run 
+    var fruit = createSprite(100, 200);
+fruit.setAnimation("apple");  // Choose an existing animation, like "apple"
+
+var vegetable = createSprite(300, 200);
+vegetable.setAnimation("carrot");  // Choose an existing animation, like "carrot"
+
+drawSprites();
+  level 5   run // Create four sprite variables
+var sprite1 = createSprite(100, 100);
+var sprite2 = createSprite(200, 100);
+var sprite3 = createSprite(300, 100);
+var sprite4 = createSprite(400, 100);
+
+// Set animations for each sprite
+sprite1.setAnimation("animation1"); // Replace with a valid animation name from the Animation Tab
+sprite2.setAnimation("animation2"); // Replace with a valid animation name from the Animation Tab
+sprite3.setAnimation("animation3"); // Replace with a valid animation name from the Animation Tab
+sprite4.setAnimation("animation4"); // Replace with a valid animation name from the Animation Tab
+
+// Draw the sprites on the screen
+drawSprites();
+  level 6  run 
+  // Create sprite variables
+var topLeftSprite = createSprite(100, 100);
+var topRightSprite = createSprite(300, 100);
+var bottomLeftSprite = createSprite(100, 300);
+var bottomRightSprite = createSprite(300, 300);
+
+// Set animations for each sprite
+topLeftSprite.setAnimation("default"); // Replace with actual animation name
+topRightSprite.setAnimation("animation2"); // Replace with actual animation name
+bottomLeftSprite.setAnimation("animation3"); // Replace with actual animation name
+bottomRightSprite.setAnimation("alien"); // Replace with actual animation name
+
+// Draw sprites on the screen
+drawSprites();
+    level 7 run 
+     // Create three sprite variables
+var sprite1 = createSprite(100, 100);
+var sprite2 = createSprite(200, 100);
+var sprite3 = createSprite(300, 100);
+
+// Set animations for each sprite
+sprite1.setAnimation("apple");
+sprite2.setAnimation("banana");
+sprite3.setAnimation("cherry");
+
+// Fix sprite layering by drawing in the correct order
+drawSprites(); // Order matters, so drawing is done last.
+  level 9   choose C run 
+   var sprite1 = createSprite(300, 200);
+var sprite2 = createSprite(200, 275);
+var sprite3 = createSprite(100, 200);
+
+sprite1.setAnimation("cherry");
+sprite2.setAnimation("cherry");
+sprite3.setAnimation("cherry");
+
+drawSprites();
+  level 10   run 
+   // 1 Create two sprite variables at different positions
+var sprite1 = createSprite(100, 200);
+var sprite2 = createSprite(300, 200);
+
+// 2 Assign different animations to each sprite
+sprite1.setAnimation("cat");  // Replace with the animation name you choose for sprite1
+sprite2.setAnimation("dog");  // Replace with the animation name you choose for sprite2
+
+// 3 Draw the sprites to the screen
+drawSprites();
+   level 11  choose C   run
+     // Create character sprite and set animation and location
+var character = createSprite(225, 300);
+var character2 = createSprite(75, 175);
+
+// Assign custom animation to character sprites
+character.setAnimation("characterImage"); // Replace with the name of your custom animation
+character2.setAnimation("characterImage2"); // Replace with the name of your second custom animation if any
+
+// Draw background
+background("black");
+
+// Draw planets
+noStroke();
+fill("DarkGrey");
+ellipse(50, 300, 40, 40);  // Adjust size if needed
+fill("LightCoral");
+ellipse(150, 100, 50, 50);  // Adjust size if needed
+fill("Thistle");
+ellipse(250, 50, 60, 60);   // Adjust size if needed
+fill("Aquamarine");
+ellipse(300, 200, 70, 70);  // Adjust size if needed
+
+// Draw stars
+fill("white");
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+ellipse(randomNumber(10, 390), randomNumber(10, 390), 5, 5);
+
+// Draw sprites to the screen
+drawSprites();
+   //  Lesson 9: Sprite Properties
+    level 1 run 
+     var bee = createSprite(200,200);
+bee.setAnimation("bee");
+bee.x = 350;
+bee.y = 350;
+drawSprites();
+level 2 run 
+ // 1 Run the program to see where the sprites appear
+var palette = createSprite();
+palette.setAnimation("paint_palette");
+
+var brush = createSprite();
+brush.setAnimation("paint_brush");
+
+// Set the location of the paint palette
+palette.x = 100;
+palette.y = 300;
+
+// 2 Change the location of the paint brush to touch the paint palette
+brush.x = 100;  // Adjusted to touch the palette's location
+brush.y = 300;  // Adjusted to touch the palette's location
+
+drawSprites(); // Draw the sprites to the screen
+   level 3 run 
+    background("skyblue");
+
+var drums = createSprite(200, 290);
+drums.setAnimation("drum_set");
+
+var note1 = createSprite(50, 50);
+note1.setAnimation("eighth_note");
+note1.scale = 0.3;
+note1.rotation = 20;
+
+var note2 = createSprite(150, 50);
+note2.setAnimation("eighth_note");
+note2.scale = 0.7;
+note2.rotation = -30;
+
+var note3 = createSprite(250, 50);
+note3.setAnimation("eighth_note");
+note3.scale = 0.5; // Adjusted scale for the third note
+note3.rotation = 45; // Adjusted rotation for the third note
+
+var note4 = createSprite(350, 50);
+note4.setAnimation("eighth_note");
+note4.scale = 0.6; // Adjusted scale for the fourth note
+note4.rotation = -45; // Adjusted rotation for the fourth note
+
+drawSprites();
+   level 4  choose A run 
+    background("darkseagreen");
+
+// Drawing the pond
+fill("deepskyblue");
+ellipse(75, 75, 75, 75); // Pond for the fish
+
+// Creating and scaling the sprites
+var fly = createSprite(25, 25);
+fly.setAnimation("fly");
+fly.scale = 0.5; // Reduced the size of the fly to make it smaller
+
+var fish = createSprite(75, 75);
+fish.setAnimation("fish");
+fish.scale = 0.4; // Made the fish smaller to fit in the pond
+
+var cow = createSprite(150, 150);
+cow.setAnimation("cow");
+cow.scale = 1.2; // Increased the size of the cow a little
+
+var elephant = createSprite(300, 300);
+elephant.setAnimation("elephant");
+elephant.scale = 1.5; // Increased the size of the elephant
+
+// Draw the sprites
+drawSprites();
+   level 5 Run 
+    background("burlywood");
+
+// Drawing the plate
+fill("white");
+ellipse(200, 200, 350, 350); // Plate with size 350x350
+
+// Creating and scaling the food sprites
+var fries = createSprite(250, 140);
+fries.setAnimation("fries");
+fries.scale = 0.3; // Scaled down fries to fit on the plate
+
+var burger = createSprite(110, 200);
+burger.setAnimation("burger");
+burger.scale = 0.4; // Scaled down the burger to fit on the plate
+
+var dessert = createSprite(240, 270);
+dessert.setAnimation("watermelon");
+dessert.scale = 0.3; // Scaled down the dessert to fit on the plate
+
+// Draw the sprites
+drawSprites(); 
+level 6 choose B  run
+ var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe_tall");
+
+// Use width and height properties to adjust the size of the sprite
+sprite.width = 100; // Change the width of the sprite
+sprite.height = 200; // Change the height of the sprite
+
+drawSprites();
+  // Lesson 10: Text  
+   level 1 run 
+    text("hello", 10, 200);
+
+text("everyone!", 200, 300);
+ level 2 run 
+  background("lightyellow");
+
+//1 Change the displayed text in the provided code.
+text("New text displayed here!", 50, 200);
+
+//2Add another sentence in a different part of the screen.
+text("This is a second sentence!", 200, 300);
+     level 3  run 
+      background("lightblue");
+
+//1 Run the code to see how it works.
+textSize(20);
+text("small", 170, 100);
+
+textSize(40);
+text("medium", 130, 200);
+
+//2 Add code to make the word "large" the biggest.
+textSize(60); // This makes "large" bigger than the others
+text("large", 120, 300);
+  level 4  choose C  run 
+    var field = createSprite(200, 200);
+field.setAnimation("field");
+
+var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.15;
+
+drawSprites();
+
+// Add text to display the score
+textSize(32); // Set text size
+fill("white"); // Set text color
+text("Score: 0", 10, 30); // Display score at the top left corner
+  level 5 run 
+    var grass = createSprite(200, 200);
+grass.setAnimation("floating_grass");
+
+var alien = createSprite(180, 100);
+alien.setAnimation("alien");
+alien.scale = 1.3;
+
+var robot = createSprite(300, 300);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+
+drawSprites();
+   level 6  choose E  run 
+      // Create background for space scene
+var spaceBackground = createSprite(200, 200);
+spaceBackground.setAnimation("space_background");
+
+// Create spaceship sprite
+var spaceship = createSprite(150, 200);
+spaceship.setAnimation("spaceship");
+spaceship.scale = 0.5;
+
+// Create asteroid sprite
+var asteroid = createSprite(300, 100);
+asteroid.setAnimation("asteroid");
+asteroid.scale = 0.4;
+
+// Create alien sprite
+var alien = createSprite(100, 100);
+alien.setAnimation("alien");
+alien.scale = 0.3;
+
+// Draw sprites to screen
+drawSprites();
+
+// Add text to the scene
+textSize(30);
+fill("white");
+text("Space Adventure!", 90, 30); // Title text
+
+textSize(20);
+fill("yellow");
+text("Watch out for asteroids!", 50, 250); // Additional message
+   //  Lesson 11: Mini-Project - Captioned Scenes 
+        level 1 Sprite Scenes
+
+It's time to put everything together and make a fun scene. Take a look at this example and think about what you'd like to make.
+Sketch It Out
+
+Before moving on, take a second to sketch out a scene that you'd like to make at the end of this lesson. Consider the simple shapes that you've used in the past, sprites for your characters, and any text that you'd like on the screen. Once you've sketched out an idea, you'll learn about how to compose a scene.
+
+Is there anything else that you still need to learn how to do?
+
+Are there any skills that you'd like to review  
+  level 2 run 
+    // Create a canvas element
+const canvas = document.createElement('canvas');
+canvas.width = 800; // Set canvas width
+canvas.height = 600; // Set canvas height
+document.body.appendChild(canvas); // Add canvas to the document
+
+const ctx = canvas.getContext('2d');
+
+// Step 1: Create a background color
+ctx.fillStyle = '#87CEEB'; // Light blue for sky
+ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
+
+// Step 2: Add the first shape (e.g., a sun)
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI * 2); // Circle for the sun
+ctx.fill();
+
+// Step 3: Add the second shape (e.g., a green hill)
+ctx.fillStyle = 'green';
+ctx.beginPath();
+ctx.arc(400, 500, 300, 0, Math.PI, true); // Semi-circle for a hill
+ctx.fill();
+
+// Sprite properties
+const sprites = [
+  {
+    x: 200,
+    y: 300,
+    width: 50,
+    height: 50,
+    color: 'red',
+    dx: 2,
+    dy: 1,
+    rotation: 0,
+    scale: 1,
+  },
+  {
+    x: 600,
+    y: 400,
+    width: 70,
+    height: 70,
+    color: 'blue',
+    dx: -1.5,
+    dy: -2,
+    rotation: 0,
+    scale: 1,
+  },
+];
+
+// Draw a single sprite
+function drawSprite(sprite) {
+  ctx.save();
+  ctx.translate(sprite.x, sprite.y);
+  ctx.rotate(sprite.rotation);
+  ctx.scale(sprite.scale, sprite.scale);
+
+  // Draw a rectangle (you can replace this with more complex shapes or images)
+  ctx.fillStyle = sprite.color;
+  ctx.fillRect(-sprite.width / 2, -sprite.height / 2, sprite.width, sprite.height);
+
+  ctx.restore();
+}
+
+// Update sprite properties (position, rotation, etc.)
+function updateSprites() {
+  sprites.forEach((sprite) => {
+    // Move the sprite
+    sprite.x += sprite.dx;
+    sprite.y += sprite.dy;
+
+    // Rotate the sprite
+    sprite.rotation += 0.05;
+
+    // Scale the sprite (bouncing effect)
+    sprite.scale += 0.01 * (sprite.dx > 0 ? 1 : -1);
+
+    // Keep sprites within bounds (bounce effect)
+    if (sprite.x < 0 || sprite.x > canvas.width) sprite.dx *= -1;
+    if (sprite.y < 0 || sprite.y > canvas.height) sprite.dy *= -1;
+  });
+}
+
+// Add text to the scene
+function drawText() {
+  // Line 1: Big bold text
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 36px Arial';
+  ctx.fillText('Welcome to My Scene!', 250, 50); // (text, x, y)
+
+  // Line 2: Smaller italicized text with shadow
+  ctx.fillStyle = 'black';
+  ctx.font = 'italic 24px Arial';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  ctx.fillText('Enjoy the animations and colors!', 230, 100); // (text, x, y)
+
+  // Reset shadow for other elements
+  ctx.shadowColor = 'transparent';
+}
+
+// Main animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the background
+  ctx.fillStyle = '#87CEEB';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the shapes
+  ctx.fillStyle = 'yellow';
+  ctx.beginPath();
+  ctx.arc(100, 100, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'green';
+  ctx.beginPath();
+  ctx.arc(400, 500, 300, 0, Math.PI, true);
+  ctx.fill();
+
+  // Draw and update sprites
+  sprites.forEach(drawSprite);
+  updateSprites();
+
+  // Draw the text
+  drawText();
+
+  requestAnimationFrame(animate);
+}
+
+// Start the animation loop
+animate();
+  level 3 run 
+   // Create a canvas element
+const canvas = document.createElement('canvas');
+canvas.width = 800; // Set canvas width
+canvas.height = 600; // Set canvas height
+document.body.appendChild(canvas); // Add canvas to the document
+
+const ctx = canvas.getContext('2d');
+
+// Step 1: Create a background color
+ctx.fillStyle = '#87CEEB'; // Light blue for sky
+ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
+
+// Step 2: Add the first shape (e.g., a sun)
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI * 2); // Circle for the sun
+ctx.fill();
+
+// Step 3: Add the second shape (e.g., a green hill)
+ctx.fillStyle = 'green';
+ctx.beginPath();
+ctx.arc(400, 500, 300, 0, Math.PI, true); // Semi-circle for a hill
+ctx.fill();
+
+// Sprite properties
+const sprites = [
+  {
+    x: 200,
+    y: 300,
+    width: 50,
+    height: 50,
+    color: 'red',
+    dx: 2,
+    dy: 1,
+    rotation: 0,
+    scale: 1,
+  },
+  {
+    x: 600,
+    y: 400,
+    width: 70,
+    height: 70,
+    color: 'blue',
+    dx: -1.5,
+    dy: -2,
+    rotation: 0,
+    scale: 1,
+  },
+];
+
+// Draw a single sprite
+function drawSprite(sprite) {
+  ctx.save();
+  ctx.translate(sprite.x, sprite.y);
+  ctx.rotate(sprite.rotation);
+  ctx.scale(sprite.scale, sprite.scale);
+
+  // Draw a rectangle (you can replace this with more complex shapes or images)
+  ctx.fillStyle = sprite.color;
+  ctx.fillRect(-sprite.width / 2, -sprite.height / 2, sprite.width, sprite.height);
+
+  ctx.restore();
+}
+
+// Update sprite properties (position, rotation, etc.)
+function updateSprites() {
+  sprites.forEach((sprite) => {
+    // Move the sprite
+    sprite.x += sprite.dx;
+    sprite.y += sprite.dy;
+
+    // Rotate the sprite
+    sprite.rotation += 0.05;
+
+    // Scale the sprite (bouncing effect)
+    sprite.scale += 0.01 * (sprite.dx > 0 ? 1 : -1);
+
+    // Keep sprites within bounds (bounce effect)
+    if (sprite.x < 0 || sprite.x > canvas.width) sprite.dx *= -1;
+    if (sprite.y < 0 || sprite.y > canvas.height) sprite.dy *= -1;
+  });
+}
+
+// Add text to the scene
+function drawText() {
+  // Line 1: Big bold text
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 36px Arial';
+  ctx.fillText('Welcome to My Scene!', 250, 50); // (text, x, y)
+
+  // Line 2: Smaller italicized text with shadow
+  ctx.fillStyle = 'black';
+  ctx.font = 'italic 24px Arial';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  ctx.fillText('Enjoy the animations and colors!', 230, 100); // (text, x, y)
+
+  // Reset shadow for other elements
+  ctx.shadowColor = 'transparent';
+}
+
+// Main animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the background
+  ctx.fillStyle = '#87CEEB';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the shapes
+  ctx.fillStyle = 'yellow';
+  ctx.beginPath();
+  ctx.arc(100, 100, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'green';
+  ctx.beginPath();
+  ctx.arc(400, 500, 300, 0, Math.PI, true);
+  ctx.fill();
+
+  // Draw and update sprites
+  sprites.forEach(drawSprite);
+  updateSprites();
+
+  // Draw the text
+  drawText();
+
+  requestAnimationFrame(animate);
+}
+
+// Start the animation loop
+animate();
+   level 4 run 
+     // Create a canvas element
+const canvas = document.createElement('canvas');
+canvas.width = 800; // Set canvas width
+canvas.height = 600; // Set canvas height
+document.body.appendChild(canvas); // Add canvas to the document
+
+const ctx = canvas.getContext('2d');
+
+// Step 1: Create a background color
+ctx.fillStyle = '#87CEEB'; // Light blue for sky
+ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
+
+// Step 2: Add the first shape (e.g., a sun)
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI * 2); // Circle for the sun
+ctx.fill();
+
+// Step 3: Add the second shape (e.g., a green hill)
+ctx.fillStyle = 'green';
+ctx.beginPath();
+ctx.arc(400, 500, 300, 0, Math.PI, true); // Semi-circle for a hill
+ctx.fill();
+
+// Sprite properties
+const sprites = [
+  {
+    x: 200,
+    y: 300,
+    width: 50,
+    height: 50,
+    color: 'red',
+    dx: 2,
+    dy: 1,
+    rotation: 0,
+    scale: 1,
+  },
+  {
+    x: 600,
+    y: 400,
+    width: 70,
+    height: 70,
+    color: 'blue',
+    dx: -1.5,
+    dy: -2,
+    rotation: 0,
+    scale: 1,
+  },
+];
+
+// Draw a single sprite
+function drawSprite(sprite) {
+  ctx.save();
+  ctx.translate(sprite.x, sprite.y);
+  ctx.rotate(sprite.rotation);
+  ctx.scale(sprite.scale, sprite.scale);
+
+  // Draw a rectangle (you can replace this with more complex shapes or images)
+  ctx.fillStyle = sprite.color;
+  ctx.fillRect(-sprite.width / 2, -sprite.height / 2, sprite.width, sprite.height);
+
+  ctx.restore();
+}
+
+// Update sprite properties (position, rotation, etc.)
+function updateSprites() {
+  sprites.forEach((sprite) => {
+    // Move the sprite
+    sprite.x += sprite.dx;
+    sprite.y += sprite.dy;
+
+    // Rotate the sprite
+    sprite.rotation += 0.05;
+
+    // Scale the sprite (bouncing effect)
+    sprite.scale += 0.01 * (sprite.dx > 0 ? 1 : -1);
+
+    // Keep sprites within bounds (bounce effect)
+    if (sprite.x < 0 || sprite.x > canvas.width) sprite.dx *= -1;
+    if (sprite.y < 0 || sprite.y > canvas.height) sprite.dy *= -1;
+  });
+}
+
+// Add text to the scene
+function drawText() {
+  // Line 1: Big bold text
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 36px Arial';
+  ctx.fillText('Welcome to My Scene!', 250, 50); // (text, x, y)
+
+  // Line 2: Smaller italicized text with shadow
+  ctx.fillStyle = 'black';
+  ctx.font = 'italic 24px Arial';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  ctx.fillText('Enjoy the animations and colors!', 230, 100); // (text, x, y)
+
+  // Reset shadow for other elements
+  ctx.shadowColor = 'transparent';
+}
+
+// Main animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the background
+  ctx.fillStyle = '#87CEEB';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the shapes
+  ctx.fillStyle = 'yellow';
+  ctx.beginPath();
+  ctx.arc(100, 100, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'green';
+  ctx.beginPath();
+  ctx.arc(400, 500, 300, 0, Math.PI, true);
+  ctx.fill();
+
+  // Draw and update sprites
+  sprites.forEach(drawSprite);
+  updateSprites();
+
+  // Draw the text
+  drawText();
+
+  requestAnimationFrame(animate);
+}
+
+// Start the animation loop
+animate();
+  level  5 run 
+    // Create a canvas element
+const canvas = document.createElement('canvas');
+canvas.width = 800; // Set canvas width
+canvas.height = 600; // Set canvas height
+document.body.appendChild(canvas); // Add canvas to the document
+
+const ctx = canvas.getContext('2d');
+
+// Step 1: Create a background color
+ctx.fillStyle = '#87CEEB'; // Light blue for sky
+ctx.fillRect(0, 0, canvas.width, canvas.height); // Fill the entire canvas
+
+// Step 2: Add the first shape (e.g., a sun)
+ctx.fillStyle = 'yellow';
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0, Math.PI * 2); // Circle for the sun
+ctx.fill();
+
+// Step 3: Add the second shape (e.g., a green hill)
+ctx.fillStyle = 'green';
+ctx.beginPath();
+ctx.arc(400, 500, 300, 0, Math.PI, true); // Semi-circle for a hill
+ctx.fill();
+
+// Sprite properties
+const sprites = [
+  {
+    x: 200,
+    y: 300,
+    width: 50,
+    height: 50,
+    color: 'red',
+    dx: 2,
+    dy: 1,
+    rotation: 0,
+    scale: 1,
+  },
+  {
+    x: 600,
+    y: 400,
+    width: 70,
+    height: 70,
+    color: 'blue',
+    dx: -1.5,
+    dy: -2,
+    rotation: 0,
+    scale: 1,
+  },
+];
+
+// Draw a single sprite
+function drawSprite(sprite) {
+  ctx.save();
+  ctx.translate(sprite.x, sprite.y);
+  ctx.rotate(sprite.rotation);
+  ctx.scale(sprite.scale, sprite.scale);
+
+  // Draw a rectangle (you can replace this with more complex shapes or images)
+  ctx.fillStyle = sprite.color;
+  ctx.fillRect(-sprite.width / 2, -sprite.height / 2, sprite.width, sprite.height);
+
+  ctx.restore();
+}
+
+// Update sprite properties (position, rotation, etc.)
+function updateSprites() {
+  sprites.forEach((sprite) => {
+    // Move the sprite
+    sprite.x += sprite.dx;
+    sprite.y += sprite.dy;
+
+    // Rotate the sprite
+    sprite.rotation += 0.05;
+
+    // Scale the sprite (bouncing effect)
+    sprite.scale += 0.01 * (sprite.dx > 0 ? 1 : -1);
+
+    // Keep sprites within bounds (bounce effect)
+    if (sprite.x < 0 || sprite.x > canvas.width) sprite.dx *= -1;
+    if (sprite.y < 0 || sprite.y > canvas.height) sprite.dy *= -1;
+  });
+}
+
+// Add text to the scene
+function drawText() {
+  // Line 1: Big bold text
+  ctx.fillStyle = 'white';
+  ctx.font = 'bold 36px Arial';
+  ctx.fillText('Welcome to My Scene!', 250, 50); // (text, x, y)
+
+  // Line 2: Smaller italicized text with shadow
+  ctx.fillStyle = 'black';
+  ctx.font = 'italic 24px Arial';
+  ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+  ctx.shadowBlur = 4;
+  ctx.shadowOffsetX = 2;
+  ctx.shadowOffsetY = 2;
+  ctx.fillText('Enjoy the animations and colors!', 230, 100); // (text, x, y)
+
+  // Reset shadow for other elements
+  ctx.shadowColor = 'transparent';
+}
+
+// Main animation loop
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the background
+  ctx.fillStyle = '#87CEEB';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Redraw the shapes
+  ctx.fillStyle = 'yellow';
+  ctx.beginPath();
+  ctx.arc(100, 100, 50, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = 'green';
+  ctx.beginPath();
+  ctx.arc(400, 500, 300, 0, Math.PI, true);
+  ctx.fill();
+
+  // Draw and update sprites
+  sprites.forEach(drawSprite);
+  updateSprites();
+
+  // Draw the text
+  drawText();
+
+  requestAnimationFrame(animate);
+}
+
+// Start the animation loop
+animate();
+  // Lesson 12: The Draw Loop  
+    level 1 run 
+     //1 Discuss with your partner what will be drawn on the screen and why.
+//2 Record your prediction in the box.
+//3 Run the program to see what this program does!
+noStroke();
+fill("SeaGreen");
+
+function draw(){
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}
+  level 2  run 
+   noStroke();
+
+function draw() {
+  // Draw green circles
+  fill("green");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400));
+  
+  // Draw orange circles
+  fill("orange");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400));
+}
+  level 3 run 
+    World.frameRate = 5;
+
+noStroke();
+background("blue");
+fill("Yellow");
+
+function draw(){
+  background("Red");
+  ellipse(randomNumber(0,400), randomNumber(0,400));
+}  
+level 4 run 
+  // Create a sprite and set its initial position
+var sprite = createSprite(100, 200);
+
+// Set the sprite's animation to "greenAlien"
+sprite.setAnimation("greenAlien");
+
+function draw() {
+  // Clear the screen by drawing a new orange background every frame
+  background("orange");
+  
+  // Change the sprite's rotation randomly every frame
+  sprite.rotation = randomNumber(-10, 10);
+
+  // Draw all the sprites on the screen
+  drawSprites();
+}  
+level 5 run 
+  // Create the first sprite, pencil, and set its animation
+var pencil = createSprite(100, 200);
+pencil.setAnimation("pencil");
+
+// Create the second sprite, brush, and set its animation
+var brush = createSprite(300, 200);
+brush.setAnimation("brush");
+
+function draw()
+  // Set the background color to white every frame
+  background("white");
+  
+  // Make the pencil sprite shake by changing its x position randomly
+  pencil.x = randomNumber(100, 110);
+  
+  // Make the brush sprite shake by changing its x position randomly as well
+  brush.x = randomNumber(290, 310); // Adjusted range for the brush sprite
+  
+  // Draw all sprites on the screen
+  drawSprites();  
+  level 6   choose B run 
+    // Create the blender sprite outside the draw loop so it doesn't get recreated every frame
+var blender = createSprite(200, 200);
+blender.setAnimation("blender");
+
+function draw() {
+  // Set the background color every frame
+  background("lightyellow");
+  
+  // Shake the sprite by adjusting its x and y position randomly within a small range
+  blender.x = 200 + randomNumber(-5, 5);
+  blender.y = 200 + randomNumber(-5, 5);
+  
+  // Draw the sprite on the screen
+  drawSprites();
+}
+   level 7 run 
+     // Create the salt sprite
+var salt = createSprite(200, 200);
+salt.setAnimation("salt");
+
+// Add the draw loop
+function draw() {
+  // Set the background color for each frame
+  background("skyblue");
+
+  // Draw the sprite on the screen
+  drawSprites();
+}
+   level 8 choose C  run 
+
+      // Create a unicorn sprite and set the animation to "unicornJumping"
+var unicorn = createSprite(200, 200);
+unicorn.setAnimation("unicornJumping");
+
+// Add the draw loop
+function draw() {
+  // Set the background color
+  background("skyblue");
+
+  // Move the unicorn sprite up and down to simulate jumping
+  unicorn.y = 200 + Math.sin(World.frameCount * 0.1) * 50;
+
+  // Draw the sprite on the screen
+  drawSprites();
+}
+  // Lesson 13: Sprite Movement  
+   level 1  run 
+     var counter = 0;
+
+function draw(){
+  background("white");
+  textSize(counter);
+  text(counter, 0, 400);
+  counter = counter + 1;
+}  
+level  2 run 
+  var jet = createSprite(350, 350);
+jet.setAnimation("jet");
+
+var plane = createSprite(50, 200);
+plane.setAnimation("plane");
+
+function draw() {
+  background("skyblue");
+  
+  //1 Code that makes the jet go up the screen
+  jet.y = jet.y - 3;
+  
+  //2 Add code that makes the plane move to the right
+  plane.x = plane.x + 3;  // Move the plane 3 pixels to the right each time
+
+  drawSprites();
+}
+level 3 run 
+  var fly = createSprite(350, 200);
+fly.setAnimation("fly");
+
+function draw() {
+  background("skyblue");
+
+  //1 Use the counter pattern to make the sprite move to the left
+  fly.x = fly.x - 5;  // Move the fly 5 pixels to the left each time
+
+  drawSprites();
+}
+   level 4 run 
+     var mouse = createSprite(50, 50);
+mouse.setAnimation("mouse");
+mouse.scale = 0.5;
+
+function draw() {
+  background("lightgreen");
+
+  // Move the mouse down
+  mouse.y = mouse.y + 2;
+  
+  // Add code to move the mouse to the right (diagonally)
+  mouse.x = mouse.x + 2;  // This makes the mouse move to the right
+
+  drawSprites();
+}  
+level 5   run 
+  var red_car = createSprite(-50, 150);
+red_car.setAnimation("red_car");
+red_car.rotation = 90;
+
+var yellow_car = createSprite(250, -50);
+yellow_car.setAnimation("yellow_car");
+yellow_car.rotation = 180;
+
+var blue_car = createSprite(450, 250);
+blue_car.setAnimation("blue_car");
+blue_car.rotation = 270;
+
+var green_car = createSprite(150, 450);
+green_car.setAnimation("green_car");
+
+function draw() {
+  background("white");
+  
+  red_car.x = red_car.x + 4;
+  yellow_car.y = yellow_car.y + 4;
+  blue_car.x = blue_car.x - 4;
+  green_car.y = green_car.y - 4;
+  
+  drawSprites();
+}
+  level 6  choose C   run 
+       var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  // Make the gears rotate so they look like they are working as one system
+  blueGear.rotation = blueGear.rotation + 1; // Blue gear rotates clockwise
+  greenGear.rotation = greenGear.rotation - 1; // Green gear rotates counterclockwise
+  redGear.rotation = redGear.rotation + 1; // Red gear rotates clockwise
+  
+  drawSprites();
+}
+  
+  level 7 run 
+    var orangeFish = createSprite(400, randomNumber(0, 100));
+orangeFish.setAnimation("orange_fish");
+
+var blueFish = createSprite(250, randomNumber(0, 200));
+blueFish.setAnimation("blue_fish");
+
+var greenFish = createSprite(300, randomNumber(200, 300));
+greenFish.setAnimation("green_fish");
+
+function draw() {
+  // Draw Background
+  background("navy");
+  
+  // Update Values
+  orangeFish.x = orangeFish.x - 2; // Orange fish moves at a normal speed
+  
+  // 1 Use the counter pattern to make the blue fish move across the screen faster than the other fish
+  blueFish.x = blueFish.x - 4; // Blue fish moves faster
+  
+  // 2 Use the counter pattern to make the green fish move across the screen slower than the other fish.
+  greenFish.x = greenFish.x - 1; // Green fish moves slower
+  
+  // Draw Animations
+  drawSprites();
+}
+  level  8  choose G run 
+    // Create sprite for microscope
+var microscope = createSprite(200, 200);
+microscope.setAnimation("microscope");
+
+// Create sprite for specimen 1 under the microscope
+var specimen1 = createSprite(200, 150);
+specimen1.setAnimation("specimen1");
+
+// Create sprite for specimen 2 under the microscope
+var specimen2 = createSprite(200, 250);
+specimen2.setAnimation("specimen2");
+
+// Optional: Create a background for the classroom
+var classroomBackground = createSprite(200, 200);
+classroomBackground.setAnimation("classroom_background");
+
+function draw() {
+  background("lightblue"); // Set background color to represent the classroom
+
+  // Move specimens to create an animation effect
+  specimen1.x = specimen1.x + 2;  // Specimen 1 moves to the right
+  specimen2.x = specimen2.x + 1;  // Specimen 2 moves to the right at a slower speed
+
+  // Optionally rotate the microscope or animate other parts of the scene
+  microscope.rotation = microscope.rotation + 1; // Rotate the microscope for added effect
+
+  drawSprites(); // Draw the sprites on the screen
+}
+    // Lesson 14: Mini-Project - Animation
+     level 1 run 
+      Animated Scenes
+
+It's time to try out an animated scene. Take a look at this example and think about what you'd like to make.
+Animated Example
+
+    What movements do you see in this scene?
+    Which movements use random numbers?
+    Which movements use the counter patte  
+         level 2 run 
+           // Define global variables for movement
+var birdX = 50;
+var birdY = 150;
+var birdSpeed = 2;
+
+var cloudX = 200;
+var cloudY = 50;
+
+// Create the background and other elements
+function draw() {
+  // Set the background color
+  background("lightblue");
+
+  // Draw the ground
+  fill("green");
+  rect(0, 300, 400, 100);  // Ground
+
+  // Draw the sun with counter pattern movement (grows bigger)
+  fill("yellow");
+  ellipse(100, 100, 80 + frameCount * 0.1, 80 + frameCount * 0.1);  // Sun grows over time
+
+  // Draw clouds with random movement
+  fill("white");
+  cloudX = randomNumber(100, 300); // Cloud's X position moves randomly
+  ellipse(cloudX, cloudY, 100, 50);  // Cloud
+
+  // Draw mountains
+  fill(100, 100, 255, 150);  // Light blue for distant mountains
+  triangle(50, 200, 150, 100, 250, 200);  // First mountain
+  triangle(150, 200, 250, 120, 350, 200);  // Second mountain
+
+  // Create the bird sprite and set animation
+  var bird = createSprite(birdX, birdY);
+  bird.setAnimation("birdAnimation"); // Set the bird animation here
+  bird.scale = 0.5;  // Make the bird smaller
+  bird.rotation = 45; // Set the bird's rotation to 45 degrees
+
+  // Counter pattern movement for bird: Move the bird to the right
+  birdX += birdSpeed;  // Move bird horizontally
+  if (birdX > 400) {   // Reset position when bird goes off screen
+    birdX = 0;
+  }
+
+  // Create the tree sprite and set animation
+  var tree = createSprite(350, 250);
+  tree.setAnimation("treeAnimation"); // Set the tree animation here
+  tree.scale = 0.7;  // Scale the tree slightly bigger
+  tree.tint = color(255, 0, 0); // Apply a red tint to the tree
+
+  // Add text to the scene
+  fill("black"); // Set text color to black
+  textSize(24); // Set text size
+  text("Welcome to My Animated Scene!", 50, 50);  // First line of text
+
+  fill("darkblue"); // Change text color
+  textSize(20); // Set smaller text size
+  text("Enjoy the view of nature!", 50, 80);  // Second line of text
+
+  // Draw all sprites
+  drawSprites();
+}
+   level 3 run   
+   // Define global variables for movement
+var birdX = 50;
+var birdY = 150;
+var birdSpeed = 2;
+
+var cloudX = 200;
+var cloudY = 50;
+
+// Create the background and other elements
+function draw() {
+  // Set the background color
+  background("lightblue");
+
+  // Draw the ground
+  fill("green");
+  rect(0, 300, 400, 100);  // Ground
+
+  // Draw the sun with counter pattern movement (grows bigger)
+  fill("yellow");
+  ellipse(100, 100, 80 + frameCount * 0.1, 80 + frameCount * 0.1);  // Sun grows over time
+
+  // Draw clouds with random movement
+  fill("white");
+  cloudX = randomNumber(100, 300); // Cloud's X position moves randomly
+  ellipse(cloudX, cloudY, 100, 50);  // Cloud
+
+  // Draw mountains
+  fill(100, 100, 255, 150);  // Light blue for distant mountains
+  triangle(50, 200, 150, 100, 250, 200);  // First mountain
+  triangle(150, 200, 250, 120, 350, 200);  // Second mountain
+
+  // Create the bird sprite and set animation
+  var bird = createSprite(birdX, birdY);
+  bird.setAnimation("birdAnimation"); // Set the bird animation here
+  bird.scale = 0.5;  // Make the bird smaller
+  bird.rotation = 45; // Set the bird's rotation to 45 degrees
+
+  // Counter pattern movement for bird: Move the bird to the right
+  birdX += birdSpeed;  // Move bird horizontally
+  if (birdX > 400) {   // Reset position when bird goes off screen
+    birdX = 0;
+  }
+
+  // Create the tree sprite and set animation
+  var tree = createSprite(350, 250);
+  tree.setAnimation("treeAnimation"); // Set the tree animation here
+  tree.scale = 0.7;  // Scale the tree slightly bigger
+  tree.tint = color(255, 0, 0); // Apply a red tint to the tree
+
+  // Add text to the scene
+  fill("black"); // Set text color to black
+  textSize(24); // Set text size
+  text("Welcome to My Animated Scene!", 50, 50);  // First line of text
+
+  fill("darkblue"); // Change text color
+  textSize(20); // Set smaller text size
+  text("Enjoy the view of nature!", 50, 80);  // Second line of text
+
+  // Draw all sprites
+  drawSprites();
+}
+  level 4 run 
+    // Define global variables for movement
+var birdX = 50;
+var birdY = 150;
+var birdSpeed = 2;
+
+var cloudX = 200;
+var cloudY = 50;
+
+// Create the background and other elements
+function draw() {
+  // Set the background color
+  background("lightblue");
+
+  // Draw the ground
+  fill("green");
+  rect(0, 300, 400, 100);  // Ground
+
+  // Draw the sun with counter pattern movement (grows bigger)
+  fill("yellow");
+  ellipse(100, 100, 80 + frameCount * 0.1, 80 + frameCount * 0.1);  // Sun grows over time
+
+  // Draw clouds with random movement
+  fill("white");
+  cloudX = randomNumber(100, 300); // Cloud's X position moves randomly
+  ellipse(cloudX, cloudY, 100, 50);  // Cloud
+
+  // Draw mountains
+  fill(100, 100, 255, 150);  // Light blue for distant mountains
+  triangle(50, 200, 150, 100, 250, 200);  // First mountain
+  triangle(150, 200, 250, 120, 350, 200);  // Second mountain
+
+  // Create the bird sprite and set animation
+  var bird = createSprite(birdX, birdY);
+  bird.setAnimation("birdAnimation"); // Set the bird animation here
+  bird.scale = 0.5;  // Make the bird smaller
+  bird.rotation = 45; // Set the bird's rotation to 45 degrees
+
+  // Counter pattern movement for bird: Move the bird to the right
+  birdX += birdSpeed;  // Move bird horizontally
+  if (birdX > 400) {   // Reset position when bird goes off screen
+    birdX = 0;
+  }
+
+  // Create the tree sprite and set animation
+  var tree = createSprite(350, 250);
+  tree.setAnimation("treeAnimation"); // Set the tree animation here
+  tree.scale = 0.7;  // Scale the tree slightly bigger
+  tree.tint = color(255, 0, 0); // Apply a red tint to the tree
+
+  // Add text to the scene
+  fill("black"); // Set text color to black
+  textSize(24); // Set text size
+  text("Welcome to My Animated Scene!", 50, 50);  // First line of text
+
+  fill("darkblue"); // Change text color
+  textSize(20); // Set smaller text size
+  text("Enjoy the view of nature!", 50, 80);  // Second line of text
+
+  // Draw all sprites
+  drawSprites();
+}
+    level 5 run 
+      // Define global variables for movement
+var birdX = 50;
+var birdY = 150;
+var birdSpeed = 2;
+
+var cloudX = 200;
+var cloudY = 50;
+   level 6 run 
+     // Define global variables for movement
+var birdX = 50;
+var birdY = 150;
+var birdSpeed = 2;
+
+var cloudX = 200;
+var cloudY = 50;
+
+// Create the background and other elements
+function draw() {
+  // Set the background color
+  background("lightblue");
+
+  // Draw the ground
+  fill("green");
+  rect(0, 300, 400, 100);  // Ground
+
+  // Draw the sun with counter pattern movement (grows bigger)
+  fill("yellow");
+  ellipse(100, 100, 80 + frameCount * 0.1, 80 + frameCount * 0.1);  // Sun grows over time
+
+  // Draw clouds with random movement
+  fill("white");
+  cloudX = randomNumber(100, 300); // Cloud's X position moves randomly
+  ellipse(cloudX, cloudY, 100, 50);  // Cloud
+
+  // Draw mountains
+  fill(100, 100, 255, 150);  // Light blue for distant mountains
+  triangle(50, 200, 150, 100, 250, 200);  // First mountain
+  triangle(150, 200, 250, 120, 350, 200);  // Second mountain
+
+  // Create the bird sprite and set animation
+  var bird = createSprite(birdX, birdY);
+  bird.setAnimation("birdAnimation"); // Set the bird animation here
+  bird.scale = 0.5;  // Make the bird smaller
+  bird.rotation = 45; // Set the bird's rotation to 45 degrees
+
+  // Counter pattern movement for bird: Move the bird to the right
+  birdX += birdSpeed;  // Move bird horizontally
+  if (birdX > 400) {   // Reset position when bird goes off screen
+    birdX = 0;
+  }
+
+  // Create the tree sprite and set animation
+  var tree = createSprite(350, 250);
+  tree.setAnimation("treeAnimation"); // Set the tree animation here
+  tree.scale = 0.7;  // Scale the tree slightly bigger
+  tree.tint = color(255, 0, 0); // Apply a red tint to the tree
+
+  // Add text to the scene
+  fill("black"); // Set text color to black
+  textSize(24); // Set text size
+  text("Welcome to My Animated Scene!", 50, 50);  // First line of text
+
+  fill("darkblue"); // Change text color
+  textSize(20); // Set smaller text size
+  text("Enjoy the view of nature!", 50, 80);  // Second line of text
+
+  // Draw all sprites
+  drawSprites();
+}
+    // Lesson 15: Conditionals  
+     level 1 run 
+       var sprite1 = createSprite(100, 200);
+var sprite2 = createSprite(300, 200);
+
+// Predict what each command will print
+console.log(sprite1.y == sprite2.y);
+console.log(sprite1.x > sprite2.x);
+console.log(sprite1.x < sprite2.y);
+
+drawSprites();  
+level 2  run   
+ 
+    Is the dog sprite's rotation less than the cat sprite's rotation?
+    Is the dog sprite's x less than the cat sprite's x?
+    Is the dog sprite's scale greater than the cat sprite's scale?
+    Is the dog sprite's x greater than the cat sprite's x?
+    Is the dog sprite's x equal to the cat sprite's x?
+
+    dog.rotation < cat.rotation
+    dog.x < cat.x
+    dog.scale > cat.scale
+    dog.x > cat.x
+    dog.x == cat.x
+
+Submit    
+ level 3 run 
+   var finishLine = createSprite(40, 200);
+finishLine.setAnimation("finish_line");
+
+var raceCar = createSprite(400, 200);
+raceCar.setAnimation("race_car");
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Counter pattern to make car move across the screen
+  raceCar.x = raceCar.x - 2;
+  
+  // Program text
+  fill("black");
+  strokeWeight(5);
+  textSize(25);
+  text("The race car has crossed the finish line:", 100, 20, 300, 60);
+  
+  fill("blue");
+  // Add a boolean expression to display if the car has crossed the line
+  text(raceCar.x < finishLine.x, 100, 100); // Boolean is printed on the screen
+  
+  // Draw Animations
+  drawSprites();
+}
+   level 4 run 
+     Why is the if () block inside the draw() loop?
+
+The draw() loop in this program runs continuously, refreshing the screen and updating the program's behavior frame by frame. Here's why the if () block is placed inside the loop:
+
+    Continuous Checking of the Condition:
+        The if (raceCar.x < finishLine.x) block continuously evaluates whether the race car has crossed the finish line. Since the car's position (raceCar.x) changes on each frame, the program needs to check this condition repeatedly.
+        Once the condition becomes true, the code inside the if block executes, displaying the winner message.
+
+    Dynamic Updates:
+        Placing the if () block inside the draw() loop ensures that the program reacts dynamically to changes in the car's position. Without the loop, the condition would only be checked once and might miss the moment when the car crosses the finish line.
+
+    Animation and Real-Time Feedback:
+        The draw() function is responsible for rendering the animations and updating the screen in real time. By including the if () block inside this loop, the program ensures that the winner message appears at the exact moment the car crosses the finish line, synchronizing with the visual updates.  
+          level 5 run 
+            var fruit = createSprite(200, 200);
+fruit.setAnimation("apple");
+fruit.scale = 0.1;
+
+function draw() {
+  // Draw Background
+  background("white");
+  
+  // Update Values
+  fruit.scale = fruit.scale + 0.01;
+  
+  // 1 Add a conditional to the draw loop.
+  // 2 Add code to the conditional statement that asks if the scale of the fruit is greater than 2.
+  if (fruit.scale > 2) {
+    // 3 Add code inside the conditional to change the fruit to a pear.
+    fruit.setAnimation("pear");
+  }
+
+  // Draw Animations
+  drawSprites();
+}
+   level  6  choose B  run 
+     var soup = createSprite(200, 200);
+soup.setAnimation("stew");
+
+function draw() {
+  background("lightgreen");
+  soup.rotation = soup.rotation + 3;
+  
+  // 2 Add a conditional that detects when the bowl is upside down.
+  if (soup.rotation > 90 && soup.rotation < 270) {
+    // 3Set the sprite's animation to be an empty bowl when the bowl is upside down.
+    soup.setAnimation("empty_bowl");
+  }
+  
+  drawSprites();
+}
+  level 7 run 
+     var backdrop = createSprite(200, 200);
+backdrop.setAnimation("sci_fi");
+
+var dinosaur = createSprite(200, 350);
+dinosaur.scale = 0.2;
+dinosaur.setAnimation("tyrannosaurus");
+
+function draw() {
+  // Move the dinosaur up
+  dinosaur.y = dinosaur.y - 5;
+
+  // 2) Add a conditional that detects when the dinosaur is in the sky
+  if (dinosaur.y < 100) {
+    // 3) Set the sprite's animation to a pterodactyl when it reaches the sky
+    dinosaur.setAnimation("pterodactyl");
+  }
+
+  // Draw everything
+  drawSprites();
+}
+  level 8  choose F run 
+     // Create your sprites and set their animations
+var backdrop = createSprite(200, 200);
+backdrop.setAnimation("sci_fi");
+
+var alien = createSprite(50, 300);
+alien.setAnimation("alien");
+alien.scale = 0.5;
+
+var ghost = createSprite(300, 400);
+ghost.setAnimation("ghost");
+ghost.scale = 0.7;
+
+// Set any needed sprite properties
+alien.velocityX = 2; // Move the alien horizontally
+ghost.velocityY = -2; // Move the ghost vertically
+
+function draw() {
+  // Draw your background
+  background("black");
+  
+  // Animate your sprites with the counter pattern
+  alien.x = alien.x + alien.velocityX;
+  ghost.y = ghost.y + ghost.velocityY;
+  
+  // Use conditionals to change your sprites based on their locations
+  
+  // Change the alien into a robot when it reaches the middle of the screen
+  if (alien.x > 200) {
+    alien.setAnimation("robot");
+  }
+  
+  // Make the ghost disappear when it floats to the sky
+  if (ghost.y < 50) {
+    ghost.visible = false;
+  }
+  
+  // Draw your sprites to the screen
+  drawSprites();
+}
+       //Lesson 16: Keyboard Input  
+         level 1 run 
+           // Run this code and observe what happens
+// When you press the space bar
+
+function draw() {
+  //Draw Background
+  background("white");
+  
+  // Draw Animations
+  textAlign("center", "center");
+  textSize(100);
+  text(keyDown("space"), 200, 200);
+}
+   level 2 run 
+     //1) Run the code and try pressing the "p" and "h" keys.
+var sprite = createSprite(200, 200);
+sprite.setAnimation("giraffe");
+
+function draw() {
+  background("white");
+
+  //2 Look inside the first two conditional statements to see how the code works.
+  if (keyDown("h")) {
+    sprite.setAnimation("hippo");
+  }
+
+  if (keyDown("p")) {
+    sprite.setAnimation("pig");
+  }
+
+  //3 Add code to change the sprite to a different animal when the "r" key is pressed.
+  if (keyDown("r")) {
+    sprite.setAnimation("rabbit");
+  }
+
+  drawSprites();
+}
+    level 3 run 
+      var bug = createSprite(200, 200);
+bug.setAnimation("ladybug");
+
+function draw() {
+  // Draw Background
+  background("white");
+
+  // 1 Add a conditional statement to check if the right arrow key has been pressed down.
+  if (keyDown(RIGHT_ARROW)) {
+    // 2 Move the sprite right if the right arrow is pressed.
+    bug.x += 5;  // Move the sprite 5 pixels to the right
+  }
+
+  // Draw Animations
+  drawSprites();
+}   
+level 4 run 
+    var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  blueGear.rotation = blueGear.rotation - 1;
+  greenGear.rotation = greenGear.rotation + 1;
+  redGear.rotation = redGear.rotation + 1;
+
+  //1 Add code that will check if the space key is being pressed down.
+  //2 Adjust the program so that the gears only rotate when the space key is pressed down.
+
+  drawSprites();
+}     
+level 5 choose B RUN 
+  var turtle = createSprite(200, 200);
+turtle.setAnimation("turtle");
+turtle.scale = 0.5;
+
+function draw() {
+  background("navy");
+  if (keyDown("up")) {
+    turtle.y = turtle.y - 3;
+  }
+  if (keyDown("down")) {
+    turtle.y = turtle.y + 3;
+  }
+  if (keyDown("left")) {
+    turtle.x = turtle.x - 3; // Fix here: Update the x property of the turtle
+  }
+  if (keyDown("right")) {
+    turtle.x = turtle.x + 3;
+  }
+  drawSprites();
+}
+  level 6 run 
+    var backdrop = createSprite(200, 200);
+backdrop.setAnimation("rainbow");
+
+var flyer = createSprite(200, 200);
+flyer.setAnimation("wing_bot");
+
+function draw() {
+  background("white"); // Add a background color to make things clear.
+
+  // 1) Move the sprite left when the left arrow is pressed
+  if (keyDown("left")) {
+    flyer.x = flyer.x - 3;  // Move left by 3 pixels
+  }
+
+  // 2) Move the sprite right when the right arrow is pressed
+  if (keyDown("right")) {
+    flyer.x = flyer.x + 3;  // Move right by 3 pixels
+  }
+
+  // 3 Move the sprite up when the up arrow is pressed
+  if (keyDown("up")) {
+    flyer.y = flyer.y - 3;  // Move up by 3 pixels
+  }
+
+  // 4 Move the sprite down when the down arrow is pressed
+  if (keyDown("down")) {
+    flyer.y = flyer.y + 3;  // Move down by 3 pixels
+  }
+
+  // Draw all sprites on the screen
+  drawSprites();
+}
+   level 7   choose C run 
+     var emoji = createSprite(200, 200);
+emoji.setAnimation("emoji");
+emoji.scale = 0.15;
+
+function draw() {
+  // Draw Background
+  background("white");
+
+  // Update Values With Key Press to Make Sprite Move
+  if(keyDown("right")){
+    emoji.x = emoji.x + 5;  // Move right at normal speed
+    // 1) Make the sprite get a "boost" in speed whenever the space bar is also pressed while moving right
+    if(keyDown("space")) {
+      emoji.x = emoji.x + 5;  // Boost speed by adding more movement when space is pressed
+    }
+  }
+  
+  if(keyDown("left")){
+    emoji.x = emoji.x - 5;  // Move left at normal speed
+    // 2) Make the sprite get a "boost" in speed whenever the space bar is also pressed while moving left
+    if(keyDown("space")) {
+      emoji.x = emoji.x - 5;  // Boost speed by adding more movement when space is pressed
+    }
+  }
+  
+  // 3) Make the sprite get a "boost" in speed whenever the space bar is also pressed while moving up
+  if(keyDown("up")){
+    emoji.y = emoji.y - 5;  // Move up at normal speed
+    if(keyDown("space")) {
+      emoji.y = emoji.y - 5;  // Boost speed by adding more movement when space is pressed
+    }
+  }
+  
+  // 4) Make the sprite get a "boost" in speed whenever the space bar is also pressed while moving down
+  if(keyDown("down")){
+    emoji.y = emoji.y + 5;  // Move down at normal speed
+    if(keyDown("space")) {
+      emoji.y = emoji.y + 5;  // Boost speed by adding more movement when space is pressed
+    }
+  }
+  
+  // Draw Animations
+  drawSprites();
+}
+    //   Lesson 17: Mouse Input  
+    level 1 run 
+      var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+balloon.scale = 0.6;
+
+function draw() 
+  // Draw Background
+  background("white");
+  
+  // update balloon size based on user input
+  if (keyDown("space")) {
+      balloon.scale = balloon.scale + 0.02;
+  } else {
+      balloon.scale = balloon.scale - 0.01;
+  }
+
+  // Draw Animations
+  drawSprites();  
+  level 2 run 
+    var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (keyDown("space")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  } else {
+    //1) Make the gears spin the opposite way when the space bar is not being pressed.
+    blueGear.rotation = blueGear.rotation + 1;  // Spin opposite direction
+    greenGear.rotation = greenGear.rotation - 1; // Spin opposite direction
+    redGear.rotation = redGear.rotation - 1;    // Spin opposite direction
+  }
+  
+  drawSprites();
+}
+ 
+ level 3 run 
+    var blueGear = createSprite(100, 220);
+blueGear.setAnimation("blue_gear");
+
+var greenGear = createSprite(183, 298);
+greenGear.setAnimation("green_gear");
+
+var redGear = createSprite(185, 145);
+redGear.setAnimation("red_gear");
+
+function draw() {
+  background("white");
+  
+  if (mouseDown("leftButton")) {
+    blueGear.rotation = blueGear.rotation - 1;
+    greenGear.rotation = greenGear.rotation + 1;
+    redGear.rotation = redGear.rotation + 1;
+  } else {
+    //3) Make the gears spin the opposite way when there is no user input.
+    blueGear.rotation = blueGear.rotation + 1;  // Spin opposite direction
+    greenGear.rotation = greenGear.rotation - 1; // Spin opposite direction
+    redGear.rotation = redGear.rotation - 1;    // Spin opposite direction
+  }
+  
+  drawSprites();
+}
+  
+  level 4 run 
+    var balloon = createSprite(200, 50);
+balloon.setAnimation("balloon");
+balloon.scale = 0.1;
+
+function draw() {
+  background("white");
+  
+  // 1 Add code that checks whether the mouse is being pressed.
+  if (mouseDown("leftButton")) {
+    // 2 Move the balloon up the screen if the mouse is being pressed.
+    balloon.y = balloon.y - 1;  // Move the balloon up
+  } else {
+    // 3 Otherwise, move the balloon down the screen.
+    balloon.y = balloon.y + 1;  // Move the balloon down
+  }
+
+  drawSprites();
+}
+ 
+ level 5 run 
+   var blender = createSprite(100, 300);
+blender.setAnimation("blender");
+var mixer = createSprite(300, 300);
+mixer.setAnimation("mixer");
+
+function draw() {
+  background("lightyellow");
+  fill("burlywood");
+  rect(0, 350, 400, 50);
+
+  if (World.mouseX < 200) {
+    // Make the blender shake when the mouse is on the left side
+    blender.x = randomNumber(95, 105);
+    blender.y = randomNumber(295, 305);
+  } else {
+    // Make the mixer shake when the mouse is on the right side
+    mixer.x = randomNumber(295, 305);
+    mixer.y = randomNumber(295, 305);
+  }
+
+  drawSprites();
+}
+  level 6   choose C run 
+    var emoji = createSprite(200, 200);
+emoji.setAnimation("smileEmoji");
+
+function draw() {
+  background("white");
+
+  // If the mouse is pressed, change the emoji to a different emoji (e.g., "surprisedEmoji")
+  if (mouseDown("leftButton")) {
+    emoji.setAnimation("surprisedEmoji"); // Replace with the desired emoji
+  } else {
+    // Otherwise, keep the emoji as a smile emoji
+    emoji.setAnimation("smileEmoji");
+  }
+
+  drawSprites();
+}
+  level 7 run 
+    var backdrop = createSprite(200,200);
+backdrop.setAnimation("sky");
+var creature = createSprite(200,250);
+creature.setAnimation("creature");
+creature.scale = 0.2;
+
+function draw() {
+  background("white");
+
+  //1 Change the code so that the creature only shakes when the mouse is pressed.
+  if (mouseDown("leftButton")) {
+    creature.rotation = randomNumber(-5, 5);  // Shake the creature when mouse is pressed
+  }
+
+  //2 Change the code so the directions ("Press the mouse to shake the creature.") only show 
+  //when the user is NOT pressing the mouse.
+  fill("black");
+  textSize(40);
+  if (!mouseDown("leftButton")) {  // Show directions only when the mouse is NOT pressed
+    text("Press the mouse to shake the creature.", 20, 50, 360, 100);
+  }
+
+  drawSprites();
+}
+  
+  level 8  choose C run 
+     // Create a bee sprite
+var bee = createSprite(200, 200);
+bee.setAnimation("bee");
+
+function draw() {
+  background("skyblue");
+
+  // Update the position of the bee to be randomly around the mouse
+  bee.x = mouseX + random(-50, 50); // Randomly around mouseX
+  bee.y = mouseY + random(-50, 50); // Randomly around mouseY
+
+  // Optional: Adjust frameRate to slow down the animation for smoother movement
+  frameRate(30); // Adjust this to find the best frame rate
+  
+  // Draw all sprites
+  drawSprites();
+}
+
+// Extra Challenge: Add 3 more bees
+var bee2 = createSprite(200, 200);
+bee2.setAnimation("bee");
+
+var bee3 = createSprite(200, 200);
+bee3.setAnimation("bee");
+
+var bee4 = createSprite(200, 200);
+bee4.setAnimation("bee");
+
+function draw() {
+  background("skyblue");
+
+  // Update the positions of the bees to be randomly around the mouse
+  bee.x = mouseX + random(-50, 50);
+  bee.y = mouseY + random(-50, 50);
+
+  bee2.x = mouseX + random(-50, 50);
+  bee2.y = mouseY + random(-50, 50);
+
+  bee3.x = mouseX + random(-50, 50);
+  bee3.y = mouseY + random(-50, 50);
+
+  bee4.x = mouseX + random(-50, 50);
+  bee4.y = mouseY + random(-50, 50);
+
+  // Optional: Adjust frameRate to slow down the animation for smoother movement
+  frameRate(30); // Adjust this to find the best frame rate
+  
+  // Draw all sprites
+  drawSprites();
+}
+    //  Lesson 18: Project - Interactive Card 
+    level 1 run 
+      Example Project
+
+Run the program a few times and answer the following questions:
+
+    Which elements appear to use drawing commands?
+
+    Which elements appear to be sprites?
+
+    For each sprite, which properties are being updated?
+
+    Where do you see conditionals being used?
+
+    Are there elements that you don’t understand?
+ level 2 choose B run
+   Immersive Reader
+Interactive Card Example
+
+In the next few levels, you'll be completing your own interactive card. Here are some examples to give you some ideas.  
+ level 3 run  
+   var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+   
+   level 4 run 
+     var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+   level 5  run 
+   var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+  level 6 run 
+     var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+   level 7 run 
+    var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+
+  level 8 run 
+   var sprite = createSprite(200, 200);
+sprite.setAnimation("character");
+var score = 0;  // Variable to track the score
+
+// Load sound files
+var jumpSound;
+var scoreSound;
+
+function preload() {
+  // Load sound files
+  jumpSound = loadSound("jump.mp3");
+  scoreSound = loadSound("score.mp3");
+}
+
+function draw() {
+  background("lightblue");
+
+  // 1) Move sprite left when the left arrow key is pressed.
+  if (keyDown("left")) {
+    sprite.x -= 5;  // Move sprite left by 5 pixels.
+  }
+
+  // 2) Move sprite right when the right arrow key is pressed.
+  if (keyDown("right")) {
+    sprite.x += 5;  // Move sprite right by 5 pixels.
+  }
+
+  // 3) Make the sprite jump when the space bar is pressed.
+  if (keyDown("space")) {
+    sprite.y -= 5;  // Move sprite up (simulate a jump).
+    if (!jumpSound.isPlaying()) {
+      jumpSound.play();  // Play jump sound if not already playing
+    }
+  }
+
+  // 4) Change sprite's animation when the mouse is clicked.
+  if (mouseDown("leftButton")) {
+    sprite.setAnimation("new_animation");  // Change the sprite animation when the mouse is pressed.
+  }
+
+  // 5) Make the sprite follow the mouse position.
+  sprite.x = mouseX;
+  sprite.y = mouseY;
+
+  // 6) Complex conditional: Make sprite change direction based on both keyboard and mouse position.
+  if (keyDown("up") && mouseX > 200) {
+    sprite.setAnimation("upward_animation");
+  }
+
+  // 7) Reset the sprite to its original position when the "R" key is pressed.
+  if (keyDown("r")) {
+    sprite.x = 200;
+    sprite.y = 200;
+  }
+
+  // Additional Conditions:
+  // 1) If sprite reaches the left side of the screen, change its animation.
+  if (sprite.x < 50) {
+    sprite.setAnimation("left_edge_animation");
+  }
+
+  // 2) If sprite reaches the right side of the screen, change animation and increase score.
+  if (sprite.x > 350) {
+    sprite.setAnimation("right_edge_animation");
+    score++;  // Increment score when sprite reaches the right side
+    if (!scoreSound.isPlaying()) {
+      scoreSound.play();  // Play score sound when score is incremented
+    }
+  }
+
+  // 3) If sprite jumps too high, reset its position.
+  if (sprite.y < 100) {
+    sprite.y = 200;  // Reset sprite's Y position if it goes above 100
+  }
+
+  // 4) Complex conditional: Increase score when sprite is on the left and has pressed space.
+  if (sprite.x < 100 && keyDown("space")) {
+    score += 2;  // Increase score by 2 when sprite is on the left and space bar is pressed
+  }
+
+  // 5) Change background color based on score (e.g., red when score > 5)
+  if (score > 5) {
+    background("red");
+  }
+
+  // 6) If sprite reaches the center of the screen, display a special message.
+  if (sprite.x > 180 && sprite.x < 220) {
+    textSize(30);
+    fill("black");
+    text("You are in the center!", 100, 50);
+  }
+
+  // Display score
+  textSize(20);
+  fill("black");
+  text("Score: " + score, 10, 30);
+
+  // Add subtle animation for background (e.g., floating clouds)
+  noStroke();
+  fill(255, 255, 255, 150);  // Semi-transparent white for cloud effect
+  ellipse(mouseX + 100, mouseY - 100, 50, 30);  // Cloud effect that follows the mouse
+
+  // Display instruction text
+  textSize(18);
+  fill("black");
+  text("Use Arrow keys to move. Space to Jump.", 10, height - 30);
+
+  drawSprites();
+}
+   // Lesson 19: Velocity 
+   level 1 run 
+     var fly = createSprite(25, 150);
+fly.setAnimation("fly");
+fly.velocityX = 2;
+
+var mouse = createSprite(25, 335);
+mouse.setAnimation("mouse");
+
+function draw() {
+  // draw the background
+  background("lightblue");
+  fill("green");
+  noStroke();
+  rect(0, 350, 400, 50);
+    level 2 run 
+      var fish = createSprite(50, 150);
+fish.setAnimation("orange_fish");
+fish.velocityX = 1;  // This is the new movement block for the fish sprite.
+
+function draw() {
+  // draw the background
+  background(rgb(0,50,250));
+  fill(rgb(250,250,250, 80));
+  noStroke();
+  ellipse(60, 20, 50, 50);
+  ellipse(150, 100, 50, 50);
+  ellipse(300, 130, 50, 50);
+  ellipse(250, 200, 50, 50);
+  ellipse(20, 250, 50, 50);
+  ellipse(370, 330, 50, 50);
+  fill(rgb(219, 208, 125));
+  noStroke();
+  ellipse(100, 400, 300, 100);
+  ellipse(300, 400, 300, 75);
+  
+  drawSprites();
+}
+   level 3 run 
+     var fish = createSprite(50, 150);
+fish.setAnimation("orange_fish");
+fish.velocityX = 1;  // This is the new movement block for the fish sprite.
+
+function draw() {
+  // draw the background
+  background(rgb(0,50,250));
+  fill(rgb(250,250,250, 80));
+  noStroke();
+  ellipse(60, 20, 50, 50);
+  ellipse(150, 100, 50, 50);
+  ellipse(300, 130, 50, 50);
+  ellipse(250, 200, 50, 50);
+  ellipse(20, 250, 50, 50);
+  ellipse(370, 330, 50, 50);
+  fill(rgb(219, 208, 125));
+  noStroke();
+  ellipse(100, 400, 300, 100);
+  ellipse(300, 400, 300, 75);
+  
+  drawSprites();  
+  level  3 run
+   var feather = createSprite(200, 50);
+feather.setAnimation("feather");
+feather.velocityY = 2;  // This block makes the feather move down the screen.
+
+function draw() {
+  background("skyblue");
+  drawSprites();
+}
+  level 4 run 
+    var sun = createSprite(200, 200);
+sun.setAnimation("sun");
+sun.rotationSpeed = 3;  // Makes the sun rotate by 3 degrees each time it's drawn.
+
+function draw() {
+  background("blue");
+  drawSprites();
+}
+  level 5  run 
+    var wheel = createSprite(200, 200);
+wheel.setAnimation("wheel");
+
+function draw() {
+  background("blue");
+
+  if (keyWentDown("space")) {
+    // Make the color wheel start spinning when the user presses the space bar
+    wheel.rotationSpeed = 5;  // Adjust the value for speed of rotation
+  }
+
+  drawSprites();
+}
+  level 6 run 
+    var fish = createSprite(200, 200);
+fish.setAnimation("fishR");
+fish.velocityX = 2;
+
+function draw() {
+  background("blue");
+
+  if (fish.x < 0) {
+    fish.setAnimation("fishR");
+    fish.velocityX = 2;
+  }
+  if (fish.x > 400) {
+    fish.setAnimation("fishL");
+    fish.velocityX = -2;
+  }
+  drawSprites();
+}
+  level 7 run 
+    var field = createSprite(200,200);
+field.setAnimation("field");
+var ball = createSprite(200, 50);
+ball.setAnimation("ball");
+ball.scale = 0.2;
+ball.velocityY = 5;
+
+function draw() {
+  // Ball bounces at the bottom of the screen
+  if (ball.y > 380) {
+    ball.velocityY = -5;
+  }
+
+  // Ball bounces at the top of the screen
+  if (ball.y < 20) {
+    ball.velocityY = 5;
+  }
+
+  drawSprites();
+}
+  level 8 choose B run 
+    var palette = createSprite(180, 350);
+palette.setAnimation("paint_pallette");
+var brush = createSprite(220, 50);
+brush.setAnimation("paint_brush");
+
+function draw() {
+  background("skyblue");
+
+  //1) Use a conditional to send the paintbrush down if the down arrow is pressed.
+  if (keyDown("down")) {
+    brush.velocityY = 5; // Move the brush down
+  }
+
+  //2) Use a different conditional to send the paintbrush up if it reaches the palette.
+  if (brush.y > palette.y - 30) {
+    brush.velocityY = -5; // Move the brush up after touching the palette
+  }
+
+  drawSprites(); 
+  level 9 run 
+    var fish = createSprite(200, 200);
+fish.setAnimation("fishR"); // Initially facing right
+
+function draw() {
+  background("blue");
+
+  // 1) If the user presses the right arrow key, move the fish to the right.
+  if (keyWentDown("right")) {
+    fish.velocityX = 2; // Move right
+    fish.setAnimation("fishR"); // Make sure the fish faces right
+  }
+
+  // 2) If the fish gets to the right-hand side of the screen, move the fish to the left.
+  if (fish.x > 400) {
+    fish.velocityX = -2; // Move left
+    fish.setAnimation("fishL"); // Make sure the fish faces left
+  }
+
+  // 3) If the fish gets to the left-hand side of the screen, move the fish to the right.
+  if (fish.x < 0) {
+    fish.velocityX = 2; // Move right
+    fish.setAnimation("fishR"); // Make sure the fish faces right
+  }
+
+  // Draw the fish
+  drawSprites();
+}
+  level 10 choose B run 
+     var heart = createSprite(200, 200);
+heart.setAnimation("heart");
+heart.velocityX = randomNumber(-10, 10);
+heart.velocityY = randomNumber(-10, 10);
+
+function draw() {
+  background("lightblue");
+
+  // 1) Check if the object has disappeared off the left side of the screen. If it has, reset its position and randomize its velocity.
+  if (heart.x < 0) {
+    heart.x = 200;  // Reset to center
+    heart.y = 200;
+    heart.velocityX = randomNumber(-10, 10);  // Randomize velocity in X
+    heart.velocityY = randomNumber(-10, 10);  // Randomize velocity in Y
+  }
+
+  // 2) Check if the object has disappeared off the right side of the screen. If it has, reset its position and randomize its velocity.
+  if (heart.x > 400) {
+    heart.x = 200;  // Reset to center
+    heart.y = 200;
+    heart.velocityX = randomNumber(-10, 10);  // Randomize velocity in X
+    heart.velocityY = randomNumber(-10, 10);  // Randomize velocity in Y
+  }
+
+  // 3) Check if the object has disappeared off the top side of the screen. If it has, reset its position and randomize its velocity.
+  if (heart.y < 0) {
+    heart.x = 200;  // Reset to center
+    heart.y = 200;
+    heart.velocityX = randomNumber(-10, 10);  // Randomize velocity in X
+    heart.velocityY = randomNumber(-10, 10);  // Randomize velocity in Y
+  }
+
+  // 4) Check if the object has disappeared off the bottom side of the screen. If it has, reset its position and randomize its velocity.
+  if (heart.y > 400) {
+    heart.x = 200;  // Reset to center
+    heart.y = 200;
+    heart.velocityX = randomNumber(-10, 10);  // Randomize velocity in X
+    heart.velocityY = randomNumber(-10, 10);  // Randomize velocity in Y
+  }
+
+  drawSprites();
+}
+   // Lesson 20: Collision Detection 
+
+   level 1 run   
+    Dinner Time!
+
+Run the program to see the robot bring the bunny dinner. When the bunny reaches the bowl, they both stop walking and the bowl becomes empty. What code do you think would help the computer know if two sprites were touch  
+level 2 run 
+  // Create the sprites and start them moving
+var backdrop = createSprite(200,200);
+backdrop.setAnimation("meadow");
+var bunny = createSprite(50, 300);
+bunny.setAnimation("bunny");
+bunny.velocityX = 3;
+var robot = createSprite(400, 320);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+robot.velocityX = -3;
+var dinner = createSprite(370, 350);
+dinner.setAnimation("stew");
+dinner.velocityX = -3;
+
+function draw() {
+  // check if the bunny and dinner are touching
+  if ((((bunny.x > dinner.x) && ((bunny.x - dinner.x) < (bunny.width/2 + dinner.width/2))) || 
+    ((bunny.x < dinner.x) && ((bunny.x - dinner.x) > - (bunny.width/2 + dinner.width/2))))) {
+    // stop everything and change to empty bowl
+    bunny.velocityX = 0;
+    dinner.velocityX = 0;
+    robot.velocityX = 0;
+    dinner.setAnimation("bowl");
+  }
+  drawSprites();
+}
+  level 3 run 
+    // Create the sprites and start them moving
+var backdrop = createSprite(200, 200);
+backdrop.setAnimation("meadow");
+
+var bunny = createSprite(50, 300);
+bunny.setAnimation("bunny");
+bunny.velocityX = 3;
+
+var robot = createSprite(400, 320);
+robot.setAnimation("robot");
+robot.scale = 0.2;
+robot.velocityX = -3;
+
+var dinner = createSprite(370, 350);
+dinner.setAnimation("stew");
+dinner.velocityX = -3;
+
+function draw() {
+  // 1) Check if the bunny is touching the dinner.
+  if (bunny.isTouching(dinner)) {
+    // Stop everything and change to an empty bowl
+    bunny.velocityX = 0;
+    dinner.velocityX = 0;
+    robot.velocityX = 0;
+    dinner.setAnimation("bowl");
+  }
+  drawSprites();
+}
+   level 4 run 
+     // Create the sprites
+var apple = createSprite(200, -50);
+apple.setAnimation("apple");
+apple.velocityY = 5;
+
+var blender = createSprite(200, 330);
+blender.setAnimation("blender");
+
+function draw() {
+  // Make the background
+  background("skyblue");
+  strokeWeight(0);
+  fill("sienna");
+  rect(0, 340, 400, 60);
+
+  // 1) Check if the apple is touching the blender
+  if (apple.isTouching(blender)) {
+    // 2) Make the blender shake only when the apple is touching it
+    blender.x = 200 + randomNumber(-5, 5);
+
+    // Optional: Hide the apple when it touches the blender
+    apple.visible = false;
+  }
+
+  drawSprites();
+}
+   level run 5 run 
+      var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+
+// 2) Change debug mode for the balloon to true
+balloon.debug = true;
+
+// 3) Debug the tack sprite
+var tack = createSprite(350, 50);
+tack.setAnimation("tack");
+tack.debug = true;
+
+function draw() {
+  background("gray");
+  
+  // Check if tack is touching the balloon
+  if (balloon.isTouching(tack)) {
+    // Replace balloon image with a popped version
+    balloon.setAnimation("popped");
+  }
+  
+  // Make the tack move with arrow keys
+  if (keyDown("up")) {
+    tack.y = tack.y - 1;
+  }
+  if (keyDown("down")) {
+    tack.y = tack.y + 1;
+  }
+  if (keyDown("left")) {
+    tack.x = tack.x - 1;
+  }
+  if (keyDown("right")) {
+    tack.x = tack.x + 1;
+  }
+  
+  drawSprites();
+}
+   level 6 run 
+    var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+
+// 2) Change debug mode for the balloon to true
+balloon.debug = true;
+
+// 3) Debug the tack sprite
+var tack = createSprite(350, 50);
+tack.setAnimation("tack");
+tack.debug = true;
+
+function draw() {
+  background("gray");
+  
+  // Check if tack is touching the balloon
+  if (balloon.isTouching(tack)) {
+    // Replace balloon image with a popped version
+    balloon.setAnimation("popped");
+  }
+  
+  // Make the tack move with arrow keys
+  if (keyDown("up")) {
+    tack.y = tack.y - 1;
+  }
+  if (keyDown("down")) {
+    tack.y = tack.y + 1;
+  }
+  if (keyDown("left")) {
+    tack.x = tack.x - 1;
+  }
+  if (keyDown("right")) {
+    tack.x = tack.x + 1;
+  }
+  
+  drawSprites();
+}
+  level 6 run 
+  var balloon = createSprite(200, 200);
+balloon.setAnimation("balloon");
+
+// 2) Change debug mode for the balloon to true
+balloon.debug = true;
+
+// 3) Debug the tack sprite
+var tack = createSprite(350, 50);
+tack.setAnimation("tack");
+tack.debug = true;
+
+function draw() {
+  background("gray");
+  
+  // Check if tack is touching the balloon
+  if (balloon.isTouching(tack)) {
+    // Replace balloon image with a popped version
+    balloon.setAnimation("popped");
+  }
+  
+  // Make the tack move with arrow keys
+  if (keyDown("up")) {
+    tack.y = tack.y - 1;
+  }
+  if (keyDown("down")) {
+    tack.y = tack.y + 1;
+  }
+  if (keyDown("left")) {
+    tack.x = tack.x - 1;
+  }
+  if (keyDown("right")) {
+    tack.x = tack.x + 1;
+  }
+  
+  drawSprites();
+}
+  level 7 choose C run
+   var emoji = createSprite(200, 200);
+emoji.setAnimation("sad_face");
+emoji.scale = 0.25;
+var donut = createSprite(30, 50);
+donut.setAnimation("donut");
+donut.scale = 0.15;
+
+function draw() {
+  background("lightblue");
+
+  // 1) Program the emoji to smile if it's touching the donut, otherwise the emoji should be sad.
+  if (emoji.isTouching(donut)) {
+    emoji.setAnimation("smile_face");
+  } else {
+    emoji.setAnimation("sad_face");
+  }
+
+  // Emoji sprite movement
+  if (keyDown("up")) {
+    emoji.y = emoji.y - 5;
+  }
+  if (keyDown("down")) {
+    emoji.y = emoji.y + 5;
+  }
+  if (keyDown("left")) {
+    emoji.x = emoji.x - 5;
+  }
+  if (keyDown("right")) {
+    emoji.x = emoji.x + 5;
+  }
+
+  // Draw sprites
+  drawSprites();
+}
+  level 8 run  
+   var emoji = createSprite(200, 200);
+emoji.setAnimation("sad_face");
+emoji.scale = 0.25;
+var donut = createSprite(30, 50);
+donut.setAnimation("donut");
+donut.scale = 0.15;
+
+function draw() {
+  background("lightblue");
+
+  // 1) Program the emoji to smile if it's touching the donut, otherwise the emoji should be sad.
+  if (emoji.isTouching(donut)) {
+    emoji.setAnimation("smile_face");
+  } else {
+    emoji.setAnimation("sad_face");
+  }
+
+  // Emoji sprite movement
+  if (keyDown("up")) {
+    emoji.y = emoji.y - 5;
+  }
+  if (keyDown("down")) {
+    emoji.y = emoji.y + 5;
+  }
+  if (keyDown("left")) {
+    emoji.x = emoji.x - 5;
+  }
+  if (keyDown("right")) {
+    emoji.x = emoji.x + 5;
+  }
+
+  // Draw sprites
+  drawSprites();
+}
+   
+
+    
+
+   
+     
+    
+    
+    
+
+   
+
+
+   
+   
+   
+
+   
+   
+
+
+   
+    
+
+
+    
+
+
+    
+
+
+   
+
+     
+    
+
+
+    
+   
+
+    
+
+
+   
+
+     
+
+   
+ 
+  
+ 
+      
+     
+     
+           
+          
+
+
+
+    
+
+
+           
+     
+
+
+      
+    
+      
+
+    
+
+   
+
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+   
+    
+
+  
+
+
+
+
+
+   
+
+
+
+
+
+
+
+        
+
+
+
+  
+
+     
+
+
+
+  
+
+
