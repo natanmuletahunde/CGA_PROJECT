@@ -1,0 +1,58 @@
+
+#gameContainer {
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+    background-color: rgba(255, 165, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.cell {
+    width: 75px;
+    height: 75px;
+    border: 2px solid #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    line-height: 75px;
+    font-size: 50px;
+    cursor: pointer;
+    background-color: rgba(255, 165, 0, 0.5); 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+
+.cell:hover {
+    background-color: rgba(255, 165, 0, 0.7); 
+    transform: scale(1.05); 
+}
+
+
+#cellContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    width: 225px;
+    margin: auto;
+}
+
+#statusText {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+
+#restartBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff7f50; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+#restartBtn:hover {
+    background-color: #ff4500; 
+}
