@@ -3631,7 +3631,4994 @@ function draw() {
 
   // Draw sprites
   drawSprites();
+}  
+// Lesson 21: Mini-Project - Side Scroller 
+level 1 run 
+  
+1
+Natan
+ 
+Show grid
+ 
+Immersive Reader
+Frog jump
+
+This frog jumping game is an example of a side scroller. Side scrolling games have backgrounds that move across the screen from side to side.
+
+In this game, the player uses the up arrow to make the frog jump. The frog must avoid the mushrooms while trying to get the flies. Every fly scores one point, and hitting the mushrooms makes the player health go down. When the player health hits zero, the game is over.
+
+Play the game a few times and discuss it with your partner. You have already learned all the skills you need to code this game. You'll be making your own side scroller in this mini-project.
+
+Version: 2024
+ level 2 run   
+ // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
 }
+  
+  level 3 run 
+    // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+  level 4 run 
+    // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+  level 4 run 
+  // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+ level 5  run 
+  // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+  level 6 run 
+   // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+
+  level 7 run 
+   // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+ 
+ level 8 run 
+   // GAME SETUP
+// Create the sprites
+var frog = createSprite(100, 300); // Player sprite
+frog.setAnimation("frog"); // Set frog animation
+frog.scale = 0.5; // Scale the frog
+
+var fly = createSprite(400, 250); // Target sprite
+fly.setAnimation("fly"); // Set fly animation
+fly.scale = 0.3; // Scale the fly
+fly.velocityX = -4; // Move the fly from right to left
+
+var mushroom = createSprite(400, 320); // Obstacle sprite
+mushroom.setAnimation("mushroom"); // Set mushroom animation
+mushroom.scale = 0.4; // Scale the mushroom
+mushroom.velocityX = -4; // Move the mushroom from right to left
+
+// Create the variables
+var score = 0;
+var health = 100;
+var isJumping = false; // Flag to track if frog is jumping
+
+function draw() {
+  // BACKGROUND
+  background("skyblue"); // Set the sky color
+
+  // Draw the ground
+  fill("sienna");
+  rect(0, 350, 400, 50); // A brown rectangle at the bottom
+
+  // JUMPING
+  if (keyWentDown("up") && !isJumping) {
+    // Start the jump when up arrow is pressed
+    frog.velocityY = -10; // Negative velocity to move the frog up
+    isJumping = true; // Set jumping flag to true
+  }
+
+  // If frog is high enough, make it come back down
+  if (frog.y <= 200 && isJumping) {
+    frog.velocityY = 5; // Move the frog back down
+  }
+
+  // Prevent frog from falling through the ground
+  if (frog.y >= 300) {
+    frog.y = 300; // Set frog y position to ground level
+    frog.velocityY = 0; // Stop vertical movement
+    isJumping = false; // Reset jumping flag when frog reaches the ground
+  }
+
+  // LOOPING
+  // If the fly has gone off the left-hand side of the screen, reset its position
+  if (fly.x < 0) {
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // If the mushroom has gone off the left-hand side of the screen, reset its position
+  if (mushroom.x < 0) {
+    mushroom.x = 400; // Reset mushroom to the right side of the screen
+  }
+
+  // SPRITE INTERACTIONS
+  // Check if the frog is touching the mushroom (obstacle)
+  if (frog.isTouching(mushroom)) {
+    health -= 10; // Decrease health by 10
+    mushroom.rotation += 10; // Rotate the mushroom when touched
+  }
+
+  // Check if the frog is touching the fly (target)
+  if (frog.isTouching(fly)) {
+    score += 1; // Increase score by 1
+    fly.x = 400; // Reset fly to the right side of the screen
+    fly.y = random(100, 300); // Reset fly to a random vertical position
+  }
+
+  // DRAW SPRITES
+  drawSprites();
+
+  // SCOREBOARD
+  fill("black");
+  textSize(20);
+  text("Score: " + score, 20, 30);  // Display score at the top-left
+  text("Health: " + health, 300, 30); // Display health at the top-right
+
+  // GAME OVER
+  if (health <= 0) {
+    background("black");
+    fill("red");
+    textSize(50);
+    text("Game Over!", 60, 200);
+    noLoop(); // Stop the game
+  }
+}
+  // Lesson 22: Complex Sprite movement
+   level 1 run 
+     var sprite1 = createSprite(50,200);
+
+function draw(){
+  sprite1.velocityX = sprite1.velocityX + 0.1;
+  
+  background("white");
+  drawSprites();
+}  
+level 2 run 
+ var car = createSprite(50, 200);
+car.setAnimation("red_car");
+car.velocityX = 0.2; // Initial speed of the car
+
+function draw() {
+  background("gray");
+
+  // 1 Add code to make the car speed up.
+  car.velocityX = car.velocityX + 0.05; // Increase the speed over time
+
+  drawSprites();
+}
+  level 3 run 
+     var rock = createSprite(200, 50);
+rock.setAnimation("rock");
+rock.velocityY = 0.5; // Initial falling speed
+
+function draw() {
+  background("skyblue");
+  
+  // 1 Add code to make the rock speed up as it falls.
+  rock.velocityY = rock.velocityY + 0.05; // Increase the fall speed over time
+
+  drawSprites();
+}
+     level 4 run 
+       var car = createSprite(50, 200);
+car.setAnimation("blue_car");
+car.velocityX = 10; // Initial speed
+
+noStroke();
+
+function draw() {
+  background("burlywood");
+  
+  // Draw the water area (blue rectangle)
+  fill("blue");
+  rect(350, 0, 100, 400);
+
+  // 1) Add code to slow the car down before it goes into the water.
+  if (car.x < 350) { // Check if the car is still before the water
+    car.velocityX = car.velocityX - 0.25; // Slow the car down
+  }
+  
+  // Challenge: Stop the car completely before it hits the water
+  if (car.x >= 350 && car.velocityX > 0) { // Check if the car is at the water and still moving
+    car.velocityX = 0; // Stop the car before it enters the water
+  }
+
+  drawSprites();
+}
+   level 5 choose C  run 
+     var balloon = createSprite(200, 40);
+balloon.setAnimation("balloon");
+balloon.scale = 0.15;
+balloon.velocityY = 8; // Initial falling speed
+
+function draw() {
+  background("skyblue");
+  fill("green");
+  rect(0, 350, 400, 50); // Ground
+
+  // 1  Slow down the balloon before it reaches the ground
+  if (balloon.y < 350) { // If the balloon is still above the ground
+    balloon.velocityY = balloon.velocityY + 0.1; // Slow down the falling speed
+  } else { // If the balloon reaches the ground
+    balloon.velocityY = -0.5; // Reverse direction to make the balloon float up
+  }
+
+  // 2 Add code to make the balloon float away after hitting the ground
+  if (balloon.y <= 40) { // If the balloon is at the top after floating
+    balloon.velocityY = 0.1; // Make the balloon start falling again
+  }
+
+  drawSprites();
+}
+   level 6 run
+      var rock = createSprite(200, 350);
+rock.setAnimation("rock");
+rock.velocityY = -10; // Initial upward velocity
+rock.rotationSpeed = 2;
+
+function draw() {
+  background("skyblue");
+  
+  // Add code to make the rock slow down and then fall
+  rock.velocityY = rock.velocityY + 0.2; // Gravity effect that slows down and then accelerates the rock
+  
+  drawSprites();
+}
+ level 7  choose C run
+   var alien = createSprite(200, 310); // Set initial Y position of the alien
+alien.setAnimation("alien");
+alien.velocityY = 0; // Start with no vertical velocity
+
+function draw() {
+  background("lightblue");
+  fill("green");
+  rect(0, 350, 400, 50); // Ground
+
+  // 1) Set the alien's velocity to make the alien "jump up" when the space bar is pressed
+  if (keyWentDown("space") && alien.y >= 310) { // Make sure the alien is on the ground before jumping
+    alien.velocityY = -10; // Set an upward velocity when space is pressed
+  }
+
+  // 2) Use the counter pattern with the velocity to bring the alien down when it reaches the top of the screen
+  if (alien.y <= 150 && alien.velocityY < 0) { // If the alien reaches the top of the jump
+    alien.velocityY = alien.velocityY + 0.5; // Slow down the upward motion
+  }
+
+  // 3) Set the alien's velocity and reset its starting Y location value to make it land on the ground
+  if (alien.y >= 310) { // When the alien hits the ground
+    alien.y = 310; // Reset to ground level
+    alien.velocityY = 0; // Stop vertical movement
+  }
+
+  // Bonus Challenge: Add a sprite that moves across the screen in a loop to give the alien something to jump over
+  var obstacle = createSprite(400, 320);
+  obstacle.setAnimation("obstacle");
+  obstacle.velocityX = -2;
+
+  // Reset the obstacle when it goes off the screen
+  if (obstacle.x < 0) {
+    obstacle.x = 400; // Reset to the right side
+  }
+
+  drawSprites(); // Draw all the sprites on the screen
+}
+ //   Lesson 23: Collisions  
+   level 1 run 
+     Sprite Interactions
+
+So far you've been able to create simple sprite interactions by using the sprite.isTouching() block. For example, you've reset a coin to a different location on the screen when a character touches it. Now it's time to start making sprites have more complex interactions.
+Do This
+
+    Run the program and observe the interaction between the two sprites.
+    Discuss with a neighbor: Using only the commands you already know how could you create this kind of interaction? There are many ways to do it, but here are some blocks to consider:
+        sprite.isTouching()
+        sprite.velocityX
+        sprite.velocityY
+        sprite.x
+        sprite.y
+
+Be ready to share your ideas with your classmates.
+
+level 2 run 
+  // Create giraffe sprite
+var giraffe = createSprite(30, 200);
+giraffe.setAnimation("giraffe");
+giraffe.velocityX = 1; // Make the giraffe move to the right
+giraffe.scale = 0.3;
+
+// Create monkey sprite
+var monkey = createSprite(300, 200);
+monkey.setAnimation("monkey");
+monkey.scale = 0.3;
+
+function draw() {
+  // Draw background
+  background("white");
+
+  // 1) Program the giraffe to push the monkey off the screen.
+  
+  // Check for collision between the giraffe and the monkey
+  if (giraffe.isTouching(monkey)) {
+    // When giraffe collides with monkey, push the monkey off the screen
+    monkey.velocityX = 5; // Apply velocity to move the monkey off the screen
+  }
+
+  drawSprites();
+}
+  level 3 run 
+    // Create elephant sprite
+var elephant = createSprite(200, 400);
+elephant.setAnimation("elephant");
+elephant.scale = 0.5;
+elephant.velocityY = randomNumber(-3, -1); // Elephant's random Y velocity
+
+// Create hippo sprite
+var hippo = createSprite(200, 100);
+hippo.setAnimation("hippo");
+hippo.scale = 0.5;
+
+function draw() {
+  // Draw background
+  background("white");
+  
+  // 2) Add code to make the elephant push the hippo off the screen.
+  if (elephant.isTouching(hippo)) {
+    // If the elephant is touching the hippo, set the hippo's velocityY to match the elephant's velocityY
+    hippo.velocityY = elephant.velocityY;
+  }
+
+  drawSprites();
+}
+  level 4 run 
+    // Create elephant sprite
+var elephant = createSprite(200, 350);
+elephant.setAnimation("elephant");
+elephant.scale = 0.5;
+elephant.velocityY = randomNumber(-3, -1);
+
+// Create hippo sprite
+var hippo = createSprite(200, 50);
+hippo.setAnimation("hippo");
+hippo.scale = 0.5;
+hippo.velocityY = randomNumber(1, 3);
+
+function draw() {
+  // Draw background
+  background("white");
+  
+  // 2) Fix the block so that the elephant is pushing the hippo.
+  // Use displace only when the elephant is touching the hippo
+  if (elephant.isTouching(hippo)) {
+    hippo.displace(elephant); // Displace the hippo when it's touching the elephant
+  }
+
+  drawSprites();
+}
+  level 5 run 
+    var parrot = createSprite(50,200);
+parrot.setAnimation("parrot");
+parrot.velocityX = 2;
+parrot.scale = 0.3;
+
+var penguin = createSprite(350,200);
+penguin.setAnimation("penguin");
+penguin.velocityX = -2;
+penguin.scale = 0.3;
+
+function draw() {
+  background("white");
+
+  // 1) Try each of the new blocks one at a time.
+
+  // Replace the displace block with colliding interaction:
+  parrot.collide(penguin);  // Try this line to see how the parrot and penguin stop overlapping
+  
+  // parrot.bounce(penguin);  // Uncomment this to test the bounce effect.
+  
+  // parrot.bounceOff(penguin);  // Uncomment this to test the bounceOff effect.
+
+  drawSprites();
+}
+  level 6 choose B  run 
+     var arrow = createSprite(0, 200);
+arrow.setAnimation("arrow");
+arrow.rotation = 45;
+arrow.velocityX = 3;
+
+var apple = createSprite(300, 200);
+apple.setAnimation("apple");
+
+function draw() {
+  // 1) Use collide() to stop the arrow when it reaches the apple
+  arrow.collide(apple);
+
+  background("lightBlue");
+  drawSprites();
+}
+  level 7 run 
+    // Create sprites
+var giraffe = createSprite(50, 50);
+giraffe.setAnimation("giraffe");
+giraffe.velocityX = 3;
+
+var hippo = createSprite(50, 150);
+hippo.setAnimation("hippo");
+hippo.velocityX = 3;
+
+var rabbit = createSprite(50, 250);
+rabbit.setAnimation("rabbit");
+rabbit.velocityX = 3;
+
+var snake = createSprite(50, 350);
+snake.setAnimation("snake");
+snake.velocityX = 3;
+
+var parrot = createSprite(350, 50);
+parrot.setAnimation("parrot");
+parrot.velocityX = -3;
+
+var elephant = createSprite(350, 150);
+elephant.setAnimation("elephant");
+elephant.velocityX = -3;
+
+var monkey = createSprite(350, 250);
+monkey.setAnimation("monkey");
+monkey.velocityX = -3;
+
+var pig = createSprite(350, 350);
+pig.setAnimation("pig");
+pig.velocityX = -3;
+
+function draw() {
+  background("lightblue");
+
+  // 1) For each pair of animals, choose the sprite interaction 
+  // that matches the target image.
+  giraffe.bounce(parrot);
+  hippo.collide(elephant);
+  rabbit.displace(monkey);
+  snake.bounce(pig);
+
+  drawSprites();
+}
+ level 8  choose C run 
+    // Create sprites
+var basketball = createSprite(100, 0);
+basketball.setAnimation("basketball");
+basketball.bounciness = 0.8;
+
+var poolball = createSprite(325, 0);
+poolball.setAnimation("poolball");
+poolball.bounciness = 0.4;
+
+var soccerball = createSprite(225, 0);
+soccerball.setAnimation("soccerball");
+soccerball.bounciness = 0.6;  // Set the bounciness of the soccer ball
+
+var wood = createSprite(200, 375);
+wood.setAnimation("floor");
+
+function draw() {
+  background("skyblue");
+  
+  basketball.bounceOff(wood);
+  soccerball.bounceOff(wood);
+  poolball.bounceOff(wood);
+  
+  basketball.velocityY = basketball.velocityY + 0.2;
+  soccerball.velocityY = soccerball.velocityY + 0.2;
+  poolball.velocityY = poolball.velocityY + 0.2;
+  
+  drawSprites();
+}
+   // Lesson 24: Mini-Project - Flyer Game
+    level 1 run 
+    Immersive Reader
+Flyer Game
+
+In this flyer game, the player tries to collect coins, and the rocks push the player across the screen. When the player goes off the screen, the game is over.
+
+Play the game a few times and discuss it with your partner. You have already learned all the skills you need to code this game. You'll be making your own flyer game in this mini-project.  
+
+level 2 run 
+  function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+   level 3 run 
+     function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+  level 4 run 
+   function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+ level 5 run 
+  function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+ 
+ level 6 run 
+  function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+ 
+ level 7 run 
+ function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+ 
+ level 8 run 
+  function resetGame() {
+  player.x = 200;
+  player.y = 100;
+  target.x = 300;
+  target.y = 100;
+  rock1.x = 400;
+  rock1.y = 200;
+  rock2.x = 100;
+  rock2.y = 300;
+  rock1.velocityX = -2;
+  rock2.velocityY = 2;
+}
+
+// In the Game Over section:
+if (player.x < -50 || player.x > 450 || player.y < -50 || player.y > 450) {
+  background("black");
+  textSize(50);
+  fill("green");
+  text("Game Over!", 50, 200);
+  textSize(20);
+  text("Press 'R' to Restart", 120, 250);
+  
+  // Restart game if 'R' key is pressed
+  if (keyDown("r")) {
+    resetGame();
+  }
+}
+  // Lesson 25: Functions 
+  level 1 run 
+    Prediction:
+
+In this program, I predict that the screen will display a black background with several yellow stars scattered randomly across it. Additionally, planets will appear as colorful ellipses, also placed randomly, and their colors will be generated using random values between 100 and 255 for the red, green, and blue components.
+Why:
+
+    The drawBackground() function sets the background to black and calls the drawStar() function five times, which will draw yellow stars at random positions on the screen.
+    level 2 run
+       To reveal the full image, you need to call the drawBalloons() function just like the drawSky() function is already being called.
+
+Here’s how you can do it:
+
+    After drawSky();, you will add a new line to call drawBalloons();.
+    This will ensure that both the sky and the balloons are drawn on the screen.
+
+Here’s the updated code:
+
+drawSky();        // This draws the sky
+drawBalloons();   // This draws the balloons
+
+Now, when the program runs, both the sky and the balloons will be drawn, and you'll see the full image!
+
+
+level 3 run
+ drawBackground();  // Draw the sky and the ground
+drawFence();       // Draw the fence in front of the grass
+drawTrees();       // Draw the trees in front of the fence
+drawClouds();      // Draw the clouds on top
+
+level  4 run 
+drawRed();
+
+function drawRed(){
+  fill("red");
+  rect(100,100,50,50);
+}
+
+function drawGreen(){
+  fill("green");
+  rect(300,300,50,50);
+}
+
+drawGreen();
+level 5 choose D run
+ function draw() {
+  if (World.mouseY > 200) {
+    drawNight();
+  } else {
+    drawDay();
+  }
+}
+
+// Function for the Night Scene
+function drawNight(){
+  noStroke();
+
+  // Sky
+  background("midnightblue"); // Dark sky color for night
+
+  // Water
+  fill(rgb(0, 0, 100)); // Dark water color for night
+  rect(0, 300, 400, 100);
+
+  // Moon
+  fill("lightyellow"); // Light color for the moon
+  ellipse(300, 100, 50, 50);
+
+  // Stars (random positions)
+  for (let i = 0; i < 20; i++) {
+    fill("white");
+    ellipse(random(0, 400), random(0, 200), 3, 3); // Small stars
+  }
+
+  // Reflection of the moon in water
+  fill("lightyellow");
+  ellipse(random(50, 350), random(300, 400), 5, 5);
+  ellipse(random(50, 350), random(300, 400), 5, 5);
+  ellipse(random(50, 350), random(300, 400), 5, 5);
+  ellipse(random(50, 350), random(300, 400), 5, 5);
+  ellipse(random(50, 350), random(300, 400), 5, 5);
+}
+
+// Function for the Daytime Scene
+function drawDay(){
+  noStroke();
+
+  // Sky
+  background(rgb(0,200,255));
+
+  // Water
+  fill(rgb(0,0,150));
+  rect(0,300,400,100);
+
+  // Sun
+  fill(rgb(255,255,0));
+  ellipse(100,100,50,50);
+
+  // Reflection
+  ellipse(randomNumber(50,150),randomNumber(300,400),5,5);
+  ellipse(randomNumber(50,150),randomNumber(300,400),5,5);
+  ellipse(randomNumber(50,150),randomNumber(300,400),5,5);
+  ellipse(randomNumber(50,150),randomNumber(300,400),5,5);
+  ellipse(randomNumber(50,150),randomNumber(300,400),5,5);    
+}
+
+
+level 6 run 
+  Functions are extremely useful in programming for several reasons. Here are three key ways functions can be helpful:
+
+    Organizing and Simplifying Code: Functions allow you to break down a large, complex program into smaller, more manageable pieces. By writing functions for specific tasks (like drawing an object, performing a calculation, or updating a variable), you can keep your main code more readable and organized.
+
+    Reusability: Once a function is written, it can be called multiple times throughout your code, avoiding redundancy. Instead of writing the same code over and over, you can call the function whenever you need that behavior. This makes your code more efficient and easier to maintain.
+
+    Abstraction: Functions help in hiding complexity. When you write a function, you focus on what the function does (its behavior), not how it achieves it (its implementation). This allows you to write high-level code that is easier to understand and modify, without getting bogged down by all the details. 
+    level 7 run 
+      var coin = createSprite(200,10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200,350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  // Check the score and change the background accordingly
+  if(score < 10){
+    drawRegularBackground();  // Regular background if score is less than 10
+  } else {
+    drawFunBackground();  // Fun background once score reaches 10
+  }
+  
+  // Move bunny left and right
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  // Check if bunny is touching the coin
+  if(bunny.isTouching(coin)) {
+    score++;  // Increase score
+    setCoin();  // Reset coin position
+  }
+  
+  // Reset coin if it falls off the screen
+  if(coin.y > 400){
+    setCoin();
+  }
+  
+  // Display score
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  drawSprites();
+}
+
+// Function to set coin's position and velocity
+function setCoin(){
+  coin.y = 10;  // Set the coin's y position to the top of the screen
+  coin.x = random(0, 400);  // Randomize the coin's x position across the screen's width
+  coin.velocityY = random(2, 5);  // Randomize the coin's fall speed (velocity) for fun
+}
+
+// Function for the regular background
+function drawRegularBackground(){
+  background("white");
+  // Any additional regular background setup can go here
+}
+
+// Function for the fun background
+function drawFunBackground(){
+  background(rgb(255, 204, 0));  // Fun bright yellow background
+  fill("pink");
+  ellipse(200, 200, 100, 100);  // Add a fun shape (pink circle) in the middle
+  fill("green");
+  rect(100, 300, 200, 50);  // A green rectangle at the bottom (could be ground or platform)
+}
+  level 8 run 
+   var coin = createSprite(200,10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200,350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  // Check the score and change the background accordingly
+  if(score < 10){
+    drawRegularBackground();  // Regular background if score is less than 10
+  } else {
+    drawFunBackground();  // Fun background once score reaches 10
+  }
+  
+  // Move bunny left and right
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  // Check if bunny is touching the coin
+  if(bunny.isTouching(coin)) {
+    score++;  // Increase score
+    setCoin();  // Reset coin position
+  }
+  
+  // Reset coin if it falls off the screen
+  if(coin.y > 400){
+    setCoin();
+  }
+  
+  // Display score
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  drawSprites();
+}
+
+// Function to set coin's position and velocity
+function setCoin(){
+  coin.y = 10;  // Set the coin's y position to the top of the screen
+  coin.x = random(0, 400);  // Randomize the coin's x position across the screen's width
+  coin.velocityY = random(2, 5);  // Randomize the coin's fall speed (velocity) for fun
+}
+
+// Function for the regular background
+function drawRegularBackground(){
+  background("white");
+  // Any additional regular background setup can go here
+}
+
+// Function for the fun background
+function drawFunBackground(){
+  background(rgb(255, 204, 0));  // Fun bright yellow background
+  fill("pink");
+  ellipse(200, 200, 100, 100);  // Add a fun shape (pink circle) in the middle
+  fill("green");
+  rect(100, 300, 200, 50);  // A green rectangle at the bottom (could be ground or platform)
+}
+
+level 9 run 
+  var coin = createSprite(200,10);
+coin.setAnimation("coin_gold_1");
+setCoin();
+
+var bunny = createSprite(200,350);
+bunny.setAnimation("bunny1_ready_1");
+
+var score = 0;
+
+function draw() {
+  // Check the score and change the background accordingly
+  if(score < 10){
+    drawRegularBackground();  // Regular background if score is less than 10
+  } else {
+    drawFunBackground();  // Fun background once score reaches 10
+  }
+  
+  // Move bunny left and right
+  if(keyDown("left")){
+    bunny.x = bunny.x - 2;
+  }
+  
+  if(keyDown("right")){
+    bunny.x = bunny.x + 2;
+  }
+  
+  // Check if bunny is touching the coin
+  if(bunny.isTouching(coin)) {
+    score++;  // Increase score
+    setCoin();  // Reset coin position
+  }
+  
+  // Reset coin if it falls off the screen
+  if(coin.y > 400){
+    setCoin();
+  }
+  
+  // Display score
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  drawSprites();
+}
+
+// Function to set coin's position and velocity
+function setCoin(){
+  coin.y = 10;  // Set the coin's y position to the top of the screen
+  coin.x = random(0, 400);  // Randomize the coin's x position across the screen's width
+  coin.velocityY = random(2, 5);  // Randomize the coin's fall speed (velocity) for fun
+}
+
+// Function for the regular background
+function drawRegularBackground(){
+  background("white");
+  // Any additional regular background setup can go here
+}
+
+// Function for the fun background
+function drawFunBackground(){
+  background(rgb(255, 204, 0));  // Fun bright yellow background
+  fill("pink");
+  ellipse(200, 200, 100, 100);  // Add a fun shape (pink circle) in the middle
+  fill("green");
+  rect(100, 300, 200, 50);  // A green rectangle at the bottom (could be ground or platform)
+}
+ level 10 choose B  run 
+   var ball = createSprite(200, 200);
+ball.setAnimation("ball");
+ball.scale = 0.10;
+ball.velocityY = 5;
+ball.velocityX = 10;
+
+var paddle = createSprite(200, 380);
+paddle.setAnimation("paddle");
+paddle.width = 200;
+
+var brick1 = createSprite(100, 150);
+brick1.setAnimation("brick");
+var brick2 = createSprite(300, 75);
+brick2.setAnimation("brick");
+
+var star = createSprite(54, 95);
+star.setAnimation("redstar");
+
+var star2 = createSprite(302, 25);
+star2.setAnimation("redstar");
+
+// Creates an invisible sprite around the edges
+createEdgeSprites();
+
+var score = 0;
+
+function draw() {
+  // Call Functions
+  gameBackground();  // Draw the game background
+  movePaddle();      // Move the paddle based on user input
+  
+  // Ball bounce logic here (you'll implement it later)
+  // collectStar();    // Collect stars logic (you'll implement it later)
+  
+  textSize(20);
+  text("Score: " + score, 10, 10, 100, 100);
+  
+  drawSprites();
+}
+
+// Create the gameBackground Function
+function gameBackground() {
+  background("black");  // Set background color to black (or you can customize it)
+  fill("white");
+  rect(0, 0, 400, 10);  // Top edge
+  rect(0, 390, 400, 10); // Bottom edge
+  rect(0, 0, 10, 400);  // Left edge
+  rect(390, 0, 10, 400); // Right edge
+}
+
+// Create the movePaddle Function
+function movePaddle() {
+  if(keyDown("left")) {
+    paddle.x = paddle.x - 5;  // Move paddle to the left
+  }
+  if(keyDown("right")) {
+    paddle.x = paddle.x + 5;  // Move paddle to the right
+  }
+  
+  // Prevent the paddle from going off the screen
+  if(paddle.x < 50) {
+    paddle.x = 50;
+  }
+  if(paddle.x > 350) {
+    paddle.x = 350;
+  }
+}
+
+// Create the ballBounce Function (you’ll complete this in the next step)
+function ballBounce() {
+  // Add code to bounce the ball when it hits the walls or paddle
+}
+
+// Create the collectStar Function (you’ll complete this in the next step)
+function collectStar() {
+  // Add code to increase the score when the ball touches the star
+}
+
+// Bonus Function: setScore (You can modify it to update score)
+function setScore() {
+  // You can call this function to set or update the score
+  score = 0;  // Or any value to set the score to a specific number
+}
+ 
+  // Lesson 26: The Game Design Process  
+   level 1 run 
+    Immersive Reader
+Defend Your Cake!
+
+This is an example of a defender game that you'll build by the end of this lesson. To defend your cake, move the alien with arrow keys to block the lady bugs and push them into the water.
+Do This
+
+Turn to a classmate and make a list of the following information.
+
+If you were making this program…
+
+    What sprites would you need?
+    What variables would you need?
+    What functions would you use?
+
+level 2 run 
+ Plan Your Project
+
+Take a look at the project guide, which has already been filled out for you.
+
+    Does the project guide describe the same sprites that you thought of?
+    Does it use the same variables to store information?
+    Are the functions that it describes the same as the functions you describe
+    level 3 run 
+     // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+
+level 4 run 
+ // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+
+level 5 run 
+  // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+  level 6 run 
+  // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+
+level 7 run 
+ // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+ 
+ level 8 run 
+  // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+ 
+ level 9 run 
+  // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+ level 10 run 
+ // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+
+level 11 run 
+// Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+ 
+ level 12 run  
+  // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+ level 13  choose C run 
+   // Variables
+var score = 0;
+
+// Create Sprites
+var cake = createSprite(350, 200);
+cake.addAnimation("cake", "cakeAnimation"); // Assign the animation for the cake sprite
+
+var player = createSprite(200, 200);
+player.addAnimation("player", "playerAnimation"); // Assign the animation for the player sprite
+
+// Enemy Sprites
+var enemy1 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy1.addAnimation("enemy1", "enemyAnimation1"); // Assign the animation for enemy1 sprite
+enemy1.velocityX = 2; // Set x velocity to 2
+
+var enemy2 = createSprite(0, random(150, 250)); // Enemy starts at x = 0, y is random
+enemy2.addAnimation("enemy2", "enemyAnimation2"); // Assign the animation for enemy2 sprite
+enemy2.velocityX = 2; // Set x velocity to 2
+
+function draw() {
+  // Draw the background
+  gameBackground();
+  // Update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  resetEnemies(); // Check if enemies go off-screen
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0, 100, 255));
+  fill(rgb(100, 100, 100));
+  rect(0, 150, 400, 100);
+  fill(rgb(80, 80, 80));
+  rect(0, 140, 400, 10);
+  rect(0, 250, 400, 10);
+}
+
+function enemiesTouchCake() {
+  // Implement behavior when enemies touch the cake
+}
+
+function movePlayer() {
+  if (keyDown("LEFT_ARROW")) {
+    player.x -= 5;
+  }
+  if (keyDown("RIGHT_ARROW")) {
+    player.x += 5;
+  }
+  if (keyDown("UP_ARROW")) {
+    player.y -= 5;
+  }
+  if (keyDown("DOWN_ARROW")) {
+    player.y += 5;
+  }
+}
+
+function resetEnemies() {
+  // Reset enemies if they move off-screen
+  if (enemy1.x > 400) {
+    enemy1.x = 0; // Reset to the left side
+    enemy1.y = random(150, 250); // Randomize y position again
+  }
+  if (enemy2.x > 400) {
+    enemy2.x = 0; // Reset to the left side
+    enemy2.y = random(150, 250); // Randomize y position again
+  }
+}
+
+function enemiesTouchWater() {
+  // Reset enemy positions or implement other effects
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score", 20, 20, 200, 100);
+  text(score, 20, 40, 200, 100);
+}
+   // Lesson 27: Using the Game Design Process
+   level 1 run 
+     Platform Jumper
+
+The game on the left is an example of a platform jumper. Press "Run" to play it. You can make the alien jump with the up arrow, and move it to the left and right with the arrow keys. You score by collecting stars, and if you score high enough, the background will change.
+
+You already know how to use all the blocks you need to make a game just like this one, and you'll be making your own platform jumper in this lesson.
+level 2 run 
+ Build a Platform Jumper
+
+As you build your platform jumper, you'll be using the problem solving process.
+Define
+
+The problem is clearly defined for this game, because you already looked at a sample version. However, you might want to make some changes. Make sure any new features for your game are clearly defined.
+Prepare
+
+Before you start to code, you need to fill out a project guide. It will get you ready and make the coding a lot easier.
+Try
+
+You'll try out your plan when you start coding. Don't forget all of your resources, such as the documentation and Help and Tip tab, as you begin to code.
+Reflect
+
+After finishing your project, you'll want to reflect on whether your game turned out how you planned, and ways that you could improve your process for the next time.  
+level 3 run  
+// Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 4 run 
+  // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 5 run 
+   // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 6 run
+   // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 7 run 
+   // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 8 run 
+    // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 9 run 
+   // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+
+level 10 run 
+// Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+ level 11 run 
+  // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+ 
+ level 12 run 
+ // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+level 13 run 
+ // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 14 run 
+  // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 15 run 
+  // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+ 
+ level 16 run 
+  // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+ level 17 run 
+ // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  level 18 choose B run
+    // Variables
+
+// Create Sprites
+
+function draw() {
+  // draw the background
+  if (keyDown("space")) {
+    background2(); // Call background2 if space is pressed
+  } else {
+    background1(); // Default background
+  }
+  
+  // update the sprites
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  
+  // Stars in the sky
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  
+  // Moon
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Shadow on the moon
+}
+
+function background2() {
+  background("orange");
+  noStroke();
+  
+  // Sun
+  fill("yellow");
+  ellipse(50, 50, 80, 80);
+  
+  // Clouds
+  fill("white");
+  ellipse(100, 100, 80, 40);
+  ellipse(150, 120, 100, 50);
+  ellipse(200, 90, 120, 60);
+  
+  // Ground
+  fill("green");
+  rect(0, 350, 400, 50);
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: ", 10, 10, 80, 20);
+}
+  //Lesson 28: Project - Design a Game
+  level 1 choose D  run
+    Example Game
+
+With a partner, brainstorm some different ideas for your game. You can think about the games you've already seen, or look at some more sample games to give you ideas.
+
+Once you have settled on a type of game with your partner, fill out the Project Guide with the backgrounds, variables, sprites, and functions that you will need to make the game. You'll spend the next few levels creating your game.
+
+level 2 run 
+ // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+
+
+level 3 run 
+  // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+  level 4 run 
+    // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+
+level 5 run 
+ // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+    level 6 run 
+     // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+
+level 7 run 
+  
+  // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+ level 8 run 
+   // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+ level 9 run 
+  
+  // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+  level 10 run 
+   // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+
+level 11 run 
+  // Variables
+var score = 0; // Variable to track the player's score
+var gameState = "play"; // Variable to track the game state (e.g., "play", "end")
+var ballSpeed = 5; // Variable to control the speed of the ball
+
+// Sprites
+var ball, paddle, star;
+
+function setup() {
+  createCanvas(400, 400);
+
+  // Initialize sprites
+  ball = createSprite(200, 200);
+  ball.setAnimation("ball"); // Default animation for ball
+  ball.scale = 0.1;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+
+  paddle = createSprite(200, 380);
+  paddle.setAnimation("paddle"); // Default animation for paddle
+  paddle.width = 200;
+
+  star = createSprite(300, 100);
+  star.setAnimation("redstar"); // Animation for the star
+}
+
+function draw() {
+  // Background based on score
+  if (score < 10) {
+    background1();
+  } else if (score >= 10 && score < 20) {
+    background2();
+  } else {
+    background3();
+  }
+
+  // Game state logic
+  if (gameState === "play") {
+    // Update movements
+    movePaddle();
+    moveBall();
+
+    // Check collisions
+    checkCollisions();
+
+    // Check if the ball falls off the screen
+    if (ball.y > 400) {
+      gameState = "end"; // End the game
+    }
+  } else if (gameState === "end") {
+    displayGameOver();
+  }
+
+  drawSprites();
+}
+
+// Function to move the paddle
+function movePaddle() {
+  if (keyDown("left")) {
+    paddle.x -= 5;
+  }
+  if (keyDown("right")) {
+    paddle.x += 5;
+  }
+
+  // Ensure paddle stays within bounds
+  paddle.x = constrain(paddle.x, 0 + paddle.width / 2, width - paddle.width / 2);
+}
+
+// Function to move the ball
+function moveBall() {
+  // Ball animations based on speed
+  if (ballSpeed > 6) {
+    ball.setAnimation("ballFast"); // Switch to fast animation
+  } else {
+    ball.setAnimation("ball"); // Default animation
+  }
+
+  // Keep the ball within bounds
+  ball.bounceOff(edges);
+}
+
+// Function to check collisions
+function checkCollisions() {
+  if (ball.bounceOff(paddle)) {
+    score += 1; // Increment score when the ball hits the paddle
+    ballSpeed += 0.2; // Increase ball speed gradually
+  }
+}
+
+// Function to display "Game Over"
+function displayGameOver() {
+  textSize(30);
+  fill("red");
+  text("Game Over", 120, 200);
+}
+
+// Background functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3); // Stars
+  ellipse(340, 50, 60, 60); // Moon
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60); // Cover part of the moon
+}
+
+function background2() {
+  background("green");
+  fill("white");
+  rect(0, 300, 400, 100); // Ground
+  fill("yellow");
+  ellipse(50, 50, 80, 80); // Sun
+}
+
+function background3() {
+  background("purple");
+  fill("white");
+  for (let i = 0; i < 10; i++) {
+    ellipse(random(0, 400), random(0, 400), 5, 5); // Stars
+  }
+  fill("orange");
+  rect(150, 250, 100, 100); // A building
+  fill("yellow");
+  ellipse(200, 200, 50, 50); // Planet
+}
+
+// Bonus Function: Reset the game
+function resetGame() {
+  ball.x = 200;
+  ball.y = 200;
+  ball.velocityY = ballSpeed;
+  ball.velocityX = ballSpeed;
+  score = 0;
+  ballSpeed = 5; // Reset ball speed
+  gameState = "play";
+}
+  level 12 run  
+
+1 Thinking about what I learned in this unit, I feel like I understand...
+  B .   most of the concepts, but not all of them 
+  
+2 I can really be myself in this computer science class.
+   A Strongly agree  
+3 
+
+What else would you like your teacher to know about this class? For example: what did you like best about the class, or what is one thing that could make the class better?
+
+(Your responses are anonymous. Your teacher can see responses for the whole class, but without names attached)
+  hat else would you like your teacher to know about this class?
+"I really enjoy how interactive and creative the lessons are. It’s fun to see my code come to life in games and animations. One thing that could make it better would be a bit more time to practice concepts before moving on to the next topic."
+(Feel free to modify this answer based on your actual thoughts and experiences.)  
+ 
+
+
+ // END of this section  
+ 
+  
+ 
+ 
+   
+ 
+ 
+    
+    
+    
+   
+
+
+   
+    
+   
+   
+
+ 
+ 
+    
+
+  
+ 
+  
+ 
+
+     
+ 
+
+ 
+   
+     
+ 
+ 
+
+ 
+   
+    
+ 
+   
+   
+   
+   
+   
+   
+ 
+    
+    
+   
+    
+    
+
+    
+      
+  
+ 
+    
+   
+   
+ 
    
 
     
