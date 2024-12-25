@@ -2736,3 +2736,425 @@ function drawScene2() {
   ellipse(180, 230, 60, 60);
 }
 
+Lesson 26: The Game Design Process
+// Variables
+var score = 0;
+// Create Sprites
+var cake = createSprite(350,200);
+cake.setAnimation("cake");
+var player = createSprite(200,200);
+player.setAnimation("alienWalkRight");
+var enemy1 = createSprite();
+enemy1.setAnimation("ladybug");
+var enemy2 = createSprite();
+enemy2.setAnimation("ladybug");
+function draw() {
+  // draw the background
+  if(score>10){
+    background("pink");
+  }
+  else{gameBackground();}
+  // update the sprites
+  enemiesTouchCake();
+  movePlayer();
+  displaceEnemies();
+  enemiesTouchWater();
+  showScore();
+  drawSprites();
+  enemy1.x=0;
+  enemy1.x=randomNumber(150,250);
+  enemy1.velocityX=2;
+  enemy2.x=0;
+  enemy2.x=randomNumber(150,250);
+  enemy2.velocityX=2;
+}
+
+// Functions
+function gameBackground() {
+  noStroke();
+  background(rgb(0,100,255));
+  fill(rgb(100,100,100));
+  rect(0,150,400,100);
+  fill(rgb(80,80,80));
+  rect(0,140,400,10);
+  rect(0,250,400,10);
+}
+
+function enemiesTouchCake(){
+  if(enemy1.isTouching(cake)){
+    enemy1.x=0;
+    enemy1.y=randomNumber(150,250);
+    score-=2;
+  }
+  if(enemy2.isTouching(cake)){
+    enemy2.x=0;
+    enemy2.y=randomNumber(150,250);
+    score-=2;
+  }
+}
+
+function movePlayer(){
+  if(keyDown(RIGHT_ARROW)){
+    player.velocityX=3;
+    player.setAnimation("alienWalkRight");
+  }
+  if(keyDown(LEFT_ARROW)){
+    player.velocityX=-3;
+    player.setAnimation("alienWalkLEFT");
+  }
+  if(keyDown(UP_ARROW)){
+    player.velocityY=-3;
+  }
+  if(keyDown(DOWN_ARROW)){
+    player.velocityY=3;
+  }
+}
+  
+
+
+function displaceEnemies(){
+player.displace(enemy1);
+player.displace(enemy2);
+}
+
+function enemiesTouchWater(){
+  if(enemy1.y<140){
+    setEnemy1();
+    score=score+1;
+  }
+  if(enemy1.y>260){
+    setEnemy1();
+    score=score+1;
+  }
+   if(enemy2.y<140){
+    setEnemy2();
+    score=score+1;
+  }
+  if(enemy2.y>260){
+    setEnemy2();
+    score=score+1;
+  }
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score",20,20,200,100);
+  text(score,20,40,200,100);
+}
+function setEnemy1(){
+  enemy1.x = 0;
+  enemy1.y=randomNumber(150,250);
+  enemy1.velocityX=2;
+}
+function setEnemy2(){
+  enemy1.x = 0;
+  enemy1.y=randomNumber(150,250);
+  enemy1.velocityX=2;
+}
+Lesson 27 Using  game design process
+// Variables
+var score = 0; // Initialize the score variable
+var platform, platform2, item, item2, player; // Declare the platform and item sprites
+
+// Create Sprites
+function setup() {
+  createCanvas(400, 400);
+  
+  // Create the first platform sprite
+  platform = createSprite(200, 100, 100, 10); // Create a platform sprite at position (200, 100)
+  platform.setAnimation("platform");
+  platform.velocityY = 2; // Set a downward velocity
+
+  // Create the second platform sprite
+  platform2 = createSprite(300, 200, 100, 10); // Create a second platform sprite at position (300, 200)
+  platform2.setAnimation("platform");
+  platform2.velocityY = 2; // Set a downward velocity
+
+  // Create the first item sprite
+  item = createSprite(randomNumber(50, 350), randomNumber(-60, -30), 20, 20); // Random starting position above the screen
+  item.setAnimation("star"); 
+  item.velocityY = 4; 
+
+  // Create the second item sprite
+  item2 = createSprite(randomNumber(50, 350), randomNumber(-60, -30), 20, 20); // Random starting position above the screen
+  item2.setAnimation("star"); 
+  item2.velocityY = 4; 
+
+  // Create the player sprite
+  player = createSprite(200, 50, 20, 20); // Starting position for the player
+  player.setAnimation("alien"); 
+}
+
+function draw() {
+  // Choose the background based on the score
+  if (score < 10) {
+    background1();
+  } else if (score < 50) {
+    background2();
+  } else {
+    background3(); // Challenge: Add a third background for scores 50 and above
+  }
+
+  // Display the score
+  showScore();
+
+  // Update the sprites
+  loopPlatforms(); // Call the loopPlatforms function to check and reset platform positions
+  loopItems(); // Call the loopItems function to check and reset item positions
+  playerFall(); // Call the playerFall function to make the player fall
+  controlPlayer(); // Call the controlPlayer function to handle user input
+  playerLands(); // Call the playerLands function to check for landing on platforms
+  collectItems(); // Call the collectItems function to check for item collection
+  drawSprites();
+}
+
+// Functions
+function background1() {
+  background("darkBlue");
+  noStroke();
+  fill("yellow");
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(randomNumber(0, 400), randomNumber(0, 400), 3, 3);
+  ellipse(340, 50, 60, 60);
+  fill("darkBlue");
+  ellipse(320, 30, 60, 60);
+}
+
+function background2() {
+  background("lightGreen");
+  noStroke();
+  fill("white");
+  for (var i = 0; i < 10; i++) {
+    ellipse(randomNumber(0, 400), randomNumber(0, 400), 5, 5); // Stars or sparkles
+  }
+  fill("orange");
+  ellipse(200, 200, 80, 80); // Sun or a planet
+}
+
+function background3() {
+  background("purple");
+  noStroke();
+  fill("pink");
+  for (var i = 0; i < 15; i++) {
+    ellipse(randomNumber(0, 400), randomNumber(0, 400), 7, 7); // Larger sparkles
+  }
+  fill("red");
+  rect(150, 150, 100, 100); // A red square for variety
+}
+
+function showScore() {
+  fill("white");
+  textSize(20);
+  text("Score: " + score, 10, 20); // Display the current score at the top of the screen
+}
+
+function loopPlatforms() {
+  // Check if the first platform has gone off the bottom of the screen
+  if (platform.y > height) { 
+    platform.y = 0; // Move it back to the top of the screen
+    platform.x = randomNumber(50, 350); // Optionally, give it a random x position for variety
+  }
+
+  // Check if the second platform has gone off the bottom of the screen
+  if (platform2.y > height) { 
+    platform2.y = 0; // Move it back to the top of the screen
+    platform2.x = randomNumber(50, 350); // Optionally, give it a random x position for variety
+  }
+}
+
+function loopItems() {
+  // Check if the first item has gone off the bottom of the screen
+  if (item.y > height) { 
+    item.y = randomNumber(-60, -30); // Move it back to a random position above the screen
+    item.x = randomNumber(50, 350); // Randomize its x position
+  }
+
+  // Check if the second item has gone off the bottom of the screen
+  if (item2.y > height) { 
+    item2.y = randomNumber(-60, -30); // Move it back to a random position above the screen
+    item2.x = randomNumber(50, 350); // Randomize its x position
+  }
+}
+
+// Player falling function
+function playerFall() {
+  player.velocityY += 0.1; // Increase the downward velocity to simulate falling
+  if (player.y > height) {
+    player.y = 50; // Reset player position if it goes off the bottom of the screen
+    player.velocityY = 0; // Reset the velocity
+  }
+}
+
+// Control player movement
+function controlPlayer() {
+  if (keyDown(LEFT_ARROW)) {
+    player.x -= 5; // Move left
+    player.setAnimation("alien_copy_1");
+  }
+  if (keyDown(RIGHT_ARROW)) {
+    player.x += 5; // Move right
+    player.setAnimation("alien");
+  }
+  if (keyDown(UP_ARROW) && player.velocityY === 0) { // Check if player is on the ground
+    player.velocityY = -8; // Jump
+  }
+}
+
+// Player lands on platforms function
+function playerLands() {
+  if (player.collide(platform) || player.collide(platform2)) {
+    player.velocityY = 0; // Stop falling when landing on a platform
+    player.y = player.y < platform.y ? platform.y - player.height / 2 : player.y; // Adjust player position to sit on the platform
+  }
+}
+
+// Collect items function
+function collectItems() {
+  if (player.isTouching(item)) {
+    score += 1; // Increase score
+    item.y = randomNumber(-60, -30); // Reset item position
+    item.x = randomNumber(50, 350); // Randomize its x position
+  }
+  
+  if (player.isTouching(item2)) {
+    score += 1; // Increase score
+    item2.y = randomNumber(-60, -30); // Reset item position
+    item2.x = randomNumber(50, 350); // Randomize its x position
+  }
+}
+Lesson 28 project game design
+// Create your variables here
+var score = 0; 
+var playerSpeed = 5; 
+var playerLives = 3; 
+var gameLevel = 1; 
+var isGameOver = false; 
+var obstacleCount = 5; 
+var trackWidth = 400; 
+
+// Create your sprites
+var car; // Declare the car sprite
+var obstacles = []; // Array to hold obstacle sprites
+
+function setup() {
+  createCanvas(400, 600);
+  
+  // Initialize the car sprite with an animation
+  car = createSprite(200, 500); // Center it on the track
+  car.setAnimation("pieceBlack_multi12_1"); // Set the initial animation to idle
+  
+  // Create obstacle sprites
+  for (var i = 0; i < obstacleCount; i++) {
+    var obstacle = createSprite(random(0, trackWidth), random(-600, 0)); // Random position
+    obstacle.setAnimation("castle_08_1"); // Set obstacle animation
+    obstacle.velocityY = 3; // Set velocity to move downward
+    obstacles.push(obstacle); // Add to the obstacles array
+  }
+}
+
+// Function for Background 1
+function background1() {
+  background("skyblue"); // Set the background color for the first background
+}
+
+// Function for Background 2
+function background2() {
+  background("lightgreen"); // Set the background color for the second background
+}
+
+// Function for Background 3
+function background3() {
+  background("darkgray"); // Set the background color for the third background
+}
+
+// Function to display the information on the screen
+function displayBoard() {
+  fill("white"); // Set text color
+  textSize(20); // Set text size
+  text("Score: " + score, 10, 30); // Display score
+  text("Level: " + gameLevel, 10, 60); // Display game level
+  text("Lives: " + playerLives, 10, 90); // Display lives remaining
+}
+
+// Function to reset the position of the car
+function resetCarPosition() {
+  car.position.x = 200; // Reset to center
+  car.position.y = 500; // Reset to bottom
+}
+
+// Function for car movement to the left
+function moveCarLeft() {
+  car.position.x -= playerSpeed; // Move left
+  car.setAnimation("pieceBlack_multi12_1"); // Set moving left animation
+}
+
+// Function for car movement to the right
+function moveCarRight() {
+  car.position.x += playerSpeed; // Move right
+  car.setAnimation("pieceYellow_multi12_1"); // Set moving right animation
+}
+
+// Function for idle state
+function idleCar() {
+  car.setAnimation("pieceBlack_multi12_1"); // Set idle animation
+}
+
+// Function to handle user controls
+function handleUserControls() {
+  if (keyIsDown(LEFT_ARROW)) {
+    moveCarLeft(); // Call function to move left
+  } else if (keyIsDown(RIGHT_ARROW)) {
+    moveCarRight(); // Call function to move right
+  } else {
+    idleCar(); // Call function for idle state
+  }
+}
+
+// Function to handle sprite interactions
+function handleSpriteInteractions() {
+  for (var i = 0; i < obstacles.length; i++) {
+    if (car.overlap(obstacles[i])) {
+      playerLives--; // Reduce lives when colliding with an obstacle
+      obstacles[i].position.y = random(-600, 0); // Reset obstacle position
+      obstacles[i].position.x = random(0, trackWidth); // Random horizontal position
+      if (playerLives <= 0) {
+        isGameOver = true; // Set game over flag if no lives left
+      }
+    }
+  }
+}
+
+function draw() {
+  // Choose background based on score
+  if (score < 10) {
+    background1(); // Use the first background for scores below 10
+  } else if (score < 20) {
+    background2(); // Use the second background for scores between 10 and 20
+  } else {
+    background3(); // Use the third background for scores of 20 and above
+  }
+
+  // Handle user controls
+  handleUserControls(); // Call the user control function
+
+  // Handle sprite interactions
+  handleSpriteInteractions(); // Call the sprite interaction function
+
+  // Draw the display board
+  displayBoard();
+
+  // Update obstacle positions
+  for (var i = 0; i < obstacles.length; i++) {
+    if (obstacles[i].position.y > height) {
+      obstacles[i].position.y = random(-600, 0); // Reset obstacle to top
+      obstacles[i].position.x = random(0, trackWidth); // Random horizontal position
+    }
+  }
+
+  // Update sprites
+  drawSprites();
+}
+
+
+
