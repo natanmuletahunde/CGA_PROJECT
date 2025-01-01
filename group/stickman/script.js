@@ -36,14 +36,14 @@ function shootArrow() {
   }, 20);
 }
 
-// Function to reset the arrow
+
 function resetArrow() {
   isShooting = false;
   arrow.style.display = "none";
   arrow.style.left = "100px";
 }
 
-// Function to detect collision
+
 function detectCollision(arrow, target) {
   const arrowRect = arrow.getBoundingClientRect();
   const targetRect = target.getBoundingClientRect();
