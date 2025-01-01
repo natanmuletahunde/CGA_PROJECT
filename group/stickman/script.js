@@ -65,7 +65,7 @@ function showBurstEffect(target) {
   burstEffect.style.left = `${targetRect.left - containerRect.left}px`;
   burstEffect.style.top = `${targetRect.top - containerRect.top}px`;
 
-  // Show the burst effect
+ 
   burstEffect.style.display = "block";
 
   // Hide the target temporarily
