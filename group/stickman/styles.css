@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  #game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 50px auto;
+    border: 2px solid #000;
+    background-color: #87CEEB;
+    overflow: hidden;
+  }
+  
+  /* Player */
+  #player {
+    position: absolute;
+    bottom: 50%;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    transform: translateY(50%);
+  }
+  
+  /* Arrow */
+  #arrow {
+    position: absolute;
+    bottom: 50%;
+    left: 100px;
+    width: 20px;
+    height: 5px;
+    background-color: #ff0000;
+    transform: translateY(50%);
+    display: none;
+  }
+  
+  /* Target */
+  #target {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #00ff00;
+    border-radius: 50%;
+    animation: moveTarget 2s infinite alternate ease-in-out;
+  }
+  
+  /* Burst Effect */
+  #burst-effect {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-image: url('burst.png'); /* Replace with your burst image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none; /* Hidden initially */
+    z-index: 1; /* Ensure it appears above the target */
+    animation: burstAnimation 0.5s ease-out;
+  }
+  
+  /* Burst Animation */
+  @keyframes burstAnimation {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  /* Target Movement */
+  @keyframes moveTarget {
+    from {
+      top: 0;
+    }
+    to {
+      top: calc(100% - 40px); /* Target stops before hitting bottom edge */
+    }
+  }
+  
+  /* Button */
+  #shoot-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  #shoot-button:hover {
+    background-color: #ff6347;
+  }
+  
+  /* Scoreboard */
+  #scoreboard {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
